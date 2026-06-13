@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #FBF8F5; color: #221C18; font-family: 'Lato', sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+
+<div id="start" data-screen-label="Landing" style="min-width: 320px; overflow-x: hidden;">
+
+<!-- ===== HEADER ===== -->
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(251,248,245,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #EBE1D6;">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+    <a href="#start" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #221C18;">
+      <img src="assets/logo-icon.png" alt="Cleaning Service Konin" style="width: 46px; height: 46px; mix-blend-mode: multiply;" />
+      <span style="display: flex; flex-direction: column; line-height: 1.15;">
+        <span style="font: 700 17px Poppins, sans-serif; letter-spacing: -0.2px;">Cleaning Service Konin</span>
+        <span style="font: 400 10.5px Lato, sans-serif; letter-spacing: 1.6px; color: #A08B7B; text-transform: uppercase;">Sprawnie • Dokładnie • Dyskretnie</span>
+      </span>
+    </a>
+    <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+      <nav style="display: flex; align-items: center; gap: 28px;">
+        <a href="#o-nas" style="font: 600 14px Poppins, sans-serif; color: #4D443C; text-decoration: none;" style-hover="color: #BE9678;">O nas</a>
+        <a href="#oferta" style="font: 600 14px Poppins, sans-serif; color: #4D443C; text-decoration: none;" style-hover="color: #BE9678;">Oferta</a>
+        <a href="Cennik.dc.html" style="font: 600 14px Poppins, sans-serif; color: #4D443C; text-decoration: none;" style-hover="color: #BE9678;">Cennik</a>
+        <a href="#wspolpraca" style="font: 600 14px Poppins, sans-serif; color: #4D443C; text-decoration: none;" style-hover="color: #BE9678;">Współpraca</a>
+        <a href="#opinie" style="font: 600 14px Poppins, sans-serif; color: #4D443C; text-decoration: none;" style-hover="color: #BE9678;">Opinie</a>
+        <a href="#faq" style="font: 600 14px Poppins, sans-serif; color: #4D443C; text-decoration: none;" style-hover="color: #BE9678;">FAQ</a>
+        <a href="#kontakt" style="font: 600 14px Poppins, sans-serif; color: #4D443C; text-decoration: none;" style-hover="color: #BE9678;">Kontakt</a>
+        <a href="tel:+48518169491" style="font: 600 14px Poppins, sans-serif; color: #fff; background: #221C18; padding: 11px 22px; border-radius: 999px; text-decoration: none; white-space: nowrap;" style-hover="background: #BE9678;">518 169 491</a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="display: flex; flex-direction: column; gap: 5px; background: none; border: 1px solid #DCCFC2; border-radius: 10px; padding: 12px 13px; cursor: pointer;">
+        <span style="width: 20px; height: 2px; background: #221C18;"></span>
+        <span style="width: 20px; height: 2px; background: #221C18;"></span>
+        <span style="width: 20px; height: 2px; background: #221C18;"></span>
+      </button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav style="display: flex; flex-direction: column; padding: 8px 24px 20px; gap: 4px; border-top: 1px solid #EBE1D6; background: #FBF8F5;">
+      <a href="#o-nas" onClick="{{ closeMenu }}" style="font: 600 16px Poppins, sans-serif; color: #221C18; text-decoration: none; padding: 12px 4px; border-bottom: 1px solid #F1E9E0;">O nas</a>
+      <a href="#oferta" onClick="{{ closeMenu }}" style="font: 600 16px Poppins, sans-serif; color: #221C18; text-decoration: none; padding: 12px 4px; border-bottom: 1px solid #F1E9E0;">Oferta</a>
+      <a href="Cennik.dc.html" style="font: 600 16px Poppins, sans-serif; color: #221C18; text-decoration: none; padding: 12px 4px; border-bottom: 1px solid #F1E9E0;">Cennik</a>
+      <a href="#wspolpraca" onClick="{{ closeMenu }}" style="font: 600 16px Poppins, sans-serif; color: #221C18; text-decoration: none; padding: 12px 4px; border-bottom: 1px solid #F1E9E0;">Jak wygląda współpraca</a>
+      <a href="#opinie" onClick="{{ closeMenu }}" style="font: 600 16px Poppins, sans-serif; color: #221C18; text-decoration: none; padding: 12px 4px; border-bottom: 1px solid #F1E9E0;">Opinie</a>
+      <a href="#faq" onClick="{{ closeMenu }}" style="font: 600 16px Poppins, sans-serif; color: #221C18; text-decoration: none; padding: 12px 4px; border-bottom: 1px solid #F1E9E0;">FAQ</a>
+      <a href="#kontakt" onClick="{{ closeMenu }}" style="font: 600 16px Poppins, sans-serif; color: #221C18; text-decoration: none; padding: 12px 4px;">Kontakt</a>
+      <a href="tel:+48518169491" style="font: 600 15px Poppins, sans-serif; color: #fff; background: #221C18; padding: 14px 22px; border-radius: 999px; text-decoration: none; text-align: center; margin-top: 8px;">Zadzwoń: 518 169 491</a>
+    </nav>
+  </sc-if>
+</header>
+
+<!-- ===== HERO — wariant A: klasyczny (split) ===== -->
+<sc-if value="{{ heroA }}" hint-placeholder-val="{{ true }}">
+  <section data-screen-label="Hero klasyczny" style="max-width: 1180px; margin: 0 auto; padding: clamp(48px, 8vw, 96px) 24px clamp(40px, 6vw, 80px); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 5vw, 64px); align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+        <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Usługi sprzątające • Konin i okolice</span>
+      </div>
+      <h1 style="margin: 0; font: 600 clamp(34px, 4.6vw, 56px)/1.12 Poppins, sans-serif; letter-spacing: -1px; text-wrap: balance;">Sprawnie. Dokładnie.<br />Dyskretnie. <em style="font-style: normal; color: #BE9678; position: relative; display: inline-block;">Przystępnie.<svg viewBox="0 0 140 12" preserveAspectRatio="none" style="position: absolute; left: 1%; bottom: -12px; width: 97%; height: 12px;"><path d="M3 9 C 28 3, 62 2.5, 78 5.5 S 122 9.5, 137 4" fill="none" stroke="#BE9678" stroke-width="2.5" stroke-linecap="round" opacity="0.8"></path></svg></em></h1>
+      <p style="margin: 0; font: 400 clamp(16px, 1.5vw, 18px)/1.7 Lato, sans-serif; color: #6E6258; max-width: 520px; text-wrap: pretty;">Profesjonalne usługi sprzątające dla klientów prywatnych i firmowych. Konkretna obsługa, indywidualne podejście i zakres prac dopasowany do rodzaju obiektu oraz oczekiwanego efektu.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px;">
+        <a href="#kontakt" style="font: 600 15px Poppins, sans-serif; color: #fff; background: #221C18; padding: 16px 30px; border-radius: 999px; text-decoration: none;" style-hover="background: #BE9678;">Zamów wycenę</a>
+        <a href="#oferta" style="font: 600 15px Poppins, sans-serif; color: #221C18; background: transparent; border: 1px solid #C9BCAE; padding: 15px 30px; border-radius: 999px; text-decoration: none;" style-hover="border-color: #221C18; background: #fff;">Zobacz ofertę</a>
+        <a href="tel:+48518169491" style="font: 600 15px Poppins, sans-serif; color: #BE9678; padding: 15px 10px; text-decoration: none; display: flex; align-items: center; gap: 8px;" style-hover="color: #221C18;">Zadzwoń → 518 169 491</a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 8px;">
+        <span style="font: 400 13.5px Lato, sans-serif; color: #A08B7B;">✦ Klienci prywatni i firmy</span>
+        <span style="font: 400 13.5px Lato, sans-serif; color: #A08B7B;">✦ Indywidualna wycena</span>
+        <span style="font: 400 13.5px Lato, sans-serif; color: #A08B7B;">✦ Do 100 km od Konina</span>
+      </div>
+    </div>
+    <div style="position: relative;">
+      <svg width="96" height="96" viewBox="0 0 96 96" fill="none" style="position: absolute; top: -36px; left: -26px; z-index: 1;"><circle cx="60" cy="34" r="20" stroke="#BE9678" stroke-width="1.5" opacity="0.75"></circle><path d="M50 28a10 10 0 0 1 9-3" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" opacity="0.6"></path><circle cx="28" cy="58" r="11" stroke="#C9A98F" stroke-width="1.5" opacity="0.65"></circle><circle cx="47" cy="74" r="5" stroke="#BE9678" stroke-width="1.5" opacity="0.5"></circle></svg>
+      <svg width="44" height="44" viewBox="0 0 46 46" fill="none" style="position: absolute; top: 42%; right: -22px;"><circle cx="23" cy="14" r="7" stroke="#BE9678" stroke-width="1.5" opacity="0.85"></circle><circle cx="34" cy="28" r="4" stroke="#C9A98F" stroke-width="1.4" opacity="0.7"></circle><circle cx="18" cy="34" r="2.5" stroke="#BE9678" stroke-width="1.4" opacity="0.6"></circle></svg>
+      <div style="aspect-ratio: 4 / 4.6; border-radius: 24px; border: 1px solid #E5D9CC; background: repeating-linear-gradient(45deg, #F4ECE3 0 14px, #F9F3EC 14px 28px); display: flex; align-items: center; justify-content: center;">
+        <span style="font: 400 12px ui-monospace, monospace; color: #A08B7B; background: #FBF8F5; border: 1px dashed #C9BCAE; border-radius: 8px; padding: 8px 14px;">zdjęcie: efekt sprzątania</span>
+      </div>
+      <div style="position: absolute; top: -18px; right: -6px; background: #fff; border: 1px solid #EBE1D6; border-radius: 16px; padding: 14px 18px; box-shadow: 0 12px 32px rgba(80,60,40,0.10); display: flex; align-items: center; gap: 10px;">
+        <span style="font: 600 20px Poppins, sans-serif; color: #BE9678;">✦</span>
+        <span style="font: 600 13.5px Poppins, sans-serif;">Estetyczny efekt końcowy</span>
+      </div>
+      <div style="position: absolute; bottom: -18px; left: -6px; background: #221C18; border-radius: 16px; padding: 14px 18px; display: flex; align-items: center; gap: 10px;">
+        <span style="font: 600 20px Poppins, sans-serif; color: #BE9678;">✦</span>
+        <span style="font: 600 13.5px Poppins, sans-serif; color: #fff;">Bez potrzeby poprawiania</span>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===== HERO — wariant B: centralny ===== -->
+<sc-if value="{{ heroB }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Hero centralny" style="background: #F2E9E1; border-bottom: 1px solid #E5D9CC;">
+    <div style="max-width: 860px; margin: 0 auto; padding: clamp(56px, 9vw, 110px) 24px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
+      <img src="assets/logo-icon.png" alt="" style="width: 88px; height: 88px; mix-blend-mode: multiply;" />
+      <h1 style="margin: 0; font: 600 clamp(34px, 5vw, 60px)/1.1 Poppins, sans-serif; letter-spacing: -1px; text-wrap: balance;">Posprzątane naprawdę <span style="position: relative; display: inline-block;">porządnie.<svg viewBox="0 0 140 12" preserveAspectRatio="none" style="position: absolute; left: 1%; bottom: -10px; width: 96%; height: 12px;"><path d="M3 9 C 28 3, 62 2.5, 78 5.5 S 122 9.5, 137 4" fill="none" stroke="#BE9678" stroke-width="2.5" stroke-linecap="round" opacity="0.8"></path></svg></span></h1>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; font: 600 14px Poppins, sans-serif; letter-spacing: 2px; text-transform: uppercase; color: #BE9678;">
+        <span>Sprawnie</span><span style="color: #C9BCAE;">✦</span><span>Dokładnie</span><span style="color: #C9BCAE;">✦</span><span>Dyskretnie</span><span style="color: #C9BCAE;">✦</span><span>Przystępnie</span>
+      </div>
+      <p style="margin: 0; font: 400 clamp(16px, 1.5vw, 18px)/1.7 Lato, sans-serif; color: #6E6258; max-width: 600px; text-wrap: pretty;">Profesjonalne usługi sprzątające dla klientów prywatnych i firmowych — bez chaosu, bez niedociągnięć i bez potrzeby poprawiania.</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 6px;">
+        <a href="#kontakt" style="font: 600 15px Poppins, sans-serif; color: #fff; background: #221C18; padding: 16px 30px; border-radius: 999px; text-decoration: none;" style-hover="background: #BE9678;">Zamów wycenę</a>
+        <a href="#oferta" style="font: 600 15px Poppins, sans-serif; color: #221C18; border: 1px solid #C9BCAE; padding: 15px 30px; border-radius: 999px; text-decoration: none; background: #FBF8F5;" style-hover="border-color: #221C18;">Zobacz ofertę</a>
+        <a href="tel:+48518169491" style="font: 600 15px Poppins, sans-serif; color: #BE9678; padding: 15px 10px; text-decoration: none;" style-hover="color: #221C18;">Zadzwoń → 518 169 491</a>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===== HERO — wariant C: ramka ===== -->
+<sc-if value="{{ heroC }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Hero ramka" style="max-width: 1180px; margin: 0 auto; padding: clamp(32px, 5vw, 56px) 24px;">
+    <div style="border: 1.5px solid #221C18; border-radius: 28px; padding: clamp(36px, 6vw, 80px); background: #fff; position: relative; overflow: hidden;">
+      <svg width="280" height="240" viewBox="0 0 250 210" fill="none" style="position: absolute; top: -20px; right: -40px; pointer-events: none;"><g stroke="#F0E5D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="160" y="98" width="52" height="86" rx="10"></rect><path d="M174 98v-22h24v22"></path><path d="M174 76h-26v14h12"></path><path d="M148 80l-12 0"></path></g><g stroke="#EADCCB" stroke-width="1.8" stroke-linecap="round"><path d="M124 62l-14 -8"></path><path d="M122 80h-17"></path><path d="M124 98l-14 8"></path></g><circle cx="88" cy="48" r="2.5" stroke="#EADCCB" stroke-width="1.8"></circle><circle cx="76" cy="80" r="3" stroke="#EADCCB" stroke-width="1.8"></circle><circle cx="88" cy="112" r="2" stroke="#EADCCB" stroke-width="1.8"></circle><circle cx="60" cy="62" r="1.8" stroke="#F0E5D8" stroke-width="1.8"></circle><circle cx="58" cy="98" r="2.2" stroke="#F0E5D8" stroke-width="1.8"></circle></svg>
+      <div style="display: flex; flex-direction: column; gap: 22px; max-width: 760px;">
+        <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Cleaning Service Konin</span>
+        <h1 style="margin: 0; font: 600 clamp(34px, 5vw, 62px)/1.08 Poppins, sans-serif; letter-spacing: -1.2px; text-wrap: balance;">Czystość, za którą stoi jakość, estetyka i odpowiedzialność.</h1>
+        <p style="margin: 0; font: 400 clamp(16px, 1.5vw, 18px)/1.7 Lato, sans-serif; color: #6E6258; max-width: 560px; text-wrap: pretty;">Sprawnie. Dokładnie. Dyskretnie. Przystępnie. Dla domów, firm i obiektów komercyjnych — w Koninie i okolicach.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <a href="#kontakt" style="font: 600 15px Poppins, sans-serif; color: #fff; background: #221C18; padding: 16px 30px; border-radius: 999px; text-decoration: none;" style-hover="background: #BE9678;">Zamów wycenę</a>
+          <a href="#oferta" style="font: 600 15px Poppins, sans-serif; color: #221C18; border: 1px solid #C9BCAE; padding: 15px 30px; border-radius: 999px; text-decoration: none;" style-hover="border-color: #221C18;">Zobacz ofertę</a>
+          <a href="tel:+48518169491" style="font: 600 15px Poppins, sans-serif; color: #BE9678; padding: 15px 10px; text-decoration: none;" style-hover="color: #221C18;">Zadzwoń → 518 169 491</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===== O NAS ===== -->
+<section id="o-nas" data-screen-label="O nas" style="max-width: 1180px; margin: 0 auto; padding: clamp(56px, 8vw, 110px) 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center;">
+  <div style="position: relative; order: 0;">
+    <svg width="84" height="84" viewBox="0 0 84 84" fill="none" style="position: absolute; top: -30px; right: -18px; z-index: 1;"><circle cx="30" cy="32" r="17" stroke="#BE9678" stroke-width="1.5" opacity="0.7"></circle><path d="M22 27a8.5 8.5 0 0 1 7.5-3" stroke="#BE9678" stroke-width="1.4" stroke-linecap="round" opacity="0.55"></path><circle cx="56" cy="52" r="9" stroke="#C9A98F" stroke-width="1.5" opacity="0.6"></circle><circle cx="42" cy="66" r="4" stroke="#BE9678" stroke-width="1.4" opacity="0.5"></circle></svg>
+    <div style="aspect-ratio: 4 / 3.4; border-radius: 24px; border: 1px solid #E5D9CC; background: repeating-linear-gradient(45deg, #F4ECE3 0 14px, #F9F3EC 14px 28px); display: flex; align-items: center; justify-content: center;">
+      <span style="font: 400 12px ui-monospace, monospace; color: #A08B7B; background: #FBF8F5; border: 1px dashed #C9BCAE; border-radius: 8px; padding: 8px 14px;">zdjęcie: zespół / wnętrze</span>
+    </div>
+    <div style="position: absolute; bottom: -16px; right: 20px; background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 14px; padding: 12px 18px; font: 600 13px Poppins, sans-serif; color: #221C18;">Konin i okolice — do 100 km</div>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+      <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">O nas</span>
+    </div>
+    <h2 style="margin: 0; font: 600 clamp(26px, 3vw, 38px)/1.2 Poppins, sans-serif; letter-spacing: -0.6px; text-wrap: balance;">Sprzątanie, za którym stoi jakość, estetyka i odpowiedzialność</h2>
+    <p style="margin: 0; font: 400 16px/1.75 Lato, sans-serif; color: #6E6258; text-wrap: pretty;">Cleaning Service Konin to marka stworzona dla klientów, którzy oczekują realnego efektu, a nie tylko powierzchownego sprzątania. Stawiamy na rzetelność, dokładność, uczciwe podejście i usługę dopasowaną do konkretnych potrzeb.</p>
+    <p style="margin: 0; font: 400 16px/1.75 Lato, sans-serif; color: #6E6258; text-wrap: pretty;">Działamy konkretnie, sprawnie i z wyczuciem. Zależy nam nie tylko na samym porządku, ale też na komforcie współpracy — żeby klient od początku wiedział, czego może się spodziewać.</p>
+    <p style="margin: 0; font: 400 16px/1.75 Lato, sans-serif; color: #6E6258; text-wrap: pretty;">Obsługujemy mieszkania, domy, biura, lokale użytkowe, domki letniskowe, apartamenty na wynajem, obiekty noclegowe, hotele, kampery, a także nagrobki i inne przestrzenie wymagające profesjonalnego podejścia do czystości i estetyki.</p>
+  </div>
+</section>
+
+<!-- ===== DLACZEGO MY ===== -->
+<section data-screen-label="Dlaczego my" style="background: #F2E9E1; border-top: 1px solid #E5D9CC; border-bottom: 1px solid #E5D9CC; position: relative; overflow: hidden;">
+  <svg width="250" height="210" viewBox="0 0 250 210" fill="none" style="position: absolute; top: -16px; right: -36px; pointer-events: none;"><g stroke="#DCCBB7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="160" y="98" width="52" height="86" rx="10"></rect><path d="M174 98v-22h24v22"></path><path d="M174 76h-26v14h12"></path><path d="M148 80l-12 0"></path></g><g stroke="#D3BCA2" stroke-width="1.5" stroke-linecap="round"><path d="M124 62l-14 -8"></path><path d="M122 80h-17"></path><path d="M124 98l-14 8"></path></g><circle cx="88" cy="48" r="2.5" stroke="#D3BCA2" stroke-width="1.5"></circle><circle cx="76" cy="80" r="3" stroke="#D3BCA2" stroke-width="1.5"></circle><circle cx="88" cy="112" r="2" stroke="#D3BCA2" stroke-width="1.5"></circle><circle cx="60" cy="62" r="1.8" stroke="#DCCBB7" stroke-width="1.5"></circle><circle cx="58" cy="98" r="2.2" stroke="#DCCBB7" stroke-width="1.5"></circle></svg>
+  <div style="max-width: 1180px; margin: 0 auto; padding: clamp(56px, 8vw, 100px) 24px; display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 640px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+        <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Dlaczego my</span>
+      </div>
+      <h2 style="margin: 0; font: 600 clamp(26px, 3vw, 38px)/1.2 Poppins, sans-serif; letter-spacing: -0.6px; text-wrap: balance;">Liczy się efekt — i komfort współpracy</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px;">
+      <div style="background: #FBF8F5; border: 1px solid #E5D9CC; border-radius: 16px; padding: 22px 24px; display: flex; gap: 14px; align-items: flex-start;"><span style="font: 600 17px Poppins, sans-serif; color: #BE9678;">✦</span><span style="font: 600 15px/1.5 Poppins, sans-serif;">Indywidualne podejście do każdego zlecenia</span></div>
+      <div style="background: #FBF8F5; border: 1px solid #E5D9CC; border-radius: 16px; padding: 22px 24px; display: flex; gap: 14px; align-items: flex-start;"><span style="font: 600 17px Poppins, sans-serif; color: #BE9678;">✦</span><span style="font: 600 15px/1.5 Poppins, sans-serif;">Dokładność i dbałość o detale</span></div>
+      <div style="background: #FBF8F5; border: 1px solid #E5D9CC; border-radius: 16px; padding: 22px 24px; display: flex; gap: 14px; align-items: flex-start;"><span style="font: 600 17px Poppins, sans-serif; color: #BE9678;">✦</span><span style="font: 600 15px/1.5 Poppins, sans-serif;">Estetyczny efekt końcowy</span></div>
+      <div style="background: #FBF8F5; border: 1px solid #E5D9CC; border-radius: 16px; padding: 22px 24px; display: flex; gap: 14px; align-items: flex-start;"><span style="font: 600 17px Poppins, sans-serif; color: #BE9678;">✦</span><span style="font: 600 15px/1.5 Poppins, sans-serif;">Kultura pracy i dyskrecja</span></div>
+      <div style="background: #FBF8F5; border: 1px solid #E5D9CC; border-radius: 16px; padding: 22px 24px; display: flex; gap: 14px; align-items: flex-start;"><span style="font: 600 17px Poppins, sans-serif; color: #BE9678;">✦</span><span style="font: 600 15px/1.5 Poppins, sans-serif;">Przejrzysta, indywidualna wycena</span></div>
+      <div style="background: #FBF8F5; border: 1px solid #E5D9CC; border-radius: 16px; padding: 22px 24px; display: flex; gap: 14px; align-items: flex-start;"><span style="font: 600 17px Poppins, sans-serif; color: #BE9678;">✦</span><span style="font: 600 15px/1.5 Poppins, sans-serif;">Oferta dla klientów prywatnych i firm</span></div>
+      <div style="background: #FBF8F5; border: 1px solid #E5D9CC; border-radius: 16px; padding: 22px 24px; display: flex; gap: 14px; align-items: flex-start;"><span style="font: 600 17px Poppins, sans-serif; color: #BE9678;">✦</span><span style="font: 600 15px/1.5 Poppins, sans-serif;">Współpraca jednorazowa i stała</span></div>
+      <div style="background: #FBF8F5; border: 1px solid #E5D9CC; border-radius: 16px; padding: 22px 24px; display: flex; gap: 14px; align-items: flex-start;"><span style="font: 600 17px Poppins, sans-serif; color: #BE9678;">✦</span><span style="font: 600 15px/1.5 Poppins, sans-serif;">Szeroki zakres usług — również specjalistycznych i sezonowych</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFERTA ===== -->
+<section id="oferta" data-screen-label="Oferta" style="max-width: 1180px; margin: 0 auto; padding: clamp(56px, 8vw, 110px) 24px; display: flex; flex-direction: column; gap: 36px;">
+  <div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+      <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Oferta / Usługi</span>
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+    </div>
+    <h2 style="margin: 0; font: 600 clamp(26px, 3vw, 38px)/1.2 Poppins, sans-serif; letter-spacing: -0.6px; text-wrap: balance;">Zakres dopasowany do Twojego obiektu</h2>
+    <p style="margin: 0; font: 400 16px/1.7 Lato, sans-serif; color: #6E6258; max-width: 560px; text-wrap: pretty;">Każde zlecenie traktujemy indywidualnie — inne potrzeby ma mieszkanie rodzinne, inne lokal użytkowy, a jeszcze inne hotel, kamper czy domek letniskowy.</p>
+  </div>
+  <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+    <button onClick="{{ setPrivate }}" style="{{ tabPrivStyle }}">Klienci prywatni</button>
+    <button onClick="{{ setBusiness }}" style="{{ tabBizStyle }}">Firmy i obiekty komercyjne</button>
+  </div>
+
+  <sc-if value="{{ showPrivate }}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;">
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"></path><path d="M6.5 9.5V19h11V9.5"></path><path d="M10 19v-4.5h4V19"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Sprzątanie mieszkań i domów</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Regularne oraz jednorazowe sprzątanie dopasowane do potrzeb — od bieżącego utrzymania porządku po dokładniejsze sprzątanie wybranych pomieszczeń.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"></path><polyline points="19.7,3.6 19.4,7.6 15.4,7.2"></polyline><circle cx="12" cy="12" r="1.3"></circle></svg></span><span style="font: 600 17px Poppins, sans-serif;">Sprzątanie cykliczne</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Stała współpraca dla osób, które chcą mieć porządek pod kontrolą — wygoda, regularność i spokój, bez organizowania wszystkiego od nowa.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l1.8 6.2L20 12l-6.2 1.8L12 20l-1.8-6.2L4 12l6.2-1.8z"></path><path d="M18.5 4.5v3M17 6h3"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Sprzątanie jednorazowe</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Jednorazowe doprowadzenie wnętrza do porządku — odświeżenie mieszkania lub przygotowanie domu na ważną okazję czy przyjęcie gości.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4.5" width="12" height="5" rx="1.5"></rect><path d="M16 7h3.5v4.5H12v2.5"></path><rect x="10.8" y="16" width="2.4" height="4.5" rx="1"></rect></svg></span><span style="font: 600 17px Poppins, sans-serif;">Sprzątanie po remoncie</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Dokładne usuwanie kurzu, pyłu i zabrudzeń poremontowych. Przygotowujemy wnętrze do użytkowania, dbając o estetykę wykończenia.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="15" rx="1.5"></rect><path d="M12 4.5v15M5 12h14"></path><path d="M7.2 9.6l2.2-2.2"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Mycie okien i przeszkleń</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Dokładne mycie okien, ram, luster i powierzchni szklanych — z naciskiem na przejrzystość i estetyczny efekt bez smug.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V8.5A2.5 2.5 0 0 1 9.5 6h5A2.5 2.5 0 0 1 17 8.5V11"></path><path d="M5 17v-3.4a1.9 1.9 0 0 1 3.8 0v.9h6.4v-.9a1.9 1.9 0 0 1 3.8 0V17z"></path><path d="M6.3 17v1.8M17.7 17v1.8"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Pranie tapicerki meblowej</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Profesjonalne pranie kanap, narożników, foteli i krzeseł tapicerowanych — odświeża wygląd mebli i usuwa codzienne zabrudzenia.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8.5" width="17" height="7" rx="2"></rect><path d="M8.5 8.5v7M15.5 8.5v7"></path><path d="M5 18.5h14"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Pranie materacy</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Dokładne pranie materacy, które poprawia higienę codziennego użytkowania i odświeża powierzchnię do spania.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6.5" width="12" height="11" rx="1"></rect><rect x="9" y="9.8" width="6" height="4.4"></rect><path d="M3.8 8h1.6M3.8 12h1.6M3.8 16h1.6M18.6 8h1.6M18.6 12h1.6M18.6 16h1.6"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Pranie wykładzin</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Odkurzanie i pranie wykładzin w domach i mieszkaniach — świeżość, czystość i estetyka powierzchni tekstylnych.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12L11 6l6.5 6"></path><path d="M6.5 10.3V18h9v-7.7"></path><path d="M9.8 18v-3.6h2.4V18"></path><circle cx="19" cy="5.5" r="1.8"></circle></svg></span><span style="font: 600 17px Poppins, sans-serif;">Sprzątanie domków letniskowych</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Przygotowanie obiektu do sezonu, odświeżenie wnętrza po dłuższej przerwie albo uporządkowanie domku po pobycie gości.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 15.5V9A1.5 1.5 0 0 1 5 7.5h8.5l4.5 4h1.5a1.5 1.5 0 0 1 1.5 1.5v2.5h-1.6"></path><circle cx="8" cy="16.3" r="1.9"></circle><circle cx="16.5" cy="16.3" r="1.9"></circle><path d="M9.9 16.3h4.7"></path><path d="M6.5 10.5h3.4v2H6.5z"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Sprzątanie kamperów</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Zadbanie o kamper przed sezonem, po podróży albo przed sprzedażą — sprzątanie wnętrza oraz mycie zewnętrznej części pojazdu.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9.5" y="10.5" width="5" height="8" rx="1.2"></rect><path d="M12 7.8c1.3-1.2 1.3-2.4 0-3.8-1.3 1.4-1.3 2.6 0 3.8z"></path><path d="M12 7.8v2.7"></path><path d="M6.5 18.5h11"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Opieka nad grobami</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Sprzątanie i uporządkowanie miejsca, mycie pomników, wymiana zniczy oraz przygotowanie grobu przed świętami, rocznicami i ważnymi datami.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17V8a3 3 0 0 1 6 0v9"></path><path d="M6.8 17h10.4M5.5 19.5h13"></path><path d="M12 9.5v4M10.5 11h3"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Renowacja pomników z lastryko</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Dokładne wyczyszczenie, utwardzenie oraz zabezpieczenie przed czynnikami atmosferycznymi, wilgocią, ścieraniem i promieniowaniem.</span></div>
+      </div>
+      <div style="background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
+        <span style="font: 600 17px Poppins, sans-serif;">Usługi dodatkowe — do wyboru pojedynczo</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Piekarnik</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Mikrofala</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Lodówka</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Zmywarka</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Pralka</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Suszarka</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Wnętrza szafek</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Czyszczenie fug</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Impregnacja fug</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Mocniej zabrudzone kuchnie</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Łazienki do doczyszczenia</span>
+          <span style="font: 400 13.5px Lato, sans-serif; background: #FBF8F5; border: 1px solid #DCCFC2; border-radius: 999px; padding: 8px 16px;">Strefy wymagające większej dokładności</span>
+        </div>
+        <span style="font: 400 13.5px Lato, sans-serif; color: #6E6258;">Elementy czyszczone i/lub dezynfekowane — zakres dobierany przy wycenie.</span>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showBusiness }}" hint-placeholder-val="{{ false }}">
+    <div style="display: flex; flex-direction: column; gap: 28px;">
+      <div style="max-width: 720px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 600 19px Poppins, sans-serif;">Profesjonalne sprzątanie dla firm i obiektów użytkowych</span>
+        <span style="font: 400 15px/1.7 Lato, sans-serif; color: #6E6258; text-wrap: pretty;">Czysta przestrzeń ma ogromne znaczenie dla komfortu pracowników, pierwszego wrażenia klientów i wizerunku firmy — dlatego do każdego zlecenia podchodzimy odpowiedzialnie i konkretnie.</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;">
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20V4.5h8V20"></path><path d="M14 9h4v11"></path><path d="M8.7 8h2.4M8.7 11.5h2.4M8.7 15h2.4M16 12.5h.01M16 15.5h.01"></path><path d="M4.5 20h15"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Sprzątanie biur</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Regularne lub jednorazowe utrzymanie czystości w biurach i przestrzeniach pracy — porządek, świeżość i estetyka na co dzień.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 9L6.6 5h10.8L18.6 9"></path><path d="M5.4 9a2.15 2.15 0 0 0 4.3 0 2.15 2.15 0 0 0 4.3 0 2.15 2.15 0 0 0 4.3 0"></path><path d="M6.2 11.6V19h11.6v-7.4"></path><path d="M9.7 19v-4.2h4.6V19"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Sprzątanie lokali użytkowych</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Salony, punkty usługowe, gabinety i inne obiekty komercyjne. Zakres ustalany indywidualnie — zależnie od działalności i powierzchni.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8.5" r="3.7"></circle><path d="M10.6 11.1L19.5 20"></path><path d="M16.7 17.2l1.9-1.9M13.9 14.4l1.9-1.9"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Apartamenty i obiekty na wynajem</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Przygotowanie obiektów do kolejnych gości, sprzątanie po pobytach i dbanie o standard, który wpływa na opinie klientów.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17.5V8.2A3.2 3.2 0 0 1 9.2 5h0a3.2 3.2 0 0 1 3.2 3.2v9.3"></path><circle cx="9.2" cy="8.2" r="1.1"></circle><path d="M15 8.5h4.5M15 12h4.5M15 15.5h4.5"></path><path d="M4 19.5h16"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Odkurzanie i pranie wykładzin</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Profesjonalne pranie wykładzin w hotelach, pensjonatach i obiektach noclegowych — estetyka, świeżość, higiena i komfort gości.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 10.5V8A2.5 2.5 0 0 1 10 5.5h4A2.5 2.5 0 0 1 16.5 8v2.5"></path><path d="M5.5 16.5v-3.2a1.8 1.8 0 0 1 3.6 0v.7h5.8v-.7a1.8 1.8 0 0 1 3.6 0v3.2z"></path><path d="M7 16.5v2M17 16.5v2"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Pranie tapicerki komercyjnej</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Odświeżanie mebli tapicerowanych w hotelach, apartamentach, biurach i poczekalniach — utrzymanie wysokiego standardu wnętrza.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 18.5V11"></path><path d="M3.5 14.5h17v4"></path><circle cx="7.3" cy="11.8" r="1.6"></circle><path d="M11 11.8h6.5a3 3 0 0 1 3 3"></path><path d="M17 4.2a2.8 2.8 0 1 0 3 3.9 3.3 3.3 0 0 1-3-3.9z"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Sprzątanie obiektów noclegowych</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Domki, apartamenty i pensjonaty na wynajem krótkoterminowy — wnętrza gotowe na przyjazd kolejnych gości, estetyczne od pierwszego wejścia.</span></div>
+        <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #BE9678;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 15.5V9A1.5 1.5 0 0 1 5 7.5h8.5l4.5 4h1.5a1.5 1.5 0 0 1 1.5 1.5v2.5h-1.6"></path><circle cx="8" cy="16.3" r="1.9"></circle><circle cx="16.5" cy="16.3" r="1.9"></circle><path d="M9.9 16.3h4.7"></path><path d="M6.5 10.5h3.4v2H6.5z"></path><path d="M19.5 5.5l1.2 1.2M20.7 5.5l-1.2 1.2"></path></svg></span><span style="font: 600 17px Poppins, sans-serif;">Sprzątanie kamperów dla firm</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #6E6258;">Dla wypożyczalni i sprzedawców pojazdów rekreacyjnych — wnętrze i mycie zewnętrzne przed wydaniem klientowi, po zwrocie albo przed sprzedażą.</span></div>
+        <div style="background: #221C18; border: 1px solid #221C18; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px;"><span style="width: 48px; height: 48px; border-radius: 14px; background: #3D352E; border: 1px solid #4A4138; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 12.5l2.3 2.3 4.9-4.9"></path><path d="M12 3.5l2.1 2.1h3l.9 2.8 2.5 1.6-.8 2.9.8 2.9-2.5 1.6-.9 2.8h-3L12 22.3l-2.1-2.1h-3l-.9-2.8-2.5-1.6.8-2.9-.8-2.9 2.5-1.6.9-2.8h3z" transform="scale(0.82) translate(2.6,1.2)"></path></svg></span><span style="font: 600 17px Poppins, sans-serif; color: #fff;">Współpraca stała dla firm</span><span style="font: 400 14.5px/1.65 Lato, sans-serif; color: #C9BCAE;">Stała współpraca dopasowana do trybu pracy obiektu, częstotliwości sprzątania i realnych potrzeb klienta biznesowego.</span><a href="#kontakt" style="font: 600 14px Poppins, sans-serif; color: #BE9678; text-decoration: none; margin-top: 4px;" style-hover="color: #fff;">Porozmawiajmy →</a></div>
+      </div>
+    </div>
+  </sc-if>
+
+</section>
+
+<!-- ===== JAK WYGLĄDA WSPÓŁPRACA ===== -->
+<section id="wspolpraca" data-screen-label="Jak wygląda współpraca" style="background: #221C18; position: relative; overflow: hidden;">
+  <div style="position: absolute; bottom: -110px; right: -80px; width: 380px; height: 330px; background: radial-gradient(ellipse at center, rgba(190,150,120,0.16), transparent 65%); pointer-events: none;"></div><div style="position: absolute; top: -120px; left: -100px; width: 360px; height: 320px; background: radial-gradient(ellipse at center, rgba(190,150,120,0.10), transparent 65%); pointer-events: none;"></div>
+  <div style="max-width: 1180px; margin: 0 auto; padding: clamp(56px, 8vw, 100px) 24px; display: flex; flex-direction: column; gap: 44px; position: relative;">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 640px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+        <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Jak wygląda współpraca</span>
+      </div>
+      <h2 style="margin: 0; font: 600 clamp(26px, 3vw, 38px)/1.2 Poppins, sans-serif; letter-spacing: -0.6px; color: #fff; text-wrap: balance;">Od kontaktu do efektu — w pięciu krokach</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px;">
+      <div style="border: 1px solid #3D352E; border-radius: 16px; padding: 24px 22px; display: flex; flex-direction: column; gap: 12px;"><span style="font: 600 14px Poppins, sans-serif; color: #BE9678;">01</span><span style="font: 400 15px/1.6 Lato, sans-serif; color: #E8DFD6;">Kontaktujesz się z nami telefonicznie lub wiadomością.</span></div>
+      <div style="border: 1px solid #3D352E; border-radius: 16px; padding: 24px 22px; display: flex; flex-direction: column; gap: 12px;"><span style="font: 600 14px Poppins, sans-serif; color: #BE9678;">02</span><span style="font: 400 15px/1.6 Lato, sans-serif; color: #E8DFD6;">Ustalamy rodzaj usługi, zakres prac i potrzeby.</span></div>
+      <div style="border: 1px solid #3D352E; border-radius: 16px; padding: 24px 22px; display: flex; flex-direction: column; gap: 12px;"><span style="font: 600 14px Poppins, sans-serif; color: #BE9678;">03</span><span style="font: 400 15px/1.6 Lato, sans-serif; color: #E8DFD6;">Przygotowujemy indywidualną wycenę.</span></div>
+      <div style="border: 1px solid #3D352E; border-radius: 16px; padding: 24px 22px; display: flex; flex-direction: column; gap: 12px;"><span style="font: 600 14px Poppins, sans-serif; color: #BE9678;">04</span><span style="font: 400 15px/1.6 Lato, sans-serif; color: #E8DFD6;">Ustalamy termin realizacji.</span></div>
+      <div style="border: 1px solid #BE9678; background: rgba(190,150,120,0.10); border-radius: 16px; padding: 24px 22px; display: flex; flex-direction: column; gap: 12px;"><span style="font: 600 14px Poppins, sans-serif; color: #BE9678;">05</span><span style="font: 400 15px/1.6 Lato, sans-serif; color: #fff;">Wykonujemy usługę sprawnie, dokładnie i estetycznie.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WYCENA ===== -->
+<section data-screen-label="Wycena" style="max-width: 1180px; margin: 0 auto; padding: clamp(56px, 8vw, 100px) 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
+  <div style="display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+      <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Wycena</span>
+    </div>
+    <h2 style="margin: 0; font: 600 clamp(26px, 3vw, 38px)/1.2 Poppins, sans-serif; letter-spacing: -0.6px; text-wrap: balance;">Każda wycena ustalana jest <span style="position: relative; display: inline-block;">indywidualnie<svg viewBox="0 0 140 10" preserveAspectRatio="none" style="position: absolute; left: 0; bottom: -8px; width: 100%; height: 10px;"><path d="M3 7 C 30 2, 70 2, 90 4.5 S 125 8, 137 3.5" fill="none" stroke="#BE9678" stroke-width="2.2" stroke-linecap="round" opacity="0.8"></path></svg></span></h2>
+    <p style="margin: 0; font: 400 16px/1.75 Lato, sans-serif; color: #6E6258; text-wrap: pretty;">Dzięki temu otrzymujesz uczciwą i konkretną wycenę, dopasowaną do rzeczywistego zakresu pracy — bez ukrytych kosztów i bez zgadywania.</p>
+    <a href="#kontakt" style="font: 600 15px Poppins, sans-serif; color: #fff; background: #221C18; padding: 15px 28px; border-radius: 999px; text-decoration: none; align-self: flex-start; margin-top: 6px;" style-hover="background: #BE9678;">Zamów bezpłatną wycenę</a>
+  </div>
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 18px;">
+    <span style="font: 600 16px Poppins, sans-serif;">Cena usługi zależy od:</span>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      <span style="font: 400 13.5px Lato, sans-serif; background: #F7F1EA; border: 1px solid #EBE1D6; border-radius: 999px; padding: 8px 16px;">rodzaju obiektu</span>
+      <span style="font: 400 13.5px Lato, sans-serif; background: #F7F1EA; border: 1px solid #EBE1D6; border-radius: 999px; padding: 8px 16px;">wielkości powierzchni</span>
+      <span style="font: 400 13.5px Lato, sans-serif; background: #F7F1EA; border: 1px solid #EBE1D6; border-radius: 999px; padding: 8px 16px;">zakresu prac</span>
+      <span style="font: 400 13.5px Lato, sans-serif; background: #F7F1EA; border: 1px solid #EBE1D6; border-radius: 999px; padding: 8px 16px;">stopnia zabrudzenia</span>
+      <span style="font: 400 13.5px Lato, sans-serif; background: #F7F1EA; border: 1px solid #EBE1D6; border-radius: 999px; padding: 8px 16px;">częstotliwości współpracy</span>
+      <span style="font: 400 13.5px Lato, sans-serif; background: #F7F1EA; border: 1px solid #EBE1D6; border-radius: 999px; padding: 8px 16px;">ilości detali do doczyszczenia</span>
+      <span style="font: 400 13.5px Lato, sans-serif; background: #F7F1EA; border: 1px solid #EBE1D6; border-radius: 999px; padding: 8px 16px;">ilości przeszkleń</span>
+      <span style="font: 400 13.5px Lato, sans-serif; background: #F7F1EA; border: 1px solid #EBE1D6; border-radius: 999px; padding: 8px 16px;">rodzaju powierzchni</span>
+      <span style="font: 400 13.5px Lato, sans-serif; background: #F7F1EA; border: 1px solid #EBE1D6; border-radius: 999px; padding: 8px 16px;">usług dodatkowych</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CENNIK (ZAJAWKA) ===== -->
+<section id="cennik" data-screen-label="Cennik zajawka" style="max-width: 1180px; margin: 0 auto; padding: 0 24px clamp(56px, 8vw, 100px); display: flex; flex-direction: column; gap: 32px;">
+  <div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+      <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Cennik</span>
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+    </div>
+    <h2 style="margin: 0; font: 600 clamp(26px, 3vw, 38px)/1.2 Poppins, sans-serif; letter-spacing: -0.6px; text-wrap: balance;">Orientacyjne ceny wybranych usług</h2>
+    <p style="margin: 0; font: 400 16px/1.7 Lato, sans-serif; color: #6E6258; max-width: 540px; text-wrap: pretty;">Kilka przykładowych pozycji z naszego cennika usług dodatkowych i specjalistycznych.</p>
+  </div>
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 22px; padding: clamp(26px, 3.5vw, 42px); max-width: 760px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden;">
+    <svg width="72" height="64" viewBox="0 0 72 64" fill="none" style="position: absolute; top: 14px; right: 16px; opacity: 0.7;"><g stroke="#EBDDCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="42" y="26" width="18" height="30" rx="5"></rect><path d="M47 26v-8h8v8"></path><path d="M47 18h-9v5h4"></path><path d="M38 19.5h-4"></path></g><g stroke="#EBDDCE" stroke-width="1.3" stroke-linecap="round"><path d="M30 13l-5 -3"></path><path d="M29 19.5h-6"></path><path d="M30 26l-5 3"></path></g><circle cx="17" cy="9" r="1.5" stroke="#EBDDCE" stroke-width="1.3"></circle><circle cx="13" cy="19.5" r="1.8" stroke="#EBDDCE" stroke-width="1.3"></circle><circle cx="17" cy="30" r="1.3" stroke="#EBDDCE" stroke-width="1.3"></circle></svg>
+    <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Czyszczenie piekarnika</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 60 zł/szt.</span></div>
+    <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Pranie kanapy</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 150 zł</span></div>
+    <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie okna standardowego</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 40 zł/szt.</span></div>
+    <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Czyszczenie fug</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 15 zł/m²</span></div>
+    <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Pranie dywanu</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 15 zł/m²</span></div>
+    <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie nagrobka pojedynczego</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 100 zł</span></div>
+    <a href="Cennik.dc.html" style="align-self: center; margin-top: 12px; font: 600 15px Poppins, sans-serif; color: #fff; background: #221C18; padding: 15px 30px; border-radius: 999px; text-decoration: none;" style-hover="background: #BE9678;">Zobacz pełny cennik →</a>
+    <span style="align-self: center; font: 400 12.5px Lato, sans-serif; color: #A08B7B;">Ceny orientacyjne — ostateczna wycena zawsze ustalana indywidualnie.</span>
+  </div>
+</section>
+
+<!-- ===== OBSZAR DZIAŁANIA ===== -->
+<section data-screen-label="Obszar działania" style="background: #F2E9E1; border-top: 1px solid #E5D9CC; border-bottom: 1px solid #E5D9CC;">
+  <div style="max-width: 1180px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 64px); align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+        <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Obszar działania</span>
+      </div>
+      <h2 style="margin: 0; font: 600 clamp(26px, 3vw, 36px)/1.2 Poppins, sans-serif; letter-spacing: -0.6px; text-wrap: balance;">Konin i okolice — do 100 km w każdą stronę</h2>
+      <p style="margin: 0; font: 400 16px/1.75 Lato, sans-serif; color: #6E6258; text-wrap: pretty;">Obsługujemy klientów prywatnych i firmowych na terenie Konina i okolic. Szczegóły dojazdu i realizacji ustalamy indywidualnie podczas kontaktu.</p>
+    </div>
+    <div style="display: flex; justify-content: center; padding: 12px 0;">
+      <div style="width: clamp(220px, 26vw, 300px); aspect-ratio: 1; border-radius: 50%; border: 1px dashed #C9A98F; display: flex; align-items: center; justify-content: center; position: relative;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #F2E9E1; padding: 0 3px;"><path d="M12 21c4-4.3 6-7.6 6-10.4a6 6 0 1 0-12 0C6 13.4 8 16.7 12 21z"></path><circle cx="12" cy="10.5" r="2.2"></circle></svg>
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" style="position: absolute; bottom: 8%; left: 2%;"><circle cx="10" cy="10" r="6" stroke="#BE9678" stroke-width="1.3" opacity="0.8"></circle><circle cx="19" cy="19" r="3" stroke="#C9A98F" stroke-width="1.3" opacity="0.7"></circle></svg>
+        <div style="width: 62%; aspect-ratio: 1; border-radius: 50%; border: 1px dashed #BE9678; display: flex; align-items: center; justify-content: center;">
+          <div style="background: #221C18; color: #fff; border-radius: 999px; padding: 12px 26px; font: 600 16px Poppins, sans-serif;">Konin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- @obszar-end -->
+
+<!-- ===== OPINIE ===== -->
+<section id="opinie" data-screen-label="Opinie" style="max-width: 1180px; margin: 0 auto; padding: clamp(56px, 8vw, 100px) 24px; display: flex; flex-direction: column; gap: 36px; position: relative;">
+  <svg width="72" height="64" viewBox="0 0 72 64" fill="none" style="position: absolute; top: 44px; right: 6%; pointer-events: none;"><g stroke="#DCC9B6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="42" y="26" width="18" height="30" rx="5"></rect><path d="M47 26v-8h8v8"></path><path d="M47 18h-9v5h4"></path><path d="M38 19.5h-4"></path></g><g stroke="#DCC9B6" stroke-width="1.3" stroke-linecap="round"><path d="M30 13l-5 -3"></path><path d="M29 19.5h-6"></path><path d="M30 26l-5 3"></path></g><circle cx="17" cy="9" r="1.5" stroke="#DCC9B6" stroke-width="1.3"></circle><circle cx="13" cy="19.5" r="1.8" stroke="#DCC9B6" stroke-width="1.3"></circle><circle cx="17" cy="30" r="1.3" stroke="#DCC9B6" stroke-width="1.3"></circle></svg>
+  <div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+      <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Opinie</span>
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+    </div>
+    <h2 style="margin: 0; font: 600 clamp(26px, 3vw, 38px)/1.2 Poppins, sans-serif; letter-spacing: -0.6px; text-wrap: balance;">Zadowolenie klientów to nasza najlepsza reklama</h2>
+    <p style="margin: 0; font: 400 16px/1.7 Lato, sans-serif; color: #6E6258; max-width: 540px; text-wrap: pretty;">Dobra usługa broni się sama — ale nic nie buduje zaufania tak mocno jak opinie zadowolonych klientów.</p>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+    <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden;">
+      <svg width="44" height="34" viewBox="0 0 44 34" fill="none" style="position: absolute; top: 18px; right: 20px; opacity: 0.5;"><path d="M8 28c-3-2.5-4.5-6-4.5-10C3.5 11 8 5.5 15 4l1.5 3.5c-4 1.5-6.5 4-7 7 .5-.3 1.3-.5 2.3-.5 3.4 0 6 2.6 6 6s-2.7 6-6.2 6c-1.3 0-2.5-.3-3.6-1z" stroke="#DCC9B6" stroke-width="1.4" stroke-linejoin="round"></path><path d="M29 28c-3-2.5-4.5-6-4.5-10 0-7 4.5-12.5 11.5-14l1.5 3.5c-4 1.5-6.5 4-7 7 .5-.3 1.3-.5 2.3-.5 3.4 0 6 2.6 6 6s-2.7 6-6.2 6c-1.3 0-2.5-.3-3.6-1z" stroke="#DCC9B6" stroke-width="1.4" stroke-linejoin="round"></path></svg>
+      <span style="color: #BE9678; font-size: 15px; letter-spacing: 3px;">★★★★★</span>
+      <p style="margin: 0; font: italic 400 15px/1.7 Lato, sans-serif; color: #4D443C;">„Mieszkanie po sprzątaniu wyglądało lepiej niż po remoncie. Wszystko dopięte, łącznie z fugami. Na pewno wrócę."</p>
+      <span style="font: 600 13.5px Poppins, sans-serif; color: #A08B7B;">Anna M. — sprzątanie jednorazowe</span>
+    </div>
+    <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden;">
+      <svg width="44" height="34" viewBox="0 0 44 34" fill="none" style="position: absolute; top: 18px; right: 20px; opacity: 0.5;"><path d="M8 28c-3-2.5-4.5-6-4.5-10C3.5 11 8 5.5 15 4l1.5 3.5c-4 1.5-6.5 4-7 7 .5-.3 1.3-.5 2.3-.5 3.4 0 6 2.6 6 6s-2.7 6-6.2 6c-1.3 0-2.5-.3-3.6-1z" stroke="#DCC9B6" stroke-width="1.4" stroke-linejoin="round"></path><path d="M29 28c-3-2.5-4.5-6-4.5-10 0-7 4.5-12.5 11.5-14l1.5 3.5c-4 1.5-6.5 4-7 7 .5-.3 1.3-.5 2.3-.5 3.4 0 6 2.6 6 6s-2.7 6-6.2 6c-1.3 0-2.5-.3-3.6-1z" stroke="#DCC9B6" stroke-width="1.4" stroke-linejoin="round"></path></svg>
+      <span style="color: #BE9678; font-size: 15px; letter-spacing: 3px;">★★★★★</span>
+      <p style="margin: 0; font: italic 400 15px/1.7 Lato, sans-serif; color: #4D443C;">„Współpracujemy cyklicznie od kilku miesięcy. Zawsze na czas, zawsze dokładnie, pełna dyskrecja. Polecam każdej firmie."</p>
+      <span style="font: 600 13.5px Poppins, sans-serif; color: #A08B7B;">Biuro w Koninie — współpraca stała</span>
+    </div>
+    <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden;">
+      <svg width="44" height="34" viewBox="0 0 44 34" fill="none" style="position: absolute; top: 18px; right: 20px; opacity: 0.5;"><path d="M8 28c-3-2.5-4.5-6-4.5-10C3.5 11 8 5.5 15 4l1.5 3.5c-4 1.5-6.5 4-7 7 .5-.3 1.3-.5 2.3-.5 3.4 0 6 2.6 6 6s-2.7 6-6.2 6c-1.3 0-2.5-.3-3.6-1z" stroke="#DCC9B6" stroke-width="1.4" stroke-linejoin="round"></path><path d="M29 28c-3-2.5-4.5-6-4.5-10 0-7 4.5-12.5 11.5-14l1.5 3.5c-4 1.5-6.5 4-7 7 .5-.3 1.3-.5 2.3-.5 3.4 0 6 2.6 6 6s-2.7 6-6.2 6c-1.3 0-2.5-.3-3.6-1z" stroke="#DCC9B6" stroke-width="1.4" stroke-linejoin="round"></path></svg>
+      <span style="color: #BE9678; font-size: 15px; letter-spacing: 3px;">★★★★★</span>
+      <p style="margin: 0; font: italic 400 15px/1.7 Lato, sans-serif; color: #4D443C;">„Apartament gotowy na gości za każdym razem bez przypominania. Kontakt sprawny, wycena jasna od początku."</p>
+      <span style="font: 600 13.5px Poppins, sans-serif; color: #A08B7B;">Karolina W. — apartamenty na wynajem</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" data-screen-label="FAQ" style="max-width: 820px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) 24px clamp(56px, 8vw, 100px); display: flex; flex-direction: column; gap: 32px;">
+  <div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+      <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">FAQ</span>
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+    </div>
+    <h2 style="margin: 0; font: 600 clamp(26px, 3vw, 38px)/1.2 Poppins, sans-serif; letter-spacing: -0.6px; position: relative; display: inline-block;">Najczęstsze pytania<svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="position: absolute; top: -18px; right: -42px;"><path d="M14 16c0-4 3-7 7-7s7 2.7 7 6c0 5-6 5-6 9" stroke="#BE9678" stroke-width="1.6" stroke-linecap="round" opacity="0.75"></path><circle cx="22" cy="30.5" r="1.4" fill="#BE9678" opacity="0.75"></circle></svg></h2>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 16px; overflow: hidden;">
+      <button onClick="{{ faq.1.toggle }}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: none; border: none; padding: 20px 24px; cursor: pointer; text-align: left;">
+        <span style="font: 600 16px Poppins, sans-serif; color: #221C18;">Jak wygląda wycena?</span>
+        <span style="font: 400 22px Poppins, sans-serif; color: #BE9678; flex-shrink: 0;">{{ faq.1.mark }}</span>
+      </button>
+      <sc-if value="{{ faq.1.open }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; padding: 0 24px 22px; font: 400 15px/1.7 Lato, sans-serif; color: #6E6258;">Każda wycena dopasowywana jest indywidualnie do rodzaju obiektu, zakresu prac, wielkości powierzchni i stopnia zabrudzenia.</p>
+      </sc-if>
+    </div>
+    <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 16px; overflow: hidden;">
+      <button onClick="{{ faq.2.toggle }}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: none; border: none; padding: 20px 24px; cursor: pointer; text-align: left;">
+        <span style="font: 600 16px Poppins, sans-serif; color: #221C18;">Czy można zamówić pojedyncze usługi dodatkowe?</span>
+        <span style="font: 400 22px Poppins, sans-serif; color: #BE9678; flex-shrink: 0;">{{ faq.2.mark }}</span>
+      </button>
+      <sc-if value="{{ faq.2.open }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; padding: 0 24px 22px; font: 400 15px/1.7 Lato, sans-serif; color: #6E6258;">Tak. Można dobrać konkretne elementy usługi — np. piekarnik, mikrofalówkę, lodówkę, zmywarkę, pralkę, suszarkę, wnętrza szafek, czyszczenie lub impregnację fug albo wybrane strefy wymagające mocniejszego doczyszczenia.</p>
+      </sc-if>
+    </div>
+    <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 16px; overflow: hidden;">
+      <button onClick="{{ faq.3.toggle }}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: none; border: none; padding: 20px 24px; cursor: pointer; text-align: left;">
+        <span style="font: 600 16px Poppins, sans-serif; color: #221C18;">Czy obsługiwani są tylko klienci prywatni?</span>
+        <span style="font: 400 22px Poppins, sans-serif; color: #BE9678; flex-shrink: 0;">{{ faq.3.mark }}</span>
+      </button>
+      <sc-if value="{{ faq.3.open }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; padding: 0 24px 22px; font: 400 15px/1.7 Lato, sans-serif; color: #6E6258;">Nie. Obsługujemy również firmy, biura, lokale użytkowe, apartamenty na wynajem, domki letniskowe, hotele i inne obiekty komercyjne.</p>
+      </sc-if>
+    </div>
+    <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 16px; overflow: hidden;">
+      <button onClick="{{ faq.4.toggle }}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: none; border: none; padding: 20px 24px; cursor: pointer; text-align: left;">
+        <span style="font: 600 16px Poppins, sans-serif; color: #221C18;">Czy można zamówić stałą współpracę?</span>
+        <span style="font: 400 22px Poppins, sans-serif; color: #BE9678; flex-shrink: 0;">{{ faq.4.mark }}</span>
+      </button>
+      <sc-if value="{{ faq.4.open }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; padding: 0 24px 22px; font: 400 15px/1.7 Lato, sans-serif; color: #6E6258;">Tak. Oferujemy zarówno zlecenia jednorazowe, jak i współpracę cykliczną dopasowaną do potrzeb klienta.</p>
+      </sc-if>
+    </div>
+    <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 16px; overflow: hidden;">
+      <button onClick="{{ faq.5.toggle }}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: none; border: none; padding: 20px 24px; cursor: pointer; text-align: left;">
+        <span style="font: 600 16px Poppins, sans-serif; color: #221C18;">Jak najszybciej się skontaktować?</span>
+        <span style="font: 400 22px Poppins, sans-serif; color: #BE9678; flex-shrink: 0;">{{ faq.5.mark }}</span>
+      </button>
+      <sc-if value="{{ faq.5.open }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; padding: 0 24px 22px; font: 400 15px/1.7 Lato, sans-serif; color: #6E6258;">Najszybciej telefonicznie lub przez wiadomość — wystarczy opisać, jaka usługa Cię interesuje, a ustalimy dalsze szczegóły. Telefon: 518 169 491.</p>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KONTAKT ===== -->
+<section id="kontakt" data-screen-label="Kontakt" style="background: #221C18; position: relative; overflow: hidden;">
+  <div style="position: absolute; top: -120px; right: -90px; width: 380px; height: 330px; background: radial-gradient(ellipse at center, rgba(190,150,120,0.14), transparent 65%); pointer-events: none;"></div>
+  <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: clamp(56px, 8vw, 110px) 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(36px, 6vw, 80px); align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+        <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Kontakt</span>
+      </div>
+      <h2 style="margin: 0; font: 600 clamp(28px, 3.4vw, 42px)/1.18 Poppins, sans-serif; letter-spacing: -0.7px; color: #fff; text-wrap: balance; position: relative; display: inline-block; align-self: flex-start;">Zamów bezpłatną wycenę<svg width="34" height="34" viewBox="0 0 34 34" fill="none" style="position: absolute; top: -20px; right: -30px;"><path d="M17 4l2.6 10.4L30 17l-10.4 2.6L17 30l-2.6-10.4L4 17l10.4-2.6z" stroke="#BE9678" stroke-width="1.4" stroke-linejoin="round" opacity="0.85"></path></svg></h2>
+      <p style="margin: 0; font: 400 16px/1.75 Lato, sans-serif; color: #C9BCAE; max-width: 460px; text-wrap: pretty;">Opisz krótko, jaka usługa Cię interesuje — odezwiemy się, ustalimy szczegóły i przygotujemy indywidualną wycenę.</p>
+      <a href="tel:+48518169491" style="display: flex; align-items: center; gap: 16px; text-decoration: none; margin-top: 4px;">
+        <span style="width: 52px; height: 52px; border-radius: 50%; background: #BE9678; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" fill="#221C18"></path></svg>
+        </span>
+        <span style="display: flex; flex-direction: column;">
+          <span style="font: 400 12.5px Lato, sans-serif; letter-spacing: 1.5px; text-transform: uppercase; color: #A08B7B;">Zadzwoń</span>
+          <span style="font: 600 24px Poppins, sans-serif; color: #fff;" style-hover="color: #BE9678;">518 169 491</span>
+        </span>
+      </a>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px;">
+        <a href="https://wa.me/48518169491" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; font: 600 14px Poppins, sans-serif; color: #fff; border: 1px solid #3D352E; border-radius: 999px; padding: 12px 22px; text-decoration: none;" style-hover="border-color: #BE9678; color: #BE9678;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.07-.12-.27-.2-.57-.35zM12.04 21.79h-.01a9.77 9.77 0 0 1-4.98-1.37l-.36-.21-3.7.97.99-3.61-.24-.37a9.77 9.77 0 0 1-1.5-5.21c0-5.4 4.4-9.8 9.81-9.8a9.74 9.74 0 0 1 6.93 2.88 9.74 9.74 0 0 1 2.87 6.94c0 5.4-4.4 9.78-9.81 9.78zm8.35-18.13A11.7 11.7 0 0 0 12.04.22C5.54.22.25 5.5.25 12c0 2.08.54 4.1 1.57 5.89L.15 24l6.26-1.64a11.77 11.77 0 0 0 5.63 1.43h.01c6.5 0 11.79-5.29 11.79-11.79 0-3.15-1.23-6.11-3.45-8.34z"></path></svg>
+          WhatsApp
+        </a>
+        <a href="https://m.me/cleaningservicekonin" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; font: 600 14px Poppins, sans-serif; color: #fff; border: 1px solid #3D352E; border-radius: 999px; padding: 12px 22px; text-decoration: none;" style-hover="border-color: #BE9678; color: #BE9678;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.24 0 0 4.95 0 11.64c0 3.5 1.43 6.52 3.77 8.61.2.17.31.43.32.7l.07 2.14a.96.96 0 0 0 1.35.85l2.39-1.05c.2-.09.43-.11.64-.05 1.1.3 2.26.46 3.46.46 6.76 0 12-4.95 12-11.66C24 4.95 18.76 0 12 0zm7.2 8.96l-3.52 5.59a1.8 1.8 0 0 1-2.6.48l-2.8-2.1a.72.72 0 0 0-.87 0l-3.78 2.87c-.5.38-1.16-.22-.83-.76l3.52-5.59a1.8 1.8 0 0 1 2.6-.48l2.8 2.1c.26.2.61.2.87 0l3.78-2.87c.5-.38 1.16.22.83.76z"></path></svg>
+          Messenger
+        </a>
+      </div>
+      <span style="font: 400 13.5px Lato, sans-serif; color: #6E6258;">Konin i okolice — do 100 km</span>
+    </div>
+
+    <div style="background: #FBF8F5; border-radius: 22px; padding: clamp(26px, 3vw, 38px);">
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <span style="font: 600 19px Poppins, sans-serif; color: #221C18;">Napisz do nas</span>
+          <label style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font: 600 12.5px Poppins, sans-serif; letter-spacing: 0.6px; color: #6E6258;">Imię</span>
+            <input type="text" placeholder="np. Anna" style="font: 400 15px Lato, sans-serif; color: #221C18; background: #fff; border: 1px solid #DCCFC2; border-radius: 12px; padding: 14px 16px; outline: none;" style-focus="border-color: #BE9678;" />
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font: 600 12.5px Poppins, sans-serif; letter-spacing: 0.6px; color: #6E6258;">Telefon</span>
+            <input type="tel" placeholder="np. 600 000 000" style="font: 400 15px Lato, sans-serif; color: #221C18; background: #fff; border: 1px solid #DCCFC2; border-radius: 12px; padding: 14px 16px; outline: none;" style-focus="border-color: #BE9678;" />
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font: 600 12.5px Poppins, sans-serif; letter-spacing: 0.6px; color: #6E6258;">Rodzaj usługi</span>
+            <select style="font: 400 15px Lato, sans-serif; color: #221C18; background: #fff; border: 1px solid #DCCFC2; border-radius: 12px; padding: 14px 16px; outline: none; cursor: pointer;" style-focus="border-color: #BE9678;">
+              <option>Sprzątanie mieszkania / domu</option>
+              <option>Sprzątanie cykliczne</option>
+              <option>Sprzątanie jednorazowe</option>
+              <option>Sprzątanie po remoncie</option>
+              <option>Mycie okien i przeszkleń</option>
+              <option>Pranie tapicerki / materacy / wykładzin</option>
+              <option>Domek letniskowy / kamper</option>
+              <option>Opieka nad grobami / renowacja pomników</option>
+              <option>Usługa dla firmy / obiektu komercyjnego</option>
+              <option>Inne — opiszę w wiadomości</option>
+            </select>
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font: 600 12.5px Poppins, sans-serif; letter-spacing: 0.6px; color: #6E6258;">Wiadomość</span>
+            <textarea rows="4" placeholder="Opisz krótko obiekt i czego potrzebujesz…" style="font: 400 15px/1.6 Lato, sans-serif; color: #221C18; background: #fff; border: 1px solid #DCCFC2; border-radius: 12px; padding: 14px 16px; outline: none; resize: vertical;" style-focus="border-color: #BE9678;"></textarea>
+          </label>
+          <button onClick="{{ send }}" style="font: 600 15px Poppins, sans-serif; color: #fff; background: #221C18; border: none; padding: 16px 30px; border-radius: 999px; cursor: pointer; margin-top: 4px;" style-hover="background: #BE9678;">Wyślij zapytanie</button>
+          <span style="font: 400 12.5px Lato, sans-serif; color: #A08B7B;">Wysyłając formularz wyrażasz zgodę na kontakt w sprawie wyceny.</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; padding: 40px 10px;">
+          <span style="width: 64px; height: 64px; border-radius: 50%; background: #F2E9E1; display: flex; align-items: center; justify-content: center; font: 600 26px Poppins, sans-serif; color: #BE9678;">✦</span>
+          <span style="font: 600 21px Poppins, sans-serif; color: #221C18;">Dziękujemy za wiadomość!</span>
+          <span style="font: 400 15px/1.7 Lato, sans-serif; color: #6E6258; max-width: 320px;">Odezwiemy się tak szybko, jak to możliwe, żeby ustalić szczegóły i przygotować wycenę.</span>
+          <button onClick="{{ reset }}" style="font: 600 14px Poppins, sans-serif; color: #221C18; background: none; border: 1px solid #DCCFC2; padding: 12px 26px; border-radius: 999px; cursor: pointer;" style-hover="border-color: #221C18;">Wyślij kolejną</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STOPKA ===== -->
+<footer style="background: #1A1511; border-top: 1px solid #3D352E;">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 36px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span style="width: 38px; height: 38px; border-radius: 10px; background: #FBF8F5; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="assets/logo-icon.png" alt="" style="width: 30px; height: 30px; object-fit: contain;" />
+      </span>
+      <span style="display: flex; flex-direction: column; line-height: 1.2;">
+        <span style="font: 600 15px Poppins, sans-serif; color: #fff;">Cleaning Service Konin</span>
+        <span style="font: 400 11.5px Lato, sans-serif; letter-spacing: 1.2px; color: #A08B7B; text-transform: uppercase;">Sprawnie • Dokładnie • Dyskretnie • Przystępnie</span>
+      </span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px;">
+      <a href="tel:+48518169491" style="font: 600 14px Poppins, sans-serif; color: #E8DFD6; text-decoration: none;" style-hover="color: #BE9678;">518 169 491</a>
+      <span style="font: 400 13px Lato, sans-serif; color: #6E6258;">Konin i okolice — do 100 km</span>
+      <span style="font: 400 13px Lato, sans-serif; color: #6E6258;">© 2026 Cleaning Service Konin</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== PŁYWAJĄCY PRZYCISK (MOBILE) ===== -->
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+  <a href="tel:+48518169491" aria-label="Zadzwoń" style="position: fixed; bottom: 20px; right: 20px; z-index: 60; display: flex; align-items: center; gap: 10px; background: #221C18; color: #fff; font: 600 15px Poppins, sans-serif; padding: 16px 24px; border-radius: 999px; text-decoration: none; box-shadow: 0 14px 34px rgba(20,12,6,0.35);">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" fill="#BE9678"></path></svg>
+    Zadzwoń
+  </a>
+</sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroVariant&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;klasyczny&quot;, &quot;options&quot;: [&quot;klasyczny&quot;, &quot;centralny&quot;, &quot;ramka&quot;], &quot;tsType&quot;: &quot;'klasyczny' | 'centralny' | 'ramka'&quot;}}">
+class Component extends DCLogic {
+  state = { tab: 'private', menuOpen: false, isMobile: false, faqOpen: 0, sent: false };
+
+  componentDidMount() {
+    this._mq = window.matchMedia('(max-width: 920px)');
+    this._onMq = () => this.setState({ isMobile: this._mq.matches, menuOpen: false });
+    this._mq.addEventListener('change', this._onMq);
+    this.setState({ isMobile: this._mq.matches });
+  }
+
+  componentWillUnmount() {
+    if (this._mq) this._mq.removeEventListener('change', this._onMq);
+  }
+
+  renderVals() {
+    const variant = this.props.heroVariant ?? 'klasyczny';
+    const tab = this.state.tab;
+    const tabBase = 'font: 600 15px Poppins, sans-serif; padding: 13px 30px; border-radius: 999px; cursor: pointer; transition: all .2s;';
+    const faq = {};
+    for (let i = 1; i <= 5; i++) {
+      const open = this.state.faqOpen === i;
+      faq[i] = {
+        open: open,
+        toggle: () => this.setState(s => ({ faqOpen: s.faqOpen === i ? 0 : i })),
+        mark: open ? '−' : '+'
+      };
+    }
+    return {
+      isMobile: this.state.isMobile,
+      notMobile: !this.state.isMobile,
+      menuOpen: this.state.menuOpen && this.state.isMobile,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      heroA: variant === 'klasyczny',
+      heroB: variant === 'centralny',
+      heroC: variant === 'ramka',
+      showPrivate: tab === 'private',
+      showBusiness: tab === 'business',
+      setPrivate: () => this.setState({ tab: 'private' }),
+      setBusiness: () => this.setState({ tab: 'business' }),
+      tabPrivStyle: tabBase + (tab === 'private' ? 'background: #221C18; color: #fff; border: 1px solid #221C18;' : 'background: transparent; color: #6E6258; border: 1px solid #DCCFC2;'),
+      tabBizStyle: tabBase + (tab === 'business' ? 'background: #221C18; color: #fff; border: 1px solid #221C18;' : 'background: transparent; color: #6E6258; border: 1px solid #DCCFC2;'),
+      faq: faq,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      send: () => this.setState({ sent: true }),
+      reset: () => this.setState({ sent: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

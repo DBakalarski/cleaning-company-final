@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #FBF8F5; color: #221C18; font-family: 'Lato', sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+
+<div data-screen-label="Cennik" style="min-width: 320px; overflow-x: hidden;">
+
+<!-- ===== HEADER ===== -->
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(251,248,245,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #EBE1D6;">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+    <a href="Cleaning Service Konin.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #221C18;">
+      <img src="assets/logo-icon.png" alt="Cleaning Service Konin" style="width: 46px; height: 46px; mix-blend-mode: multiply;" />
+      <span style="display: flex; flex-direction: column; line-height: 1.15;">
+        <span style="font: 700 17px Poppins, sans-serif; letter-spacing: -0.2px;">Cleaning Service Konin</span>
+        <span style="font: 400 10.5px Lato, sans-serif; letter-spacing: 1.6px; color: #A08B7B; text-transform: uppercase;">Sprawnie • Dokładnie • Dyskretnie</span>
+      </span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 18px;">
+      <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+        <a href="Cleaning Service Konin.dc.html" style="font: 600 14px Poppins, sans-serif; color: #4D443C; text-decoration: none;" style-hover="color: #BE9678;">← Strona główna</a>
+      </sc-if>
+      <a href="tel:+48518169491" style="font: 600 14px Poppins, sans-serif; color: #fff; background: #221C18; padding: 11px 22px; border-radius: 999px; text-decoration: none; white-space: nowrap;" style-hover="background: #BE9678;">518 169 491</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== INTRO ===== -->
+<section style="background: #F2E9E1; border-bottom: 1px solid #E5D9CC; position: relative; overflow: hidden;">
+  <svg width="250" height="210" viewBox="0 0 250 210" fill="none" style="position: absolute; top: -16px; right: -36px; pointer-events: none;"><g stroke="#DCCBB7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="160" y="98" width="52" height="86" rx="10"></rect><path d="M174 98v-22h24v22"></path><path d="M174 76h-26v14h12"></path><path d="M148 80l-12 0"></path></g><g stroke="#D3BCA2" stroke-width="1.5" stroke-linecap="round"><path d="M124 62l-14 -8"></path><path d="M122 80h-17"></path><path d="M124 98l-14 8"></path></g><circle cx="88" cy="48" r="2.5" stroke="#D3BCA2" stroke-width="1.5"></circle><circle cx="76" cy="80" r="3" stroke="#D3BCA2" stroke-width="1.5"></circle><circle cx="88" cy="112" r="2" stroke="#D3BCA2" stroke-width="1.5"></circle><circle cx="60" cy="62" r="1.8" stroke="#DCCBB7" stroke-width="1.5"></circle><circle cx="58" cy="98" r="2.2" stroke="#DCCBB7" stroke-width="1.5"></circle></svg>
+  <div style="max-width: 1180px; margin: 0 auto; padding: clamp(48px, 7vw, 90px) 24px; display: flex; flex-direction: column; gap: 18px; position: relative;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="width: 28px; height: 1px; background: #BE9678;"></span>
+      <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Cennik</span>
+    </div>
+    <h1 style="margin: 0; font: 600 clamp(30px, 4vw, 50px)/1.15 Poppins, sans-serif; letter-spacing: -0.9px; text-wrap: balance; max-width: 740px;">Cennik usług <span style="position: relative; display: inline-block;">dodatkowych<svg viewBox="0 0 140 12" preserveAspectRatio="none" style="position: absolute; left: 1%; bottom: -10px; width: 96%; height: 12px;"><path d="M3 9 C 28 3, 62 2.5, 78 5.5 S 122 9.5, 137 4" fill="none" stroke="#BE9678" stroke-width="2.5" stroke-linecap="round" opacity="0.8"></path></svg></span> i specjalistycznych</h1>
+    <p style="margin: 0; font: 400 16px/1.75 Lato, sans-serif; color: #6E6258; max-width: 640px; text-wrap: pretty;">Poniższe ceny mają charakter orientacyjny. Ostateczna wycena zależy od zakresu prac, metrażu, stopnia zabrudzenia, rodzaju powierzchni oraz lokalizacji. Każda usługa może zostać dopasowana indywidualnie do potrzeb klienta.</p>
+  </div>
+</section>
+
+<!-- ===== KATEGORIE ===== -->
+<section style="max-width: 1180px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: 22px; align-items: start;">
+
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20V6.5A2.5 2.5 0 0 1 8.5 4h0A2.5 2.5 0 0 1 11 6.5v.5"></path><path d="M11 7h4"></path><path d="M13 7v1.5"></path><path d="M10.2 12.2l.9.9M13 11l.9.9M15.8 9.8l.9.9"></path><path d="M13 16.5v.01M16 14.5v.01M17.5 18v.01"></path></svg></span>
+      <h2 style="margin: 0; font: 600 19px/1.3 Poppins, sans-serif; letter-spacing: -0.3px;">Łazienki, płytki, fugi i kamień</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie płytek od góry do dołu</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 8 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Czyszczenie fug</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 15 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Impregnacja fug</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 10 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Doczyszczanie kabiny prysznicowej z kamienia</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 80 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Odkamienianie armatury, odpływów i zakamarków</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 50 zł</span></div>
+    </div>
+  </div>
+
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="4.5" width="15" height="15" rx="1.5"></rect><path d="M4.5 9h15"></path><rect x="8" y="11.8" width="8" height="4.6" rx="0.8"></rect><path d="M7 6.8h.01M10 6.8h.01M13 6.8h.01"></path></svg></span>
+      <h2 style="margin: 0; font: 600 19px/1.3 Poppins, sans-serif; letter-spacing: -0.3px;">Kuchnia i sprzęty AGD</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Czyszczenie piekarnika</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 60 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie lodówki w środku</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 50 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie zmywarki, pralki lub suszarki w środku</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 50 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie okapu z filtrami</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 80 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie witryny kuchennej w środku</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 120 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie witryny wraz z zastawą</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 150 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie frontów kuchennych</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 20 zł/mb</span></div>
+    </div>
+  </div>
+
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V8.5A2.5 2.5 0 0 1 9.5 6h5A2.5 2.5 0 0 1 17 8.5V11"></path><path d="M5 17v-3.4a1.9 1.9 0 0 1 3.8 0v.9h6.4v-.9a1.9 1.9 0 0 1 3.8 0V17z"></path><path d="M6.3 17v1.8M17.7 17v1.8"></path></svg></span>
+      <h2 style="margin: 0; font: 600 19px/1.3 Poppins, sans-serif; letter-spacing: -0.3px;">Pranie tapicerki i tekstyliów</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Pranie krzesła tapicerowanego</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 20 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Pranie fotela</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 80 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Pranie kanapy</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 150 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Pranie narożnika</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 250 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Pranie materaca</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 120 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Pranie dywanu</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 15 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Pranie wykładziny biurowej lub hotelowej</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 10 zł/m²</span></div>
+    </div>
+  </div>
+
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5l-4.2 9.2"></path><path d="M14.5 4.5h3"></path><circle cx="9" cy="17" r="3.4"></circle><path d="M13.5 19.5h6"></path></svg></span>
+      <h2 style="margin: 0; font: 600 19px/1.3 Poppins, sans-serif; letter-spacing: -0.3px;">Podłogi i doczyszczanie maszynowe</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Maszynowe mycie podłogi</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 6 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Doczyszczanie podłogi szorowarką</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 9 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Doczyszczanie mocno zabrudzonej podłogi</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 15 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Punktowe usuwanie trudnych zabrudzeń</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 50 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Zabezpieczenie lub pielęgnacja podłogi</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 8 zł/m²</span></div>
+    </div>
+  </div>
+
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="15" rx="1.5"></rect><path d="M12 4.5v15M5 12h14"></path><path d="M7.2 9.6l2.2-2.2"></path></svg></span>
+      <h2 style="margin: 0; font: 600 19px/1.3 Poppins, sans-serif; letter-spacing: -0.3px;">Okna, witryny i przeszklenia</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie okna standardowego</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 40 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie drzwi balkonowych</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 50 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie dużych przeszkleń</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 70 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie okien HST / dużych drzwi tarasowych</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 80 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie witryn sklepowych</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 8 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie okien po remoncie</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap; text-align: right;">dopłata od 30%</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Usuwanie naklejek, kleju, farby lub trudnych zabrudzeń</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 30 zł</span></div>
+    </div>
+  </div>
+
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.5c0-2.2 1.8-4 4-4s4 1.8 4 4v1.5H8z"></path><path d="M6.5 15h11"></path><path d="M8.5 18.5c.8-.8.8-1.7 0-2.5M12 18.5c.8-.8.8-1.7 0-2.5M15.5 18.5c.8-.8.8-1.7 0-2.5"></path><path d="M12 6.5V4.5"></path></svg></span>
+      <h2 style="margin: 0; font: 600 19px/1.3 Poppins, sans-serif; letter-spacing: -0.3px;">Czyszczenie parowe</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Czyszczenie parowe fug punktowo</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 80 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Czyszczenie parowe łazienki</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 150 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Czyszczenie parowe kuchni</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 150 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Czyszczenie trudno dostępnych miejsc</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 70 zł</span></div>
+    </div>
+  </div>
+
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l8-5.5L20 10"></path><path d="M5.8 9v10h12.4V9"></path><path d="M8.5 12.5h7M8.5 15.2h7M8.5 17.9h7"></path></svg></span>
+      <h2 style="margin: 0; font: 600 19px/1.3 Poppins, sans-serif; letter-spacing: -0.3px;">Pomieszczenia gospodarcze, garaże i domki</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Gruntowne sprzątanie pomieszczenia gospodarczego</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 150 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Sprzątanie garażu</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 8 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Odkurzanie pajęczyn wewnątrz pomieszczeń</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 80 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Odkurzanie pajęczyn zewnętrznych z domku, tarasu lub elewacji</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 150 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Sprzątanie domku letniskowego</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 500 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Home staging porządkowy przed sprzedażą nieruchomości</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 1200 zł</span></div>
+    </div>
+  </div>
+
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19.5V8.8L12 4l7 4.8"></path><path d="M19 12.5v7"></path><path d="M3.5 19.5h17"></path><path d="M14.5 9.5c1.2 1.2 1.2 2.8 0 4M16.8 8.2c2 2 2 4.6 0 6.6"></path></svg></span>
+      <h2 style="margin: 0; font: 600 19px/1.3 Poppins, sans-serif; letter-spacing: -0.3px;">Mycie zewnętrzne</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie kostki brukowej</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 8 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie tarasu</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 10 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie elewacji z poziomu gruntu</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 10 do 15 zł/m²</span></div>
+    </div>
+  </div>
+
+  <div style="background: #fff; border: 1px solid #EBE1D6; border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="width: 48px; height: 48px; border-radius: 14px; background: #F7F1EA; border: 1px solid #EBE1D6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BE9678" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9.5" y="10.5" width="5" height="8" rx="1.2"></rect><path d="M12 7.8c1.3-1.2 1.3-2.4 0-3.8-1.3 1.4-1.3 2.6 0 3.8z"></path><path d="M12 7.8v2.7"></path><path d="M6.5 18.5h11"></path></svg></span>
+      <h2 style="margin: 0; font: 600 19px/1.3 Poppins, sans-serif; letter-spacing: -0.3px;">Nagrobki i miejsca pamięci</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie nagrobka pojedynczego</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 100 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Mycie nagrobka podwójnego</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 150 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Doczyszczanie mocnych zabrudzeń</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 50 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Sprzątanie otoczenia grobu</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 50 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Stała opieka nad grobem</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 100 zł/mies.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Czyszczenie nagrobka z lastryko</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 150 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Doczyszczanie mocno zabrudzonego lastryko</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 200 zł/szt.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Renowacja powierzchni lastryko nagrobków</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 250 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Zabezpieczenie powierzchni lastryko</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 80 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Renowacja lastryko z użyciem żywicy epoksydowej</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 300 zł/m²</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Odświeżenie liter na nagrobku</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap;">od 100 zł</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Uzupełnienie drobnych ubytków w nagrobku</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap; color: #BE9678;">wycena indywidualna</span></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;"><span style="font: 400 15px/1.5 Lato, sans-serif; color: #4D443C;">Kompleksowa renowacja nagrobka z lastryko</span><span style="flex: 1; border-bottom: 1px dotted #DCCFC2; min-width: 20px;"></span><span style="font: 600 14.5px Poppins, sans-serif; white-space: nowrap; color: #BE9678;">wycena indywidualna</span></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== CTA ===== -->
+<section style="background: #221C18; position: relative; overflow: hidden;">
+  <div style="position: absolute; bottom: -110px; right: -80px; width: 380px; height: 330px; background: radial-gradient(ellipse at center, rgba(190,150,120,0.16), transparent 65%); pointer-events: none;"></div><div style="position: absolute; top: -120px; left: -100px; width: 360px; height: 320px; background: radial-gradient(ellipse at center, rgba(190,150,120,0.10), transparent 65%); pointer-events: none;"></div>
+  <div style="max-width: 820px; margin: 0 auto; padding: clamp(48px, 7vw, 90px) 24px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; position: relative;">
+    <h2 style="margin: 0; font: 600 clamp(26px, 3.2vw, 38px)/1.2 Poppins, sans-serif; letter-spacing: -0.6px; color: #fff; text-wrap: balance; position: relative; display: inline-block;">Nie wiesz, jaki zakres wybrać?</h2>
+    <p style="margin: 0; font: 400 16px/1.75 Lato, sans-serif; color: #C9BCAE; max-width: 540px; text-wrap: pretty;">Wyślij zdjęcia pomieszczeń lub krótki opis zlecenia — przygotuję indywidualną wycenę dopasowaną do realnego zakresu prac.</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 6px;">
+      <a href="Cleaning Service Konin.dc.html#kontakt" style="font: 600 15px Poppins, sans-serif; color: #221C18; background: #BE9678; padding: 16px 30px; border-radius: 999px; text-decoration: none;" style-hover="background: #fff;">Napisz do nas</a>
+      <a href="tel:+48518169491" style="font: 600 15px Poppins, sans-serif; color: #fff; border: 1px solid #3D352E; padding: 15px 30px; border-radius: 999px; text-decoration: none;" style-hover="border-color: #BE9678; color: #BE9678;">Zadzwoń: 518 169 491</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STOPKA ===== -->
+<footer style="background: #1A1511; border-top: 1px solid #3D352E;">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+    <a href="Cleaning Service Konin.dc.html" style="font: 600 14px Poppins, sans-serif; color: #E8DFD6; text-decoration: none;" style-hover="color: #BE9678;">← Wróć na stronę główną</a>
+    <span style="font: 400 13px Lato, sans-serif; color: #6E6258;">© 2026 Cleaning Service Konin • Konin i okolice — do 100 km</span>
+  </div>
+</footer>
+
+<!-- ===== PŁYWAJĄCY PRZYCISK (MOBILE) ===== -->
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+  <a href="tel:+48518169491" aria-label="Zadzwoń" style="position: fixed; bottom: 20px; right: 20px; z-index: 60; display: flex; align-items: center; gap: 10px; background: #221C18; color: #fff; font: 600 15px Poppins, sans-serif; padding: 16px 24px; border-radius: 999px; text-decoration: none; box-shadow: 0 14px 34px rgba(20,12,6,0.35);">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" fill="#BE9678"></path></svg>
+    Zadzwoń
+  </a>
+</sc-if>
+
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false };
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 860px)');
+    this.onMq = () => this.setState({ isMobile: this.mq.matches });
+    this.mq.addEventListener('change', this.onMq);
+    this.onMq();
+  }
+  componentWillUnmount() {
+    if (this.mq) this.mq.removeEventListener('change', this.onMq);
+  }
+  renderVals() {
+    return {
+      isMobile: this.state.isMobile,
+      notMobile: !this.state.isMobile
+    };
+  }
+}
+</script>
+</body>
+</html>

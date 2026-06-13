@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #ECE6DF; color: #221C18; font-family: 'Lato', sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+
+<div data-screen-label="Propozycje tła" style="max-width: 1240px; margin: 0 auto; padding: clamp(36px, 5vw, 64px) 24px; display: flex; flex-direction: column; gap: 36px;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px; max-width: 720px;">
+    <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Eksploracja</span>
+    <h1 style="margin: 0; font: 600 clamp(26px, 3.4vw, 40px)/1.15 Poppins, sans-serif; letter-spacing: -0.7px;">Czym zastąpić gwiazdki w tle?</h1>
+    <p style="margin: 0; font: 400 15.5px/1.7 Lato, sans-serif; color: #6E6258; text-wrap: pretty;">Pięć kierunków w klimacie marki — każdy pokazany na jasnym tle sekcji intro oraz na ciemnym tle sekcji kontaktowej. Wszystkie używają tych samych kolorów co obecna strona.</p>
+  </div>
+
+  <!-- ===== 1. BAŃKI MYDLANE ===== -->
+  <section style="background: #fff; border: 1px solid #DDD2C6; border-radius: 22px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h2 style="margin: 0; font: 600 18px Poppins, sans-serif; letter-spacing: -0.3px;">1 · Bańki mydlane</h2>
+      <p style="margin: 0; font: 400 14px/1.6 Lato, sans-serif; color: #6E6258;">Najbardziej „sprzątający" motyw — delikatne, nakładające się okręgi z drobnym refleksem światła. Lekki i przyjazny.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 14px;">
+      <div style="background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="220" height="200" viewBox="0 0 220 200" fill="none" style="position: absolute; top: -30px; right: -40px; pointer-events: none;">
+          <circle cx="120" cy="80" r="58" stroke="#E0D2C2" stroke-width="1.5"></circle>
+          <path d="M88 56 a 42 42 0 0 1 24 -16" stroke="#D3C2AF" stroke-width="1.5" stroke-linecap="round"></path>
+          <circle cx="185" cy="135" r="26" stroke="#E0D2C2" stroke-width="1.5"></circle>
+          <circle cx="78" cy="150" r="12" stroke="#E0D2C2" stroke-width="1.5"></circle>
+          <circle cx="172" cy="36" r="7" stroke="#D8BFA8" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; position: relative;">Cennik usług</span>
+      </div>
+      <div style="background: #221C18; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="220" height="200" viewBox="0 0 220 200" fill="none" style="position: absolute; bottom: -40px; right: -36px; pointer-events: none;">
+          <circle cx="120" cy="110" r="58" stroke="#3D352E" stroke-width="1.5"></circle>
+          <path d="M88 86 a 42 42 0 0 1 24 -16" stroke="#594C3F" stroke-width="1.5" stroke-linecap="round"></path>
+          <circle cx="48" cy="60" r="20" stroke="#3D352E" stroke-width="1.5"></circle>
+          <circle cx="190" cy="40" r="9" stroke="#4A4138" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; color: #fff; position: relative;">Napisz do nas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. KRĘGI POŁYSKU ===== -->
+  <section style="background: #fff; border: 1px solid #DDD2C6; border-radius: 22px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h2 style="margin: 0; font: 600 18px Poppins, sans-serif; letter-spacing: -0.3px;">2 · Kręgi połysku</h2>
+      <p style="margin: 0; font: 400 14px/1.6 Lato, sans-serif; color: #6E6258;">Koncentryczne łuki rozchodzące się z narożnika — jak blask wypolerowanej powierzchni. Spokojny, elegancki rytm.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 14px;">
+      <div style="background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="300" height="300" viewBox="0 0 300 300" fill="none" style="position: absolute; top: -150px; right: -150px; pointer-events: none;">
+          <circle cx="150" cy="150" r="60" stroke="#E0D2C2" stroke-width="1.5"></circle>
+          <circle cx="150" cy="150" r="95" stroke="#E0D2C2" stroke-width="1.5"></circle>
+          <circle cx="150" cy="150" r="130" stroke="#E7DCCF" stroke-width="1.5"></circle>
+          <circle cx="150" cy="150" r="4" fill="#D8BFA8"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; position: relative;">Cennik usług</span>
+      </div>
+      <div style="background: #221C18; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="300" height="300" viewBox="0 0 300 300" fill="none" style="position: absolute; bottom: -150px; right: -150px; pointer-events: none;">
+          <circle cx="150" cy="150" r="60" stroke="#3D352E" stroke-width="1.5"></circle>
+          <circle cx="150" cy="150" r="95" stroke="#3D352E" stroke-width="1.5"></circle>
+          <circle cx="150" cy="150" r="130" stroke="#332C25" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; color: #fff; position: relative;">Napisz do nas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. FALE WODY ===== -->
+  <section style="background: #fff; border: 1px solid #DDD2C6; border-radius: 22px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h2 style="margin: 0; font: 600 18px Poppins, sans-serif; letter-spacing: -0.3px;">3 · Fale wody</h2>
+      <p style="margin: 0; font: 400 14px/1.6 Lato, sans-serif; color: #6E6258;">Łagodne, płynące linie — skojarzenie z czystą wodą i świeżością. Dobrze działa przy dolnej lub górnej krawędzi sekcji.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 14px;">
+      <div style="background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="100%" height="70" viewBox="0 0 600 70" preserveAspectRatio="none" fill="none" style="position: absolute; bottom: 0; left: 0; pointer-events: none;">
+          <path d="M0 28 Q 75 10 150 28 T 300 28 T 450 28 T 600 28" stroke="#E0D2C2" stroke-width="1.5"></path>
+          <path d="M0 46 Q 75 28 150 46 T 300 46 T 450 46 T 600 46" stroke="#E7DCCF" stroke-width="1.5"></path>
+          <path d="M0 64 Q 75 46 150 64 T 300 64 T 450 64 T 600 64" stroke="#EDE3D6" stroke-width="1.5"></path>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; position: relative;">Cennik usług</span>
+      </div>
+      <div style="background: #221C18; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="100%" height="70" viewBox="0 0 600 70" preserveAspectRatio="none" fill="none" style="position: absolute; bottom: 0; left: 0; pointer-events: none;">
+          <path d="M0 28 Q 75 10 150 28 T 300 28 T 450 28 T 600 28" stroke="#3D352E" stroke-width="1.5"></path>
+          <path d="M0 46 Q 75 28 150 46 T 300 46 T 450 46 T 600 46" stroke="#332C25" stroke-width="1.5"></path>
+          <path d="M0 64 Q 75 46 150 64 T 300 64 T 450 64 T 600 64" stroke="#2C261F" stroke-width="1.5"></path>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; color: #fff; position: relative;">Napisz do nas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. SIATKA KROPEK ===== -->
+  <section style="background: #fff; border: 1px solid #DDD2C6; border-radius: 22px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h2 style="margin: 0; font: 600 18px Poppins, sans-serif; letter-spacing: -0.3px;">4 · Siatka kropek</h2>
+      <p style="margin: 0; font: 400 14px/1.6 Lato, sans-serif; color: #6E6258;">Dyskretny raster kropek wygasający ku środkowi — czysto, porządnie, bardzo „uporządkowane". Najbardziej neutralna opcja.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 14px;">
+      <div style="background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <div style="position: absolute; top: 0; right: 0; width: 260px; height: 200px; background-image: radial-gradient(#D8C8B5 2px, transparent 2px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(ellipse at top right, #000 30%, transparent 75%); mask-image: radial-gradient(ellipse at top right, #000 30%, transparent 75%); pointer-events: none;"></div>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; position: relative;">Cennik usług</span>
+      </div>
+      <div style="background: #221C18; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <div style="position: absolute; bottom: 0; right: 0; width: 260px; height: 200px; background-image: radial-gradient(#473E34 2px, transparent 2px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(ellipse at bottom right, #000 30%, transparent 75%); mask-image: radial-gradient(ellipse at bottom right, #000 30%, transparent 75%); pointer-events: none;"></div>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; color: #fff; position: relative;">Napisz do nas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. MIĘKKA POŚWIATA ===== -->
+  <section style="background: #fff; border: 1px solid #DDD2C6; border-radius: 22px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h2 style="margin: 0; font: 600 18px Poppins, sans-serif; letter-spacing: -0.3px;">5 · Miękka poświata</h2>
+      <p style="margin: 0; font: 400 14px/1.6 Lato, sans-serif; color: #6E6258;">Zero linii — tylko ciepła, rozmyta plama światła w narożniku. Najspokojniejsza opcja; tło zostaje czyste, ale nie płaskie.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 14px;">
+      <div style="background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <div style="position: absolute; top: -90px; right: -70px; width: 320px; height: 280px; background: radial-gradient(ellipse at center, rgba(190,150,120,0.22), transparent 65%); pointer-events: none;"></div>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; position: relative;">Cennik usług</span>
+      </div>
+      <div style="background: #221C18; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <div style="position: absolute; bottom: -90px; right: -70px; width: 320px; height: 280px; background: radial-gradient(ellipse at center, rgba(190,150,120,0.16), transparent 65%); pointer-events: none;"></div>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; color: #fff; position: relative;">Napisz do nas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MOTYWY SPRZĄTAJĄCE ===== -->
+  <div style="display: flex; flex-direction: column; gap: 6px; max-width: 720px; margin-top: 8px;">
+    <span style="font: 600 12px Poppins, sans-serif; letter-spacing: 2.5px; text-transform: uppercase; color: #BE9678;">Runda 2</span>
+    <h2 style="margin: 0; font: 600 clamp(22px, 2.6vw, 30px)/1.2 Poppins, sans-serif; letter-spacing: -0.5px;">Motywy wprost ze sprzątania</h2>
+  </div>
+
+  <!-- ===== 6. MIOTŁA ===== -->
+  <section style="background: #fff; border: 1px solid #DDD2C6; border-radius: 22px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h2 style="margin: 0; font: 600 18px Poppins, sans-serif; letter-spacing: -0.3px;">6 · Miotła i drobinki kurzu</h2>
+      <p style="margin: 0; font: 400 14px/1.6 Lato, sans-serif; color: #6E6258;">Duża, szkicowa miotła wystająca zza narożnika + kilka drobinek kurzu. Najbardziej dosłowny, sympatyczny motyw.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 14px;">
+      <div style="background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="230" height="230" viewBox="0 0 230 230" fill="none" style="position: absolute; top: -38px; right: -20px; pointer-events: none;">
+          <g transform="rotate(28 130 100)" stroke="#DCCBB7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M130 -10v100"></path>
+            <path d="M112 90h36l10 34H102z"></path>
+            <path d="M106 124l-4 28M117 124l-2 28M128 124v28M139 124l2 28M150 124l4 28"></path>
+          </g>
+          <circle cx="62" cy="180" r="3" stroke="#D3BCA2" stroke-width="1.5"></circle>
+          <circle cx="84" cy="200" r="2" stroke="#D3BCA2" stroke-width="1.5"></circle>
+          <circle cx="48" cy="205" r="2.5" stroke="#DCCBB7" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; position: relative;">Cennik usług</span>
+      </div>
+      <div style="background: #221C18; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="230" height="230" viewBox="0 0 230 230" fill="none" style="position: absolute; bottom: -46px; right: -20px; pointer-events: none;">
+          <g transform="rotate(-152 115 115)" stroke="#473E34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M115 -10v100"></path>
+            <path d="M97 90h36l10 34H87z"></path>
+            <path d="M91 124l-4 28M102 124l-2 28M113 124v28M124 124l2 28M135 124l4 28"></path>
+          </g>
+          <circle cx="60" cy="60" r="3" stroke="#594C3F" stroke-width="1.5"></circle>
+          <circle cx="84" cy="40" r="2" stroke="#594C3F" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; color: #fff; position: relative;">Napisz do nas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. SPRAY Z MGIEŁKĄ ===== -->
+  <section style="background: #fff; border: 1px solid #DDD2C6; border-radius: 22px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h2 style="margin: 0; font: 600 18px Poppins, sans-serif; letter-spacing: -0.3px;">7 · Spray z mgiełką</h2>
+      <p style="margin: 0; font: 400 14px/1.6 Lato, sans-serif; color: #6E6258;">Butelka ze spryskiwaczem psikająca delikatną mgiełkę kropek w stronę treści. Dynamiczny, ale wciąż subtelny.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 14px;">
+      <div style="background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="250" height="210" viewBox="0 0 250 210" fill="none" style="position: absolute; top: -16px; right: -36px; pointer-events: none;">
+          <g stroke="#DCCBB7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="160" y="98" width="52" height="86" rx="10"></rect>
+            <path d="M174 98v-22h24v22"></path>
+            <path d="M174 76h-26v14h12"></path>
+            <path d="M148 80l-12 0"></path>
+          </g>
+          <g stroke="#D3BCA2" stroke-width="1.5" stroke-linecap="round">
+            <path d="M124 62l-14 -8"></path>
+            <path d="M122 80h-17"></path>
+            <path d="M124 98l-14 8"></path>
+          </g>
+          <circle cx="88" cy="48" r="2.5" stroke="#D3BCA2" stroke-width="1.5"></circle>
+          <circle cx="76" cy="80" r="3" stroke="#D3BCA2" stroke-width="1.5"></circle>
+          <circle cx="88" cy="112" r="2" stroke="#D3BCA2" stroke-width="1.5"></circle>
+          <circle cx="60" cy="62" r="1.8" stroke="#DCCBB7" stroke-width="1.5"></circle>
+          <circle cx="58" cy="98" r="2.2" stroke="#DCCBB7" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; position: relative;">Cennik usług</span>
+      </div>
+      <div style="background: #221C18; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="250" height="210" viewBox="0 0 250 210" fill="none" style="position: absolute; bottom: -24px; right: -36px; pointer-events: none;">
+          <g stroke="#473E34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="160" y="98" width="52" height="86" rx="10"></rect>
+            <path d="M174 98v-22h24v22"></path>
+            <path d="M174 76h-26v14h12"></path>
+            <path d="M148 80l-12 0"></path>
+          </g>
+          <g stroke="#594C3F" stroke-width="1.5" stroke-linecap="round">
+            <path d="M124 62l-14 -8"></path>
+            <path d="M122 80h-17"></path>
+            <path d="M124 98l-14 8"></path>
+          </g>
+          <circle cx="88" cy="48" r="2.5" stroke="#594C3F" stroke-width="1.5"></circle>
+          <circle cx="76" cy="80" r="3" stroke="#594C3F" stroke-width="1.5"></circle>
+          <circle cx="88" cy="112" r="2" stroke="#594C3F" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; color: #fff; position: relative;">Napisz do nas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. ŚLAD MYCIA ===== -->
+  <section style="background: #fff; border: 1px solid #DDD2C6; border-radius: 22px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h2 style="margin: 0; font: 600 18px Poppins, sans-serif; letter-spacing: -0.3px;">8 · Ślad mycia (przetarcie)</h2>
+      <p style="margin: 0; font: 400 14px/1.6 Lato, sans-serif; color: #6E6258;">Szeroki, jaśniejszy łuk przez narożnik — jakby ktoś właśnie przetarł szybę ściągaczką. Bez ikon, czysto graficzny efekt.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 14px;">
+      <div style="background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="100%" height="100%" viewBox="0 0 460 220" preserveAspectRatio="xMaxYMin slice" fill="none" style="position: absolute; inset: 0; pointer-events: none;">
+          <path d="M250 240 Q 330 80 480 40" stroke="#FBF6F0" stroke-width="56" stroke-linecap="round"></path>
+          <path d="M222 240 Q 302 80 460 28" stroke="#E0D2C2" stroke-width="1.8" stroke-linecap="round"></path>
+          <circle cx="232" cy="190" r="3" stroke="#D8BFA8" stroke-width="1.5"></circle>
+          <circle cx="268" cy="118" r="2.2" stroke="#D8BFA8" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; position: relative;">Cennik usług</span>
+      </div>
+      <div style="background: #221C18; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="100%" height="100%" viewBox="0 0 460 220" preserveAspectRatio="xMaxYMin slice" fill="none" style="position: absolute; inset: 0; pointer-events: none;">
+          <path d="M250 240 Q 330 80 480 40" stroke="#2A231D" stroke-width="56" stroke-linecap="round"></path>
+          <path d="M222 240 Q 302 80 460 28" stroke="#473E34" stroke-width="1.8" stroke-linecap="round"></path>
+          <circle cx="232" cy="190" r="3" stroke="#594C3F" stroke-width="1.5"></circle>
+          <circle cx="268" cy="118" r="2.2" stroke="#594C3F" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; color: #fff; position: relative;">Napisz do nas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. WIADRO Z BAŃKAMI ===== -->
+  <section style="background: #fff; border: 1px solid #DDD2C6; border-radius: 22px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h2 style="margin: 0; font: 600 18px Poppins, sans-serif; letter-spacing: -0.3px;">9 · Wiadro z bańkami</h2>
+      <p style="margin: 0; font: 400 14px/1.6 Lato, sans-serif; color: #6E6258;">Wiadro wystające z dolnego narożnika, z którego unoszą się bańki. Łączy dosłowność miotły z lekkością baniek z opcji 1.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 14px;">
+      <div style="background: #F2E9E1; border: 1px solid #E5D9CC; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="220" height="230" viewBox="0 0 220 230" fill="none" style="position: absolute; bottom: -30px; right: -10px; pointer-events: none;">
+          <g stroke="#DCCBB7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M88 140h84l-10 70H98z"></path>
+            <path d="M88 140a42 26 0 0 1 84 0"></path>
+            <path d="M96 158h68"></path>
+          </g>
+          <circle cx="112" cy="104" r="11" stroke="#D3BCA2" stroke-width="1.5"></circle>
+          <circle cx="142" cy="82" r="7" stroke="#D3BCA2" stroke-width="1.5"></circle>
+          <circle cx="120" cy="58" r="4.5" stroke="#DCCBB7" stroke-width="1.5"></circle>
+          <circle cx="156" cy="46" r="3" stroke="#DCCBB7" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; position: relative;">Cennik usług</span>
+      </div>
+      <div style="background: #221C18; border-radius: 16px; height: 220px; position: relative; overflow: hidden; padding: 28px;">
+        <svg width="220" height="230" viewBox="0 0 220 230" fill="none" style="position: absolute; bottom: -30px; right: -10px; pointer-events: none;">
+          <g stroke="#473E34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M88 140h84l-10 70H98z"></path>
+            <path d="M88 140a42 26 0 0 1 84 0"></path>
+            <path d="M96 158h68"></path>
+          </g>
+          <circle cx="112" cy="104" r="11" stroke="#594C3F" stroke-width="1.5"></circle>
+          <circle cx="142" cy="82" r="7" stroke="#594C3F" stroke-width="1.5"></circle>
+          <circle cx="120" cy="58" r="4.5" stroke="#594C3F" stroke-width="1.5"></circle>
+          <circle cx="156" cy="46" r="3" stroke="#594C3F" stroke-width="1.5"></circle>
+        </svg>
+        <span style="font: 600 22px Poppins, sans-serif; letter-spacing: -0.4px; color: #fff; position: relative;">Napisz do nas</span>
+      </div>
+    </div>
+  </section>
+
+  <p style="margin: 0; font: 400 14px/1.7 Lato, sans-serif; color: #6E6258; max-width: 720px;">Opcje można też łączyć — np. bańki w jasnych sekcjach + miękka poświata w ciemnych. Daj znać, który kierunek wybierasz, a podmienię motyw na obu stronach (Strona główna + Cennik).</p>
+
+</div>
+
+</x-dc>
+</body>
+</html>
