@@ -16,9 +16,7 @@ export function Hero() {
       <div className="flex flex-col gap-6">
         <SectionEyebrow label="Usługi sprzątające • Konin i okolice" />
         <h1 className="m-0 font-heading text-[clamp(34px,4.6vw,56px)] font-semibold leading-[1.12] tracking-[-1px] text-balance">
-          Sprawnie. Dokładnie.
-          <br />
-          Dyskretnie.{" "}
+          Sprawnie. Dokładnie. Dyskretnie.{" "}
           <em className="relative inline-block not-italic text-accent">
             Przystępnie.
             <svg
