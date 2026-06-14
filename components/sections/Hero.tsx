@@ -114,7 +114,7 @@ export function Hero() {
             height={300}
             className="mix-blend-multiply"
           />
-          <span className="font-heading text-[clamp(20px,2.4vw,24px)] font-semibold leading-[1.15] tracking-[-0.4px] text-ink">
+          <span className="font-heading text-[clamp(28px,3.4vw,36px)] font-semibold leading-[1.15] tracking-[-0.4px] text-ink">
             {site.name}
           </span>
           <div className="flex flex-wrap justify-center gap-2.5">
