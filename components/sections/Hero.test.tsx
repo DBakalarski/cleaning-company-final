@@ -25,5 +25,6 @@ test("hero renders the brand panel: logo, wordmark and trust chips, no photo pla
   expect(screen.getByText("do 100 km")).toBeInTheDocument();
   expect(screen.getByText("wycena indywidualna")).toBeInTheDocument();
   expect(screen.getByText("klienci prywatni i firmy")).toBeInTheDocument();
+  expect(screen.getByText("Estetyczny efekt")).toBeInTheDocument();
   expect(screen.queryByText(/zdjęcie:/)).not.toBeInTheDocument();
 });

@@ -8,6 +8,9 @@ const badges = [
   "Do 100 km od Konina",
 ];
 
+// Short-register trust claims for the hero panel chips. Intentionally overlaps
+// with `badges` above (which uses fuller phrasing for the CTA footer) — keep both
+// in sync if these claims change.
 const trustChips = [
   { label: "do 100 km", spark: true },
   { label: "wycena indywidualna", spark: true },
@@ -106,13 +109,13 @@ export function Hero() {
         <div className="flex aspect-[4/4.6] flex-col items-center justify-center gap-[clamp(16px,2.5vw,22px)] rounded-3xl border border-line-soft bg-[repeating-linear-gradient(45deg,#F4ECE3_0_14px,#F9F3EC_14px_28px)] p-[clamp(28px,4vw,40px)] text-center">
           <Image
             src="/logo-icon.png"
-            alt="Cleaning Service Konin"
+            alt={site.name}
             width={150}
             height={150}
             className="mix-blend-multiply"
           />
           <span className="font-heading text-[clamp(20px,2.4vw,24px)] font-semibold leading-[1.15] tracking-[-0.4px] text-ink">
-            Cleaning Service Konin
+            {site.name}
           </span>
           <div className="flex flex-wrap justify-center gap-2.5">
             {trustChips.map((chip) => (
