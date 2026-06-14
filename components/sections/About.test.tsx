@@ -7,9 +7,7 @@ test("about renders heading, brand quote panel and area chip, no photo placehold
   expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
     "Sprzątanie, za którym stoi jakość, estetyka i odpowiedzialność",
   );
-  expect(
-    screen.getByText(/„Realny efekt, nie powierzchowne sprzątanie\./),
-  ).toBeInTheDocument();
+  expect(screen.getByText(site.brandQuote)).toBeInTheDocument();
   expect(screen.getByText(site.area)).toBeInTheDocument();
   expect(screen.queryByText(/zdjęcie:/)).not.toBeInTheDocument();
 });

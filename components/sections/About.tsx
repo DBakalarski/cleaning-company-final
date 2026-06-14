@@ -32,7 +32,7 @@ export function About() {
           ✦
         </span>
         <p className="m-0 max-w-[320px] font-heading text-[clamp(19px,2.2vw,23px)] font-semibold leading-[1.35] tracking-[-0.4px] text-ink text-balance">
-          „Realny efekt, nie powierzchowne sprzątanie."
+          {site.brandQuote}
         </p>
         <div className="absolute -bottom-4 left-5 rounded-full border border-line bg-cream px-[18px] py-2.5 font-heading text-[13px] font-semibold text-quiet shadow-[0_12px_32px_rgba(80,60,40,0.10)]">
           {site.area}
