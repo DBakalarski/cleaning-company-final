@@ -21,7 +21,7 @@ export function Hero() {
   return (
     <section
       data-screen-label="Hero"
-      className="mx-auto grid max-w-[1180px] grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-[clamp(32px,5vw,64px)] px-6 pb-[clamp(40px,6vw,80px)] pt-[clamp(48px,8vw,96px)]"
+      className="mx-auto grid max-w-[1180px] grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-[clamp(32px,5vw,64px)] px-6 pb-[clamp(24px,4vh,56px)] pt-[clamp(24px,4vh,48px)] lg:min-h-[calc(100svh-5.5rem)]"
     >
       <div className="flex flex-col gap-6">
         <SectionEyebrow label="Usługi sprzątające • Konin i okolice" />
@@ -80,7 +80,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative lg:mx-auto lg:w-full lg:max-w-[min(560px,calc(100svh-14rem))]">
         <svg
           width="96"
           height="96"
@@ -106,7 +106,7 @@ export function Hero() {
           <circle cx="34" cy="28" r="4" stroke="#C9A98F" strokeWidth="1.4" opacity="0.7" />
           <circle cx="18" cy="34" r="2.5" stroke="#BE9678" strokeWidth="1.4" opacity="0.6" />
         </svg>
-        <div className="flex aspect-[4/4.6] flex-col items-center justify-center gap-[clamp(16px,2.5vw,22px)] rounded-3xl border border-line-soft bg-[repeating-linear-gradient(45deg,#F4ECE3_0_14px,#F9F3EC_14px_28px)] p-[clamp(28px,4vw,40px)] text-center">
+        <div className="flex aspect-square flex-col items-center justify-center gap-[clamp(16px,2.5vw,22px)] rounded-3xl border border-line-soft bg-[repeating-linear-gradient(45deg,#F4ECE3_0_14px,#F9F3EC_14px_28px)] p-[clamp(28px,4vw,40px)] text-center">
           <Image
             src="/logo-icon.png"
             alt={site.name}

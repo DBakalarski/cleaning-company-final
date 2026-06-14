@@ -22,6 +22,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Offset in-page anchors (e.g. /#start) by the sticky header height so
+     targeted sections aren't hidden underneath it. */
+  scroll-padding-top: 5.5rem;
 }
 
 body {
