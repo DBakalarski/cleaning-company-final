@@ -112,7 +112,7 @@ export function Hero() {
             alt={site.name}
             width={300}
             height={300}
-            className="mix-blend-multiply"
+            className="h-auto w-[72%] max-w-[300px] mix-blend-multiply"
           />
           <span className="font-heading text-[clamp(28px,3.4vw,36px)] font-semibold leading-[1.15] tracking-[-0.4px] text-ink">
             {site.name}
