@@ -110,8 +110,8 @@ export function Hero() {
           <Image
             src="/logo-icon.png"
             alt={site.name}
-            width={150}
-            height={150}
+            width={300}
+            height={300}
             className="mix-blend-multiply"
           />
           <span className="font-heading text-[clamp(20px,2.4vw,24px)] font-semibold leading-[1.15] tracking-[-0.4px] text-ink">
