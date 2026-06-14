@@ -19,7 +19,30 @@ export function PricingPreview() {
           specjalistycznych.
         </p>
       </div>
-      <div className="mx-auto flex w-full max-w-[760px] flex-col gap-3.5 rounded-[22px] border border-line bg-white p-[clamp(26px,3.5vw,42px)]">
+      <div className="relative mx-auto flex w-full max-w-[760px] flex-col gap-3.5 overflow-hidden rounded-[22px] border border-line bg-white p-[clamp(26px,3.5vw,42px)]">
+        <svg
+          width="72"
+          height="64"
+          viewBox="0 0 72 64"
+          fill="none"
+          aria-hidden="true"
+          className="absolute right-4 top-3.5 opacity-70"
+        >
+          <g stroke="#EBDDCE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="42" y="26" width="18" height="30" rx="5" />
+            <path d="M47 26v-8h8v8" />
+            <path d="M47 18h-9v5h4" />
+            <path d="M38 19.5h-4" />
+          </g>
+          <g stroke="#EBDDCE" strokeWidth="1.3" strokeLinecap="round">
+            <path d="M30 13l-5 -3" />
+            <path d="M29 19.5h-6" />
+            <path d="M30 26l-5 3" />
+          </g>
+          <circle cx="17" cy="9" r="1.5" stroke="#EBDDCE" strokeWidth="1.3" />
+          <circle cx="13" cy="19.5" r="1.8" stroke="#EBDDCE" strokeWidth="1.3" />
+          <circle cx="17" cy="30" r="1.3" stroke="#EBDDCE" strokeWidth="1.3" />
+        </svg>
         {pricingPreview.map((row) => (
           <div key={row.label} className="flex items-baseline gap-3">
             <span className="font-body text-[15px] leading-[1.5] text-quiet">

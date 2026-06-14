@@ -11,7 +11,25 @@ export function PricingInfo() {
       <div className="flex flex-col gap-[18px]">
         <SectionEyebrow label="Wycena" />
         <h2 className="m-0 font-heading text-[clamp(26px,3vw,38px)] font-semibold leading-[1.2] tracking-[-0.6px] text-balance">
-          Każda wycena ustalana jest <span className="text-accent">indywidualnie</span>
+          Każda wycena ustalana jest{" "}
+          <span className="relative inline-block">
+            indywidualnie
+            <svg
+              viewBox="0 0 140 10"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+              className="absolute -bottom-2 left-0 h-2.5 w-full"
+            >
+              <path
+                d="M3 7 C 30 2, 70 2, 90 4.5 S 125 8, 137 3.5"
+                fill="none"
+                stroke="#BE9678"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                opacity="0.8"
+              />
+            </svg>
+          </span>
         </h2>
         <p className="m-0 font-body text-base leading-[1.75] text-muted text-pretty">
           Dzięki temu otrzymujesz uczciwą i konkretną wycenę, dopasowaną do

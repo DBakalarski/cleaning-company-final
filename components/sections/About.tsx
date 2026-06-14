@@ -15,6 +15,19 @@ export function About() {
       className="mx-auto grid max-w-[1180px] grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-[clamp(32px,5vw,64px)] px-6 py-[clamp(48px,8vw,96px)]"
     >
       <div className="relative flex aspect-[4/3.4] items-center justify-center rounded-3xl border border-line-soft bg-[repeating-linear-gradient(45deg,#F4ECE3_0_14px,#F9F3EC_14px_28px)]">
+        <svg
+          width="84"
+          height="84"
+          viewBox="0 0 84 84"
+          fill="none"
+          aria-hidden="true"
+          className="absolute -right-[18px] -top-[30px] z-[1]"
+        >
+          <circle cx="30" cy="32" r="17" stroke="#BE9678" strokeWidth="1.5" opacity="0.7" />
+          <path d="M22 27a8.5 8.5 0 0 1 7.5-3" stroke="#BE9678" strokeWidth="1.4" strokeLinecap="round" opacity="0.55" />
+          <circle cx="56" cy="52" r="9" stroke="#C9A98F" strokeWidth="1.5" opacity="0.6" />
+          <circle cx="42" cy="66" r="4" stroke="#BE9678" strokeWidth="1.4" opacity="0.5" />
+        </svg>
         <span className="rounded-lg border border-dashed border-line-hover bg-cream px-3.5 py-2 font-mono text-xs text-faint">
           zdjęcie: zespół / wnętrze
         </span>

@@ -19,11 +19,28 @@ export function Contact() {
       data-screen-label="Kontakt"
       className="relative overflow-hidden bg-ink"
     >
+      <div className="pointer-events-none absolute -right-[90px] -top-[120px] h-[330px] w-[380px] bg-[radial-gradient(ellipse_at_center,rgba(190,150,120,0.14),transparent_65%)]" />
       <div className="relative mx-auto grid max-w-[1180px] grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-start gap-[clamp(36px,6vw,80px)] px-6 py-[clamp(56px,8vw,110px)]">
         <div className="flex flex-col gap-[22px]">
           <SectionEyebrow label="Kontakt" />
-          <h2 className="m-0 self-start font-heading text-[clamp(28px,3.4vw,42px)] font-semibold leading-[1.18] tracking-[-0.7px] text-white text-balance">
+          <h2 className="relative m-0 inline-block self-start font-heading text-[clamp(28px,3.4vw,42px)] font-semibold leading-[1.18] tracking-[-0.7px] text-white text-balance">
             Zamów bezpłatną wycenę
+            <svg
+              width="34"
+              height="34"
+              viewBox="0 0 34 34"
+              fill="none"
+              aria-hidden="true"
+              className="absolute -right-[30px] -top-5"
+            >
+              <path
+                d="M17 4l2.6 10.4L30 17l-10.4 2.6L17 30l-2.6-10.4L4 17l10.4-2.6z"
+                stroke="#BE9678"
+                strokeWidth="1.4"
+                strokeLinejoin="round"
+                opacity="0.85"
+              />
+            </svg>
           </h2>
           <p className="m-0 max-w-[460px] font-body text-base leading-[1.75] text-line-hover text-pretty">
             Opisz krótko, jaka usługa Cię interesuje — odezwiemy się, ustalimy

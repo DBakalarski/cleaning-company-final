@@ -71,6 +71,31 @@ export function Hero() {
       </div>
 
       <div className="relative">
+        <svg
+          width="96"
+          height="96"
+          viewBox="0 0 96 96"
+          fill="none"
+          aria-hidden="true"
+          className="absolute -left-[26px] -top-9 z-[1]"
+        >
+          <circle cx="60" cy="34" r="20" stroke="#BE9678" strokeWidth="1.5" opacity="0.75" />
+          <path d="M50 28a10 10 0 0 1 9-3" stroke="#BE9678" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+          <circle cx="28" cy="58" r="11" stroke="#C9A98F" strokeWidth="1.5" opacity="0.65" />
+          <circle cx="47" cy="74" r="5" stroke="#BE9678" strokeWidth="1.5" opacity="0.5" />
+        </svg>
+        <svg
+          width="44"
+          height="44"
+          viewBox="0 0 46 46"
+          fill="none"
+          aria-hidden="true"
+          className="absolute -right-[22px] top-[42%]"
+        >
+          <circle cx="23" cy="14" r="7" stroke="#BE9678" strokeWidth="1.5" opacity="0.85" />
+          <circle cx="34" cy="28" r="4" stroke="#C9A98F" strokeWidth="1.4" opacity="0.7" />
+          <circle cx="18" cy="34" r="2.5" stroke="#BE9678" strokeWidth="1.4" opacity="0.6" />
+        </svg>
         <div className="flex aspect-[4/4.6] items-center justify-center rounded-3xl border border-line-soft bg-[repeating-linear-gradient(45deg,#F4ECE3_0_14px,#F9F3EC_14px_28px)]">
           <span className="rounded-lg border border-dashed border-line-hover bg-cream px-3.5 py-2 font-mono text-xs text-faint">
             zdjęcie: efekt sprzątania

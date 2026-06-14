@@ -73,7 +73,7 @@ export function Header() {
               onClick={() => setMenuOpen(false)}
               className="border-b border-[#f1e9e0] py-3 font-heading text-base font-semibold text-ink no-underline"
             >
-              {link.label}
+              {link.mobileLabel ?? link.label}
             </Link>
           ))}
           <a
