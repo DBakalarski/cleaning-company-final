@@ -4,7 +4,7 @@ import { Hero } from "./Hero";
 test("hero renders the headline, subcopy and primary CTAs", () => {
   render(<Hero />);
   expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-    "Sprawnie. Dokładnie.Dyskretnie. Przystępnie.",
+    "Sprawnie. Dokładnie. Dyskretnie. Przystępnie.",
   );
   expect(
     screen.getByText(/Profesjonalne usługi sprzątające dla klientów prywatnych/),
