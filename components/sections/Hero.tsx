@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/data/site";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 
@@ -5,6 +6,12 @@ const badges = [
   "Klienci prywatni i firmy",
   "Indywidualna wycena",
   "Do 100 km od Konina",
+];
+
+const trustChips = [
+  { label: "do 100 km", spark: true },
+  { label: "wycena indywidualna", spark: true },
+  { label: "klienci prywatni i firmy", spark: false },
 ];
 
 export function Hero() {
@@ -96,21 +103,33 @@ export function Hero() {
           <circle cx="34" cy="28" r="4" stroke="#C9A98F" strokeWidth="1.4" opacity="0.7" />
           <circle cx="18" cy="34" r="2.5" stroke="#BE9678" strokeWidth="1.4" opacity="0.6" />
         </svg>
-        <div className="flex aspect-[4/4.6] items-center justify-center rounded-3xl border border-line-soft bg-[repeating-linear-gradient(45deg,#F4ECE3_0_14px,#F9F3EC_14px_28px)]">
-          <span className="rounded-lg border border-dashed border-line-hover bg-cream px-3.5 py-2 font-mono text-xs text-faint">
-            zdjęcie: efekt sprzątania
+        <div className="flex aspect-[4/4.6] flex-col items-center justify-center gap-[clamp(16px,2.5vw,22px)] rounded-3xl border border-line-soft bg-[repeating-linear-gradient(45deg,#F4ECE3_0_14px,#F9F3EC_14px_28px)] p-[clamp(28px,4vw,40px)] text-center">
+          <Image
+            src="/logo-icon.png"
+            alt="Cleaning Service Konin"
+            width={150}
+            height={150}
+            className="mix-blend-multiply"
+          />
+          <span className="font-heading text-[clamp(20px,2.4vw,24px)] font-semibold leading-[1.15] tracking-[-0.4px] text-ink">
+            Cleaning Service Konin
           </span>
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {trustChips.map((chip) => (
+              <span
+                key={chip.label}
+                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3.5 py-2 font-body text-[13px] font-semibold text-quiet"
+              >
+                {chip.spark && <span className="text-accent">✦</span>}
+                {chip.label}
+              </span>
+            ))}
+          </div>
         </div>
         <div className="absolute -right-1.5 -top-[18px] flex items-center gap-2.5 rounded-2xl border border-line bg-white px-[18px] py-3.5 shadow-[0_12px_32px_rgba(80,60,40,0.10)]">
           <span className="font-heading text-xl font-semibold text-accent">✦</span>
           <span className="font-heading text-[13.5px] font-semibold">
-            Estetyczny efekt końcowy
-          </span>
-        </div>
-        <div className="absolute -bottom-[18px] -left-1.5 flex items-center gap-2.5 rounded-2xl bg-ink px-[18px] py-3.5">
-          <span className="font-heading text-xl font-semibold text-accent">✦</span>
-          <span className="font-heading text-[13.5px] font-semibold text-white">
-            Bez potrzeby poprawiania
+            Estetyczny efekt
           </span>
         </div>
       </div>
