@@ -2,6 +2,7 @@ import Image from "next/image";
 import { site } from "@/data/site";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { HeroMotion } from "@/components/anim/HeroMotion";
+import { SketchUnderline } from "@/components/anim/SketchUnderline";
 
 const badges = [
   "Klienci prywatni i firmy",
@@ -32,21 +33,11 @@ export function Hero() {
           Sprawnie. Dokładnie. Dyskretnie.{" "}
           <em className="relative inline-block not-italic text-accent">
             Przystępnie.
-            <svg
-              viewBox="0 0 140 12"
-              preserveAspectRatio="none"
+            <SketchUnderline
+              d="M3 9 C 28 3, 62 2.5, 78 5.5 S 122 9.5, 137 4"
               className="absolute -bottom-3 left-[1%] h-3 w-[97%]"
-              aria-hidden="true"
-            >
-              <path
-                d="M3 9 C 28 3, 62 2.5, 78 5.5 S 122 9.5, 137 4"
-                fill="none"
-                stroke="#BE9678"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                opacity="0.8"
-              />
-            </svg>
+              delay={0.9}
+            />
           </em>
         </h1>
         <p data-hero-el className="m-0 max-w-[520px] font-body text-[clamp(16px,1.5vw,18px)] leading-[1.7] text-muted text-pretty">

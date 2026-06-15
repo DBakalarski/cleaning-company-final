@@ -7,6 +7,7 @@ import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { site } from "@/data/site";
 import { pricingCategories } from "@/data/pricing";
 import { Reveal } from "@/components/anim/Reveal";
+import { SketchUnderline } from "@/components/anim/SketchUnderline";
 
 export const metadata: Metadata = {
   title: "Cennik usług — Cleaning Service Konin",
@@ -52,21 +53,10 @@ export default function CennikPage() {
               Cennik usług{" "}
               <span className="relative inline-block">
                 dodatkowych
-                <svg
-                  viewBox="0 0 140 12"
-                  preserveAspectRatio="none"
-                  aria-hidden="true"
+                <SketchUnderline
+                  d="M3 9 C 28 3, 62 2.5, 78 5.5 S 122 9.5, 137 4"
                   className="absolute -bottom-2.5 left-[1%] h-3 w-[96%]"
-                >
-                  <path
-                    d="M3 9 C 28 3, 62 2.5, 78 5.5 S 122 9.5, 137 4"
-                    fill="none"
-                    stroke="#BE9678"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    opacity="0.8"
-                  />
-                </svg>
+                />
               </span>{" "}
               i specjalistycznych
             </h1>

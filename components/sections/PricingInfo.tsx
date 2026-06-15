@@ -1,5 +1,6 @@
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { pricingFactors } from "@/data/pricingInfo";
+import { SketchUnderline } from "@/components/anim/SketchUnderline";
 
 export function PricingInfo() {
   return (
@@ -14,21 +15,12 @@ export function PricingInfo() {
           Każda wycena ustalana jest{" "}
           <span className="relative inline-block">
             indywidualnie
-            <svg
+            <SketchUnderline
+              d="M3 7 C 30 2, 70 2, 90 4.5 S 125 8, 137 3.5"
               viewBox="0 0 140 10"
-              preserveAspectRatio="none"
-              aria-hidden="true"
+              strokeWidth={2.2}
               className="absolute -bottom-2 left-0 h-2.5 w-full"
-            >
-              <path
-                d="M3 7 C 30 2, 70 2, 90 4.5 S 125 8, 137 3.5"
-                fill="none"
-                stroke="#BE9678"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                opacity="0.8"
-              />
-            </svg>
+            />
           </span>
         </h2>
         <p className="m-0 font-body text-base leading-[1.75] text-muted text-pretty">
