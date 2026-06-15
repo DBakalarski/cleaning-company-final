@@ -79,7 +79,10 @@ export function Reveal({
             obs.disconnect();
           }
         },
-        { rootMargin, threshold: 0.1 },
+        // threshold 0: fire as soon as any sliver enters the (margin-adjusted)
+        // viewport. A higher threshold breaks tall sections — they'd stay hidden
+        // until a large fraction is visible, long after they should have shown.
+        { rootMargin, threshold: 0 },
       );
       io.observe(root);
 
