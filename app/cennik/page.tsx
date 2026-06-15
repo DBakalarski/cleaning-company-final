@@ -6,6 +6,7 @@ import { PricingCategory } from "@/components/pricing/PricingCategory";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { site } from "@/data/site";
 import { pricingCategories } from "@/data/pricing";
+import { Reveal } from "@/components/anim/Reveal";
 
 export const metadata: Metadata = {
   title: "Cennik usług — Cleaning Service Konin",
@@ -18,6 +19,7 @@ export default function CennikPage() {
     <>
       <Header />
       <main className="min-w-[320px] overflow-x-hidden">
+        <Reveal>
         <section className="relative overflow-hidden border-y border-line-soft bg-sand">
           <svg
             width="250"
@@ -76,13 +78,19 @@ export default function CennikPage() {
             </p>
           </div>
         </section>
+        </Reveal>
 
+        <Reveal stagger>
         <section className="mx-auto grid max-w-[1180px] grid-cols-[repeat(auto-fit,minmax(min(440px,100%),1fr))] items-start gap-[22px] px-6 py-[clamp(40px,6vw,72px)]">
           {pricingCategories.map((category) => (
-            <PricingCategory key={category.title} category={category} />
+            <div key={category.title} data-reveal-item>
+              <PricingCategory category={category} />
+            </div>
           ))}
         </section>
+        </Reveal>
 
+        <Reveal>
         <section className="relative overflow-hidden bg-ink">
           <div className="pointer-events-none absolute -bottom-[110px] -right-20 h-[330px] w-[380px] bg-[radial-gradient(ellipse_at_center,rgba(190,150,120,0.16),transparent_65%)]" />
           <div className="pointer-events-none absolute -left-[100px] -top-[120px] h-[320px] w-[360px] bg-[radial-gradient(ellipse_at_center,rgba(190,150,120,0.10),transparent_65%)]" />
@@ -110,6 +118,7 @@ export default function CennikPage() {
             </div>
           </div>
         </section>
+        </Reveal>
       </main>
       <Footer />
       <MobileCallButton />
