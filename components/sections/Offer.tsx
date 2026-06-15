@@ -234,6 +234,7 @@ export function Offer() {
         </button>
       </div>
 
+      <div key={tab} className="anim-tab-panel">
       {tab === "private" ? (
         <div className="flex flex-col gap-7">
           <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-[18px]">
@@ -316,6 +317,7 @@ export function Offer() {
           </div>
         </div>
       )}
+      </div>
     </section>
   );
 }
