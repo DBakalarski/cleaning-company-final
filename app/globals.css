@@ -32,3 +32,13 @@ body {
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
 }
+
+/* --- Animation gate -------------------------------------------------------
+   Hidden start state applies ONLY under html.anim-ready (added pre-paint by the
+   inline script in app/layout.tsx, and only when motion is allowed). GSAP then
+   sets inline styles that override these and animates the elements in. */
+html.anim-ready [data-reveal],
+html.anim-ready [data-reveal-item],
+html.anim-ready [data-hero-el] {
+  opacity: 0;
+}

@@ -31,6 +31,14 @@ export default function RootLayout({
   return (
     <html lang="pl" suppressHydrationWarning>
       <body className={`${poppins.variable} ${lato.variable} font-body`}>
+        <script
+          // Runs before paint: hide animated content only when motion is allowed.
+          // No JS / reduced-motion => class absent => everything stays visible.
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('anim-ready')}}catch(e){}",
+          }}
+        />
         {children}
       </body>
     </html>
