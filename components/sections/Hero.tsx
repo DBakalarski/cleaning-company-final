@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { site } from "@/data/site";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
+import { HeroMotion } from "@/components/anim/HeroMotion";
 
 const badges = [
   "Klienci prywatni i firmy",
@@ -23,9 +24,11 @@ export function Hero() {
       data-screen-label="Hero"
       className="mx-auto grid max-w-[1180px] grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-[clamp(32px,5vw,64px)] px-6 pb-[clamp(24px,4vh,56px)] pt-[clamp(24px,4vh,48px)] lg:min-h-[calc(100svh-5.5rem)]"
     >
-      <div className="flex flex-col gap-6">
-        <SectionEyebrow label="Usługi sprzątające • Konin i okolice" />
-        <h1 className="m-0 font-heading text-[clamp(34px,4.6vw,56px)] font-semibold leading-[1.12] tracking-[-1px] text-balance">
+      <HeroMotion className="flex flex-col gap-6">
+        <div data-hero-el>
+          <SectionEyebrow label="Usługi sprzątające • Konin i okolice" />
+        </div>
+        <h1 data-hero-el className="m-0 font-heading text-[clamp(34px,4.6vw,56px)] font-semibold leading-[1.12] tracking-[-1px] text-balance">
           Sprawnie. Dokładnie. Dyskretnie.{" "}
           <em className="relative inline-block not-italic text-accent">
             Przystępnie.
@@ -46,12 +49,12 @@ export function Hero() {
             </svg>
           </em>
         </h1>
-        <p className="m-0 max-w-[520px] font-body text-[clamp(16px,1.5vw,18px)] leading-[1.7] text-muted text-pretty">
+        <p data-hero-el className="m-0 max-w-[520px] font-body text-[clamp(16px,1.5vw,18px)] leading-[1.7] text-muted text-pretty">
           Profesjonalne usługi sprzątające dla klientów prywatnych i firmowych.
           Konkretna obsługa, indywidualne podejście i zakres prac dopasowany do
           rodzaju obiektu oraz oczekiwanego efektu.
         </p>
-        <div className="mt-1.5 flex flex-wrap gap-3">
+        <div data-hero-el className="mt-1.5 flex flex-wrap gap-3">
           <a
             href="#kontakt"
             className="rounded-full bg-ink px-[30px] py-4 font-heading text-[15px] font-semibold text-white no-underline transition-colors hover:bg-accent"
@@ -71,14 +74,14 @@ export function Hero() {
             Zadzwoń → {site.phone}
           </a>
         </div>
-        <div className="mt-2 flex flex-wrap gap-x-[22px] gap-y-2.5">
+        <div data-hero-el className="mt-2 flex flex-wrap gap-x-[22px] gap-y-2.5">
           {badges.map((badge) => (
             <span key={badge} className="font-body text-[13.5px] text-faint">
               ✦ {badge}
             </span>
           ))}
         </div>
-      </div>
+      </HeroMotion>
 
       <div className="relative lg:mx-auto lg:w-full lg:max-w-[min(560px,calc(100svh-14rem))]">
         <svg
