@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
+import { Reveal } from "@/components/anim/Reveal";
 import {
   privateServices,
   privateAddons,
@@ -179,7 +180,7 @@ function ServiceIcon({ title }: { title: string }) {
 
 function ServiceCard({ service }: { service: Service }) {
   return (
-    <div className="u-lift flex flex-col gap-2.5 rounded-[18px] border border-line bg-white p-6 transition-colors hover:border-accent">
+    <div data-reveal-item className="u-lift flex flex-col gap-2.5 rounded-[18px] border border-line bg-white p-6 transition-colors hover:border-accent">
       <ServiceIcon title={service.title} />
       <h3 className="m-0 font-heading text-[17px] font-semibold leading-[1.3] text-ink">
         {service.title}
@@ -205,7 +206,7 @@ export function Offer() {
       data-screen-label="Oferta"
       className="mx-auto flex max-w-[1180px] flex-col gap-9 px-6 py-[clamp(56px,8vw,100px)]"
     >
-      <div className="flex flex-col items-center gap-3.5 text-center">
+      <Reveal className="flex flex-col items-center gap-3.5 text-center">
         <SectionEyebrow label="Oferta / Usługi" centered />
         <h2 className="m-0 max-w-[640px] font-heading text-[clamp(26px,3vw,38px)] font-semibold leading-[1.2] tracking-[-0.6px] text-balance">
           Zakres dopasowany do Twojego obiektu
@@ -215,7 +216,7 @@ export function Offer() {
           rodzinne, inne lokal użytkowy, a jeszcze inne hotel, kamper czy domek
           letniskowy.
         </p>
-      </div>
+      </Reveal>
 
       <div className="flex flex-wrap justify-center gap-3">
         <button
@@ -234,7 +235,7 @@ export function Offer() {
         </button>
       </div>
 
-      <div key={tab} className="anim-tab-panel">
+      <Reveal stagger key={tab}>
       {tab === "private" ? (
         <div className="flex flex-col gap-7">
           <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-[18px]">
@@ -281,7 +282,7 @@ export function Offer() {
             {businessServices.map((service) => (
               <ServiceCard key={service.title} service={service} />
             ))}
-            <div className="u-lift flex flex-col gap-2.5 rounded-[18px] border border-ink bg-ink p-6">
+            <div data-reveal-item className="u-lift flex flex-col gap-2.5 rounded-[18px] border border-ink bg-ink p-6">
               <span className="mb-1 flex h-12 w-12 items-center justify-center rounded-[14px] border border-[#4a4138] bg-[#3d352e]">
                 <svg
                   width="26"
@@ -317,7 +318,7 @@ export function Offer() {
           </div>
         </div>
       )}
-      </div>
+      </Reveal>
     </section>
   );
 }

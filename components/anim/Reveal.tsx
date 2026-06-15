@@ -6,9 +6,9 @@ import { gsap, useGSAP } from "./gsap";
 type Direction = "up" | "left" | "right";
 
 const OFFSET: Record<Direction, { x?: number; y?: number }> = {
-  up: { y: 30 },
-  left: { x: -40 },
-  right: { x: 40 },
+  up: { y: 40 },
+  left: { x: -48 },
+  right: { x: 48 },
 };
 
 type RevealProps = {
@@ -63,10 +63,10 @@ export function Reveal({
               autoAlpha: 1,
               x: 0,
               y: 0,
-              duration: 0.65,
+              duration: 0.85,
               ease: "power3.out",
               delay,
-              stagger: stagger ? 0.09 : 0,
+              stagger: stagger ? 0.16 : 0,
               overwrite: true,
             });
             obs.disconnect();

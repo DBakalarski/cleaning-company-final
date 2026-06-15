@@ -79,20 +79,3 @@ html.anim-ready [data-hero-el] {
     animation: menu-in 0.25s ease both;
   }
 }
-
-/* --- Tab panel switch ------------------------------------------------------ */
-@media (prefers-reduced-motion: no-preference) {
-  @keyframes fade-up {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .anim-tab-panel {
-    animation: fade-up 0.35s ease both;
-  }
-}

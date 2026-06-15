@@ -30,13 +30,13 @@ export function HeroMotion({
         return;
       }
 
-      gsap.set(targets, { autoAlpha: 0, y: 24 });
+      gsap.set(targets, { autoAlpha: 0, y: 36 });
       gsap.to(targets, {
         autoAlpha: 1,
         y: 0,
-        duration: 0.7,
+        duration: 0.85,
         ease: "power3.out",
-        stagger: 0.12,
+        stagger: 0.16,
         delay: 0.05,
       });
     },

@@ -26,9 +26,7 @@ export default function Home() {
         <Reveal stagger>
           <WhyUs />
         </Reveal>
-        <Reveal>
-          <Offer />
-        </Reveal>
+        <Offer />
         <Reveal stagger>
           <Process />
         </Reveal>
