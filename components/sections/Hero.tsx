@@ -57,13 +57,13 @@ export function Hero() {
         <div data-hero-el className="mt-1.5 flex flex-wrap gap-3">
           <a
             href="#kontakt"
-            className="rounded-full bg-ink px-[30px] py-4 font-heading text-[15px] font-semibold text-white no-underline transition-colors hover:bg-accent"
+            className="u-press rounded-full bg-ink px-[30px] py-4 font-heading text-[15px] font-semibold text-white no-underline transition-colors hover:bg-accent"
           >
             Zamów wycenę
           </a>
           <a
             href="#oferta"
-            className="rounded-full border border-line-hover bg-transparent px-[30px] py-[15px] font-heading text-[15px] font-semibold text-ink no-underline transition-colors hover:border-ink hover:bg-white"
+            className="u-press rounded-full border border-line-hover bg-transparent px-[30px] py-[15px] font-heading text-[15px] font-semibold text-ink no-underline transition-colors hover:border-ink hover:bg-white"
           >
             Zobacz ofertę
           </a>

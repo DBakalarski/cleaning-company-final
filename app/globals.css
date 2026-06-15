@@ -42,3 +42,23 @@ html.anim-ready [data-reveal-item],
 html.anim-ready [data-hero-el] {
   opacity: 0;
 }
+
+/* --- Micro-interactions ---------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .u-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .u-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 34px rgba(34, 28, 24, 0.12);
+  }
+  .u-press {
+    transition: transform 0.12s ease, box-shadow 0.2s ease;
+  }
+  .u-press:hover {
+    transform: translateY(-2px);
+  }
+  .u-press:active {
+    transform: scale(0.97);
+  }
+}

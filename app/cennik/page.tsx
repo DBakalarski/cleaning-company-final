@@ -105,13 +105,13 @@ export default function CennikPage() {
             <div className="mt-1.5 flex flex-wrap justify-center gap-3">
               <a
                 href="/#kontakt"
-                className="rounded-full bg-accent px-[30px] py-4 font-heading text-[15px] font-semibold text-ink no-underline transition-colors hover:bg-white"
+                className="u-press rounded-full bg-accent px-[30px] py-4 font-heading text-[15px] font-semibold text-ink no-underline transition-colors hover:bg-white"
               >
                 Napisz do nas
               </a>
               <a
                 href={site.phoneHref}
-                className="rounded-full border border-ink-soft px-[30px] py-[15px] font-heading text-[15px] font-semibold text-white no-underline transition-colors hover:border-accent hover:text-accent"
+                className="u-press rounded-full border border-ink-soft px-[30px] py-[15px] font-heading text-[15px] font-semibold text-white no-underline transition-colors hover:border-accent hover:text-accent"
               >
                 Zadzwoń: {site.phone}
               </a>

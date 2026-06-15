@@ -76,7 +76,7 @@ const categoryIcons: Record<string, ReactNode> = {
 
 export function PricingCategory({ category }: { category: Category }) {
   return (
-    <div className="flex flex-col gap-[18px] rounded-[20px] border border-line bg-white p-[clamp(24px,3vw,32px)]">
+    <div className="u-lift flex flex-col gap-[18px] rounded-[20px] border border-line bg-white p-[clamp(24px,3vw,32px)]">
       <div className="flex items-center gap-3.5">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] border border-line bg-[#f7f1ea]">
           <svg

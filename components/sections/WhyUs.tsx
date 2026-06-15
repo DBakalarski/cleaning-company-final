@@ -44,7 +44,7 @@ export function WhyUs() {
             <div
               key={card}
               data-reveal-item
-              className="flex items-start gap-3 rounded-2xl border border-line bg-cream p-6"
+              className="u-lift flex items-start gap-3 rounded-2xl border border-line bg-cream p-6"
             >
               <span className="mt-0.5 font-heading text-lg font-semibold text-accent">
                 ✦

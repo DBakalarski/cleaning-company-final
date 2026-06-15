@@ -179,7 +179,7 @@ function ServiceIcon({ title }: { title: string }) {
 
 function ServiceCard({ service }: { service: Service }) {
   return (
-    <div className="flex flex-col gap-2.5 rounded-[18px] border border-line bg-white p-6 transition-colors hover:border-accent">
+    <div className="u-lift flex flex-col gap-2.5 rounded-[18px] border border-line bg-white p-6 transition-colors hover:border-accent">
       <ServiceIcon title={service.title} />
       <h3 className="m-0 font-heading text-[17px] font-semibold leading-[1.3] text-ink">
         {service.title}
@@ -280,7 +280,7 @@ export function Offer() {
             {businessServices.map((service) => (
               <ServiceCard key={service.title} service={service} />
             ))}
-            <div className="flex flex-col gap-2.5 rounded-[18px] border border-ink bg-ink p-6">
+            <div className="u-lift flex flex-col gap-2.5 rounded-[18px] border border-ink bg-ink p-6">
               <span className="mb-1 flex h-12 w-12 items-center justify-center rounded-[14px] border border-[#4a4138] bg-[#3d352e]">
                 <svg
                   width="26"

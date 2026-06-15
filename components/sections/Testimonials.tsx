@@ -46,7 +46,7 @@ export function Testimonials() {
           <div
             key={t.author}
             data-reveal-item
-            className="relative flex flex-col gap-3.5 overflow-hidden rounded-[18px] border border-line bg-white p-7"
+            className="u-lift relative flex flex-col gap-3.5 overflow-hidden rounded-[18px] border border-line bg-white p-7"
           >
             <svg
               width="44"

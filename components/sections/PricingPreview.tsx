@@ -56,7 +56,7 @@ export function PricingPreview() {
         ))}
         <Link
           href="/cennik"
-          className="mt-3 self-center rounded-full bg-ink px-[30px] py-[15px] font-heading text-[15px] font-semibold text-white no-underline transition-colors hover:bg-accent"
+          className="u-press mt-3 self-center rounded-full bg-ink px-[30px] py-[15px] font-heading text-[15px] font-semibold text-white no-underline transition-colors hover:bg-accent"
         >
           Zobacz pełny cennik →
         </Link>

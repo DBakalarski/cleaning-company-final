@@ -37,7 +37,7 @@ export function PricingInfo() {
         </p>
         <a
           href="#kontakt"
-          className="mt-1.5 self-start rounded-full bg-ink px-7 py-[15px] font-heading text-[15px] font-semibold text-white no-underline transition-colors hover:bg-accent"
+          className="u-press mt-1.5 self-start rounded-full bg-ink px-7 py-[15px] font-heading text-[15px] font-semibold text-white no-underline transition-colors hover:bg-accent"
         >
           Zamów bezpłatną wycenę
         </a>

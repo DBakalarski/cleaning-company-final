@@ -24,7 +24,7 @@ export function Process() {
               <div
                 key={step}
                 data-reveal-item
-                className={`flex flex-col gap-3.5 rounded-[18px] p-6 ${
+                className={`u-lift flex flex-col gap-3.5 rounded-[18px] p-6 ${
                   last
                     ? "border border-accent bg-ink-soft/40"
                     : "border border-ink-soft bg-ink-soft/20"
