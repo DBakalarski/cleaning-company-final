@@ -31,7 +31,7 @@ export function Testimonials() {
         <circle cx="13" cy="19.5" r="1.8" stroke="#DCC9B6" strokeWidth="1.3" />
         <circle cx="17" cy="30" r="1.3" stroke="#DCC9B6" strokeWidth="1.3" />
       </svg>
-      <div className="flex flex-col items-center gap-3.5 text-center">
+      <div data-reveal-item className="flex flex-col items-center gap-3.5 text-center">
         <SectionEyebrow label="Opinie" centered />
         <h2 className="m-0 font-heading text-[clamp(26px,3vw,38px)] font-semibold leading-[1.2] tracking-[-0.6px] text-balance">
           Zadowolenie klientów to nasza najlepsza reklama
@@ -45,6 +45,7 @@ export function Testimonials() {
         {testimonials.map((t) => (
           <div
             key={t.author}
+            data-reveal-item
             className="relative flex flex-col gap-3.5 overflow-hidden rounded-[18px] border border-line bg-white p-7"
           >
             <svg

@@ -33,7 +33,7 @@ export function WhyUs() {
         <circle cx="58" cy="98" r="2.2" stroke="#DCCBB7" strokeWidth="1.5" />
       </svg>
       <div className="relative mx-auto flex max-w-[1180px] flex-col gap-9 px-6 py-[clamp(48px,7vw,90px)]">
-        <div className="flex flex-col gap-3.5">
+        <div data-reveal-item className="flex flex-col gap-3.5">
           <SectionEyebrow label="Dlaczego my" />
           <h2 className="m-0 max-w-[640px] font-heading text-[clamp(26px,3vw,38px)] font-semibold leading-[1.2] tracking-[-0.6px] text-balance">
             Liczy się efekt — i komfort współpracy
@@ -43,6 +43,7 @@ export function WhyUs() {
           {whyUsCards.map((card) => (
             <div
               key={card}
+              data-reveal-item
               className="flex items-start gap-3 rounded-2xl border border-line bg-cream p-6"
             >
               <span className="mt-0.5 font-heading text-lg font-semibold text-accent">
