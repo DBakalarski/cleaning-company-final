@@ -22,11 +22,7 @@ export function Header() {
         scrolled ? "shadow-[0_6px_24px_rgba(80,60,40,0.08)]" : "shadow-none"
       }`}
     >
-      <div
-        className={`mx-auto flex max-w-[1180px] items-center justify-between gap-4 px-6 transition-[padding] duration-200 ${
-          scrolled ? "py-2" : "py-3.5"
-        }`}
-      >
+      <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-4 px-6 py-3.5">
         <Link href="/#start" className="flex items-center gap-3 text-ink no-underline">
           <Image
             src="/logo-icon.png"

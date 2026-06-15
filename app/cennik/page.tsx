@@ -18,7 +18,7 @@ export default function CennikPage() {
   return (
     <>
       <Header />
-      <main className="min-w-[320px] overflow-x-hidden">
+      <main className="min-w-[320px] overflow-x-clip">
         <Reveal>
         <section className="relative overflow-hidden border-y border-line-soft bg-sand">
           <svg

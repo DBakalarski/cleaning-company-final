@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main id="start" className="min-w-[320px] overflow-x-hidden">
+      <main id="start" className="min-w-[320px] overflow-x-clip">
         <Hero />
         <Reveal>
           <About />
