@@ -57,11 +57,19 @@ export function Faq() {
                   {open ? "−" : "+"}
                 </span>
               </button>
-              {open && (
-                <p className="m-0 px-6 pb-[22px] font-body text-[15px] leading-[1.7] text-muted">
-                  {item.answer}
-                </p>
-              )}
+              <div
+                data-open={open ? "true" : "false"}
+                aria-hidden={!open}
+                className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+                  open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="m-0 px-6 pb-[22px] font-body text-[15px] leading-[1.7] text-muted">
+                    {item.answer}
+                  </p>
+                </div>
+              </div>
             </div>
           );
         })}

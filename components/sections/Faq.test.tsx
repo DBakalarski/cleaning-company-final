@@ -3,42 +3,38 @@ import userEvent from "@testing-library/user-event";
 import { Faq } from "./Faq";
 import { faqItems } from "@/data/faq";
 
-test("all questions render and answers start hidden", () => {
+test("all questions render and start collapsed", () => {
   render(<Faq />);
   expect(faqItems).toHaveLength(5);
   expect(screen.getByText("Jak wygląda wycena?")).toBeInTheDocument();
   expect(
-    screen.queryByText(/Każda wycena dopasowywana jest indywidualnie/),
-  ).not.toBeInTheDocument();
+    screen.getByRole("button", { name: /Jak wygląda wycena\?/ }),
+  ).toHaveAttribute("aria-expanded", "false");
 });
 
-test("clicking a question opens its answer and toggling closes it", async () => {
+test("clicking a question expands it and toggling collapses it", async () => {
   const user = userEvent.setup();
   render(<Faq />);
   const q1 = screen.getByRole("button", { name: /Jak wygląda wycena\?/ });
 
   await user.click(q1);
-  expect(
-    screen.getByText(/Każda wycena dopasowywana jest indywidualnie/),
-  ).toBeInTheDocument();
+  expect(q1).toHaveAttribute("aria-expanded", "true");
 
   await user.click(q1);
-  expect(
-    screen.queryByText(/Każda wycena dopasowywana jest indywidualnie/),
-  ).not.toBeInTheDocument();
+  expect(q1).toHaveAttribute("aria-expanded", "false");
 });
 
-test("opening a second question closes the first (single-open)", async () => {
+test("opening a second question collapses the first (single-open)", async () => {
   const user = userEvent.setup();
   render(<Faq />);
-  await user.click(screen.getByRole("button", { name: /Jak wygląda wycena\?/ }));
-  await user.click(
-    screen.getByRole("button", {
-      name: /Czy można zamówić pojedyncze usługi dodatkowe\?/,
-    }),
-  );
-  expect(
-    screen.queryByText(/Każda wycena dopasowywana jest indywidualnie/),
-  ).not.toBeInTheDocument();
-  expect(screen.getByText(/Tak\. Można dobrać konkretne elementy/)).toBeInTheDocument();
+  const q1 = screen.getByRole("button", { name: /Jak wygląda wycena\?/ });
+  const q2 = screen.getByRole("button", {
+    name: /Czy można zamówić pojedyncze usługi dodatkowe\?/,
+  });
+
+  await user.click(q1);
+  await user.click(q2);
+
+  expect(q1).toHaveAttribute("aria-expanded", "false");
+  expect(q2).toHaveAttribute("aria-expanded", "true");
 });
