@@ -26,7 +26,7 @@ export function PricingPreview() {
           viewBox="0 0 72 64"
           fill="none"
           aria-hidden="true"
-          className="absolute right-4 top-3.5 opacity-70"
+          className="absolute right-0 top-0 hidden opacity-70 lg:block"
         >
           <g stroke="#EBDDCE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <rect x="42" y="26" width="18" height="30" rx="5" />

@@ -248,7 +248,7 @@ export function Offer() {
             className="flex flex-col gap-4 rounded-[18px] border border-line bg-sand p-7"
           >
             <span className="font-heading text-[17px] font-semibold text-ink">
-              Usługi dodatkowe — do wyboru pojedynczo
+              Usługi dodatkowe
             </span>
             <div className="flex flex-wrap gap-2">
               {privateAddons.map((addon) => (
