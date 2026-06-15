@@ -43,6 +43,16 @@ html.anim-ready [data-hero-el] {
   opacity: 0;
 }
 
+/* --- Decorative panel surface --------------------------------------------- */
+/* Warm "spotlight" fill for the Hero + About display panels: a soft accent-soft
+   (#c9a98f) glow over a gentle gradient sitting between cream and sand. Shared
+   here so both panels stay in sync. Replaces the legacy placeholder stripes. */
+.panel-surface {
+  background:
+    radial-gradient(78% 62% at 50% 30%, rgba(201, 169, 143, 0.22), rgba(201, 169, 143, 0) 70%),
+    linear-gradient(158deg, #fdfbf9, #f3e9df);
+}
+
 /* --- Micro-interactions ---------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
   .u-lift {

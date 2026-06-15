@@ -14,7 +14,7 @@ export function About() {
       data-screen-label="O nas"
       className="mx-auto grid max-w-[1180px] grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-[clamp(32px,5vw,64px)] px-6 py-[clamp(48px,8vw,96px)]"
     >
-      <div className="relative flex aspect-[4/3.4] flex-col items-center justify-center gap-[clamp(14px,2.5vw,20px)] rounded-3xl border border-line-soft bg-[repeating-linear-gradient(45deg,#F4ECE3_0_14px,#F9F3EC_14px_28px)] p-[clamp(28px,4vw,44px)] text-center">
+      <div className="panel-surface relative flex aspect-[4/3.4] flex-col items-center justify-center gap-[clamp(14px,2.5vw,20px)] rounded-3xl border border-line-soft p-[clamp(28px,4vw,44px)] text-center">
         <svg
           width="84"
           height="84"

@@ -16,7 +16,7 @@ const badges = [
 const trustChips = [
   { label: "do 100 km", spark: true },
   { label: "wycena indywidualna", spark: true },
-  { label: "klienci prywatni i firmy", spark: false },
+  { label: "klienci prywatni i firmy", spark: true },
 ];
 
 export function Hero() {
@@ -100,7 +100,7 @@ export function Hero() {
           <circle cx="34" cy="28" r="4" stroke="#C9A98F" strokeWidth="1.4" opacity="0.7" />
           <circle cx="18" cy="34" r="2.5" stroke="#BE9678" strokeWidth="1.4" opacity="0.6" />
         </svg>
-        <div className="flex aspect-square flex-col items-center justify-center gap-[clamp(16px,2.5vw,22px)] rounded-3xl border border-line-soft bg-[repeating-linear-gradient(45deg,#F4ECE3_0_14px,#F9F3EC_14px_28px)] p-[clamp(28px,4vw,40px)] text-center">
+        <div className="panel-surface flex aspect-square flex-col items-center justify-center gap-[clamp(16px,2.5vw,22px)] rounded-3xl border border-line-soft p-[clamp(28px,4vw,40px)] text-center">
           <Image
             src="/logo-icon.png"
             alt={site.name}
