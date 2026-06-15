@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { Reveal } from "@/components/anim/Reveal";
 import {
@@ -194,11 +194,32 @@ function ServiceCard({ service }: { service: Service }) {
 
 export function Offer() {
   const [tab, setTab] = useState<"private" | "business">("private");
+  const tabsBlockRef = useRef<HTMLDivElement>(null);
+
+  // Sticky offset of the tab bar (matches `top-[78px]` below).
+  const STICKY_OFFSET = 78;
+
+  const selectTab = (next: "private" | "business") => {
+    setTab(next);
+    const block = tabsBlockRef.current;
+    if (!block || typeof window.scrollTo !== "function") return;
+    // The wrapper isn't sticky, so its rect reports the tabs' true position.
+    // Its top is tab-independent (only the grid below changes), so measuring now
+    // (pre-render) is reliable. When the top is above the sticky line the tabs
+    // are pinned — pull the page up so the tabs land at the top of the viewport.
+    const top = block.getBoundingClientRect().top;
+    if (top < STICKY_OFFSET) {
+      window.scrollTo({
+        top: window.scrollY + top - STICKY_OFFSET,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const tabBase =
-    "rounded-full px-[26px] py-3 font-heading text-[15px] font-semibold transition-colors";
+    "whitespace-nowrap rounded-full px-4 py-2.5 font-heading text-[13px] font-semibold transition-colors sm:px-[26px] sm:py-3 sm:text-[15px]";
   const tabActive = "bg-ink text-white";
-  const tabInactive = "border border-line-mid bg-transparent text-quiet";
+  const tabInactive = "bg-transparent text-quiet hover:text-ink";
 
   return (
     <section
@@ -218,21 +239,28 @@ export function Offer() {
         </p>
       </Reveal>
 
-      <div className="flex flex-wrap justify-center gap-3">
-        <button
-          type="button"
-          onClick={() => setTab("private")}
-          className={`${tabBase} ${tab === "private" ? tabActive : tabInactive}`}
-        >
-          Klienci prywatni
-        </button>
-        <button
-          type="button"
-          onClick={() => setTab("business")}
-          className={`${tabBase} ${tab === "business" ? tabActive : tabInactive}`}
-        >
-          Firmy i obiekty komercyjne
-        </button>
+      <div ref={tabsBlockRef} className="flex flex-col gap-9">
+      <div className="sticky top-[78px] z-30 flex justify-center">
+        <div className="flex flex-nowrap justify-center gap-2 rounded-full border border-line bg-cream/85 p-1.5 shadow-[0_8px_28px_rgba(80,60,40,0.10)] backdrop-blur-md">
+          <button
+            type="button"
+            aria-label="Klienci prywatni"
+            onClick={() => selectTab("private")}
+            className={`${tabBase} ${tab === "private" ? tabActive : tabInactive}`}
+          >
+            <span className="sm:hidden">Prywatni</span>
+            <span className="hidden sm:inline">Klienci prywatni</span>
+          </button>
+          <button
+            type="button"
+            aria-label="Firmy i obiekty komercyjne"
+            onClick={() => selectTab("business")}
+            className={`${tabBase} ${tab === "business" ? tabActive : tabInactive}`}
+          >
+            <span className="sm:hidden">Firmy</span>
+            <span className="hidden sm:inline">Firmy i obiekty komercyjne</span>
+          </button>
+        </div>
       </div>
 
       <Reveal stagger key={tab}>
@@ -319,6 +347,7 @@ export function Offer() {
         </div>
       )}
       </Reveal>
+      </div>
     </section>
   );
 }
