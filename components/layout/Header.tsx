@@ -79,7 +79,7 @@ export function Header() {
       {menuOpen && (
         <nav
           data-testid="mobile-menu"
-          className="flex flex-col gap-1 border-t border-line bg-cream px-6 pb-5 pt-2 md:hidden"
+          className="anim-menu flex flex-col gap-1 border-t border-line bg-cream px-6 pb-5 pt-2 md:hidden"
         >
           {navLinks.map((link) => (
             <Link

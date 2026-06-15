@@ -62,3 +62,20 @@ html.anim-ready [data-hero-el] {
     transform: scale(0.97);
   }
 }
+
+/* --- Mobile menu entrance -------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .anim-menu {
+    animation: menu-in 0.25s ease both;
+  }
+}
