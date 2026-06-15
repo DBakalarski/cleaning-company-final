@@ -12,6 +12,7 @@ import { ServiceArea } from "@/components/sections/ServiceArea";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
+import { Reveal } from "@/components/anim/Reveal";
 
 export default function Home() {
   return (
@@ -19,16 +20,36 @@ export default function Home() {
       <Header />
       <main id="start" className="min-w-[320px] overflow-x-hidden">
         <Hero />
-        <About />
-        <WhyUs />
-        <Offer />
-        <Process />
-        <PricingInfo />
-        <PricingPreview />
-        <ServiceArea />
-        <Testimonials />
-        <Faq />
-        <Contact />
+        <Reveal>
+          <About />
+        </Reveal>
+        <Reveal stagger>
+          <WhyUs />
+        </Reveal>
+        <Reveal>
+          <Offer />
+        </Reveal>
+        <Reveal stagger>
+          <Process />
+        </Reveal>
+        <Reveal>
+          <PricingInfo />
+        </Reveal>
+        <Reveal>
+          <PricingPreview />
+        </Reveal>
+        <Reveal>
+          <ServiceArea />
+        </Reveal>
+        <Reveal stagger>
+          <Testimonials />
+        </Reveal>
+        <Reveal>
+          <Faq />
+        </Reveal>
+        <Reveal>
+          <Contact />
+        </Reveal>
       </main>
       <Footer />
       <MobileCallButton />
