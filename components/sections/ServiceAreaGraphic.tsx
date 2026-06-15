@@ -54,6 +54,11 @@ export function ServiceAreaGraphic() {
       gsap.set([...ringMasks, ...pinStrokes, ...dots], { strokeDashoffset: 1 });
       gsap.set(pill, { autoAlpha: 0, scale: 0.8 });
 
+      // On mobile the viewport is short, so the default -12% bottom margin makes
+      // the draw-in feel late. Fire a touch before it reaches the bottom edge.
+      const isMobile = window.matchMedia("(max-width: 640px)").matches;
+      const rootMargin = isMobile ? "0px 0px 8% 0px" : "0px 0px -12% 0px";
+
       const io = new IntersectionObserver(
         (entries, obs) => {
           if (!entries.some((e) => e.isIntersecting)) return;
@@ -105,7 +110,7 @@ export function ServiceAreaGraphic() {
 
           obs.disconnect();
         },
-        { rootMargin: "0px 0px -12% 0px", threshold: 0.1 },
+        { rootMargin, threshold: 0.1 },
       );
       io.observe(root);
 

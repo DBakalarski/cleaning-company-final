@@ -56,6 +56,13 @@ export function Reveal({
 
       gsap.set(targets, { autoAlpha: 0, ...OFFSET[direction] });
 
+      // On mobile the viewport is short, so the default -12% bottom margin makes
+      // reveals feel late. Fire a touch before the element reaches the bottom edge.
+      const isMobile =
+        typeof window.matchMedia === "function" &&
+        window.matchMedia("(max-width: 640px)").matches;
+      const rootMargin = isMobile ? "0px 0px 8% 0px" : "0px 0px -12% 0px";
+
       const io = new IntersectionObserver(
         (entries, obs) => {
           if (entries.some((e) => e.isIntersecting)) {
@@ -72,7 +79,7 @@ export function Reveal({
             obs.disconnect();
           }
         },
-        { rootMargin: "0px 0px -12% 0px", threshold: 0.1 },
+        { rootMargin, threshold: 0.1 },
       );
       io.observe(root);
 
