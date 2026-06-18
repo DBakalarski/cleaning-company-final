@@ -182,12 +182,48 @@ function ServiceCard({ service }: { service: Service }) {
   return (
     <div data-reveal-item className="u-lift flex flex-col gap-2.5 rounded-[18px] border border-line bg-white p-6 transition-colors hover:border-accent">
       <ServiceIcon title={service.title} />
-      <h3 className="m-0 font-heading text-[17px] font-semibold leading-[1.3] text-ink">
+      <h4 className="m-0 font-heading text-[17px] font-semibold leading-[1.3] text-ink">
         {service.title}
-      </h3>
+      </h4>
       <p className="m-0 font-body text-[14.5px] leading-[1.65] text-muted">
         {service.desc}
       </p>
+    </div>
+  );
+}
+
+// Groups services by their `group` label, preserving first-appearance order.
+function groupServices(services: Service[]) {
+  const groups: { group: string; items: Service[] }[] = [];
+  for (const service of services) {
+    let bucket = groups.find((g) => g.group === service.group);
+    if (!bucket) {
+      bucket = { group: service.group, items: [] };
+      groups.push(bucket);
+    }
+    bucket.items.push(service);
+  }
+  return groups;
+}
+
+function ServiceGroups({ services }: { services: Service[] }) {
+  return (
+    <div className="flex flex-col gap-9">
+      {groupServices(services).map(({ group, items }) => (
+        <div key={group} className="flex flex-col gap-4">
+          <h3
+            data-reveal-item
+            className="m-0 font-heading text-[13px] font-semibold uppercase tracking-[1.5px] text-quiet"
+          >
+            {group}
+          </h3>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-[18px]">
+            {items.map((service) => (
+              <ServiceCard key={service.title} service={service} />
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -266,11 +302,7 @@ export function Offer() {
       <Reveal stagger key={tab}>
       {tab === "private" ? (
         <div className="flex flex-col gap-7">
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-[18px]">
-            {privateServices.map((service) => (
-              <ServiceCard key={service.title} service={service} />
-            ))}
-          </div>
+          <ServiceGroups services={privateServices} />
           <div
             data-testid="addons"
             className="flex flex-col gap-4 rounded-[18px] border border-line bg-sand p-7"
@@ -301,15 +333,12 @@ export function Offer() {
               Profesjonalne sprzątanie dla firm i obiektów użytkowych
             </span>
             <span className="font-body text-[15px] leading-[1.7] text-muted text-pretty">
-              Czysta przestrzeń ma ogromne znaczenie dla komfortu pracowników,
-              pierwszego wrażenia klientów i wizerunku firmy — dlatego do każdego
-              zlecenia podchodzimy odpowiedzialnie i konkretnie.
+              Czysta przestrzeń to komfort pracowników i pierwsze wrażenie
+              klientów — dlatego traktujemy ją poważnie.
             </span>
           </div>
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-[18px]">
-            {businessServices.map((service) => (
-              <ServiceCard key={service.title} service={service} />
-            ))}
+          <ServiceGroups services={businessServices} />
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[18px]">
             <div data-reveal-item className="u-lift flex flex-col gap-2.5 rounded-[18px] border border-ink bg-ink p-6">
               <span className="mb-1 flex h-12 w-12 items-center justify-center rounded-[14px] border border-[#4a4138] bg-[#3d352e]">
                 <svg
@@ -330,9 +359,9 @@ export function Offer() {
                   />
                 </svg>
               </span>
-              <h3 className="m-0 font-heading text-[17px] font-semibold leading-[1.3] text-white">
+              <h4 className="m-0 font-heading text-[17px] font-semibold leading-[1.3] text-white">
                 {businessHighlight.title}
-              </h3>
+              </h4>
               <p className="m-0 font-body text-[14.5px] leading-[1.65] text-line-hover">
                 {businessHighlight.desc}
               </p>

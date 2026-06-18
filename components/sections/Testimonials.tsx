@@ -37,8 +37,7 @@ export function Testimonials() {
           Zadowolenie klientów to nasza najlepsza reklama
         </h2>
         <p className="m-0 max-w-[540px] font-body text-base leading-[1.7] text-muted text-pretty">
-          Dobra usługa broni się sama — ale nic nie buduje zaufania tak mocno
-          jak opinie zadowolonych klientów.
+          Najlepiej o usłudze mówią ci, którzy już z niej skorzystali.
         </p>
       </div>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[18px]">

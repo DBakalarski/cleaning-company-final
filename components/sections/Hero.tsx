@@ -41,9 +41,8 @@ export function Hero() {
           </em>
         </h1>
         <p data-hero-el className="m-0 max-w-[520px] font-body text-[clamp(16px,max(1.5vw,2vh),19px)] leading-[1.7] text-muted text-pretty">
-          Profesjonalne usługi sprzątające dla klientów prywatnych i firmowych.
-          Konkretna obsługa, indywidualne podejście i zakres prac dopasowany do
-          rodzaju obiektu oraz oczekiwanego efektu.
+          Sprzątanie dla klientów prywatnych i firm. Zakres prac dobieramy do
+          rodzaju obiektu i efektu, jakiego oczekujesz.
         </p>
         <div data-hero-el className="mt-1.5 flex flex-col gap-3">
           <div className="flex flex-wrap gap-3">

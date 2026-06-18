@@ -4,7 +4,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Jak wygląda wycena?",
     answer:
-      "Każda wycena dopasowywana jest indywidualnie do rodzaju obiektu, zakresu prac, wielkości powierzchni i stopnia zabrudzenia.",
+      "Wyceniamy indywidualnie — według rodzaju obiektu, zakresu prac, powierzchni i stopnia zabrudzenia.",
   },
   {
     question: "Czy można zamówić pojedyncze usługi dodatkowe?",
@@ -19,7 +19,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Czy można zamówić stałą współpracę?",
     answer:
-      "Tak. Oferujemy zarówno zlecenia jednorazowe, jak i współpracę cykliczną dopasowaną do potrzeb klienta.",
+      "Tak — zarówno zlecenia jednorazowe, jak i stałą, cykliczną współpracę.",
   },
   {
     question: "Jak najszybciej się skontaktować?",

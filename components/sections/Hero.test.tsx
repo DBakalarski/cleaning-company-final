@@ -8,7 +8,7 @@ test("hero renders the headline, subcopy and primary CTAs", () => {
     "Sprawnie. Dokładnie. Dyskretnie. Przystępnie.",
   );
   expect(
-    screen.getByText(/Profesjonalne usługi sprzątające dla klientów prywatnych/),
+    screen.getByText(/Zakres prac dobieramy do rodzaju obiektu/),
   ).toBeInTheDocument();
   expect(screen.getByRole("link", { name: "Zamów wycenę" })).toHaveAttribute(
     "href",

@@ -14,9 +14,8 @@ export function ServiceArea() {
             Konin i okolice — do 100 km w każdą stronę
           </h2>
           <p className="m-0 font-body text-base leading-[1.75] text-muted text-pretty">
-            Obsługujemy klientów prywatnych i firmowych na terenie Konina i
-            okolic. Szczegóły dojazdu i realizacji ustalamy indywidualnie podczas
-            kontaktu.
+            Klienci prywatni i firmy w Koninie i okolicy. Dojazd oraz szczegóły
+            realizacji ustalamy przy kontakcie.
           </p>
         </div>
         <div className="flex justify-center py-3">

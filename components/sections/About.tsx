@@ -2,9 +2,9 @@ import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { site } from "@/data/site";
 
 const paragraphs = [
-  "Cleaning Service Konin to marka stworzona dla klientów, którzy oczekują realnego efektu, a nie tylko powierzchownego sprzątania. Stawiamy na rzetelność, dokładność, uczciwe podejście i usługę dopasowaną do konkretnych potrzeb.",
-  "Działamy konkretnie, sprawnie i z wyczuciem. Zależy nam nie tylko na samym porządku, ale też na komforcie współpracy — żeby klient od początku wiedział, czego może się spodziewać.",
-  "Obsługujemy mieszkania, domy, biura, lokale użytkowe, domki letniskowe, apartamenty na wynajem, obiekty noclegowe, hotele, kampery, a także nagrobki i inne przestrzenie wymagające profesjonalnego podejścia do czystości i estetyki.",
+  "Cleaning Service Konin to usługi sprzątające dla tych, którzy chcą realnego efektu — rzetelnie, dokładnie i pod konkretne potrzeby.",
+  "Zależy nam nie tylko na porządku, ale i na komforcie współpracy — żebyś od początku wiedział, czego się spodziewać.",
+  "Obsługujemy mieszkania, domy, biura i lokale użytkowe, apartamenty na wynajem i obiekty noclegowe, domki letniskowe, kampery, a także nagrobki.",
 ];
 
 export function About() {
