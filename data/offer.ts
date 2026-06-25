@@ -4,62 +4,62 @@ export const privateServices: Service[] = [
   {
     group: "Sprzątanie wnętrz",
     title: "Sprzątanie mieszkań i domów",
-    desc: "Regularnie lub jednorazowo — całe wnętrze albo wybrane pomieszczenia.",
+    desc: "Całe wnętrze lub wybrane pomieszczenia.",
   },
   {
     group: "Sprzątanie wnętrz",
     title: "Sprzątanie cykliczne",
-    desc: "Stałe terminy w ustalonym rytmie — porządek bez umawiania go za każdym razem.",
+    desc: "Stałe terminy w ustalonym rytmie.",
   },
   {
     group: "Sprzątanie wnętrz",
     title: "Sprzątanie jednorazowe",
-    desc: "Jednorazowe doprowadzenie wnętrza do porządku — na odświeżenie albo przed ważną okazją.",
+    desc: "Odświeżenie albo porządek przed okazją.",
   },
   {
     group: "Sprzątanie wnętrz",
     title: "Sprzątanie po remoncie",
-    desc: "Usuwamy kurz, pył i zabrudzenia poremontowe — wnętrze gotowe do wprowadzenia.",
+    desc: "Kurz, pył i zabrudzenia poremontowe.",
   },
   {
     group: "Mycie i pranie",
     title: "Mycie okien i przeszkleń",
-    desc: "Okna, ramy, lustra i powierzchnie szklane — czysto i bez smug.",
+    desc: "Okna, ramy i lustra bez smug.",
   },
   {
     group: "Mycie i pranie",
     title: "Pranie tapicerki meblowej",
-    desc: "Kanapy, narożniki, fotele i krzesła — usuwamy plamy i codzienne zabrudzenia.",
+    desc: "Kanapy, narożniki, fotele i krzesła.",
   },
   {
     group: "Mycie i pranie",
     title: "Pranie materacy",
-    desc: "Głębokie pranie materacy — więcej higieny tam, gdzie śpisz.",
+    desc: "Głębokie pranie i więcej higieny.",
   },
   {
     group: "Mycie i pranie",
     title: "Pranie wykładzin",
-    desc: "Odkurzanie i pranie wykładzin w domach i mieszkaniach.",
+    desc: "Odkurzanie i pranie wykładzin.",
   },
   {
     group: "Sezonowe i wyjazdowe",
     title: "Sprzątanie domków letniskowych",
-    desc: "Otwarcie sezonu, odświeżenie po przerwie albo porządek po gościach.",
+    desc: "Otwarcie sezonu lub porządek po gościach.",
   },
   {
     group: "Sezonowe i wyjazdowe",
     title: "Sprzątanie kamperów",
-    desc: "Wnętrze i mycie z zewnątrz — przed sezonem, po podróży albo przed sprzedażą.",
+    desc: "Wnętrze i mycie z zewnątrz.",
   },
   {
     group: "Pomniki i groby",
     title: "Opieka nad grobami",
-    desc: "Mycie pomnika, porządek wokół i wymiana zniczy — także przed świętami i rocznicami.",
+    desc: "Mycie pomnika, porządek, wymiana zniczy.",
   },
   {
     group: "Pomniki i groby",
     title: "Renowacja pomników z lastryko",
-    desc: "Czyszczenie, utwardzenie i zabezpieczenie przed wilgocią, ścieraniem i słońcem.",
+    desc: "Czyszczenie, utwardzenie i zabezpieczenie.",
   },
 ];
 
@@ -82,37 +82,37 @@ export const businessServices: Service[] = [
   {
     group: "Przestrzenie komercyjne",
     title: "Sprzątanie biur",
-    desc: "Biura i przestrzenie pracy — regularnie lub jednorazowo.",
+    desc: "Regularnie lub jednorazowo.",
   },
   {
     group: "Przestrzenie komercyjne",
     title: "Sprzątanie lokali użytkowych",
-    desc: "Salony, punkty usługowe i gabinety — zakres ustalany pod Twoją działalność.",
+    desc: "Zakres pod Twoją działalność.",
   },
   {
     group: "Wynajem i noclegi",
     title: "Apartamenty i obiekty na wynajem",
-    desc: "Sprzątanie po pobytach i przygotowanie pod kolejnych gości — standard, który widać w opiniach.",
+    desc: "Gotowe pod kolejnych gości.",
   },
   {
     group: "Wynajem i noclegi",
     title: "Sprzątanie obiektów noclegowych",
-    desc: "Najem krótkoterminowy — domki, apartamenty i pensjonaty gotowe na przyjazd gości.",
+    desc: "Domki, apartamenty i pensjonaty.",
   },
   {
     group: "Pranie",
     title: "Odkurzanie i pranie wykładzin",
-    desc: "Wykładziny w hotelach, pensjonatach i obiektach noclegowych.",
+    desc: "Hotele, pensjonaty i obiekty noclegowe.",
   },
   {
     group: "Pranie",
     title: "Pranie tapicerki komercyjnej",
-    desc: "Meble tapicerowane w hotelach, biurach, apartamentach i poczekalniach.",
+    desc: "Meble w hotelach, biurach i poczekalniach.",
   },
   {
     group: "Flota i pojazdy",
     title: "Sprzątanie kamperów dla firm",
-    desc: "Dla wypożyczalni i sprzedawców — czyszczenie przed wydaniem, po zwrocie i przed sprzedażą.",
+    desc: "Przed wydaniem, po zwrocie, przed sprzedażą.",
   },
 ];
 

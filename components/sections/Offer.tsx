@@ -321,8 +321,7 @@ export function Offer() {
               ))}
             </div>
             <span className="font-body text-[13.5px] text-muted">
-              Elementy czyszczone i/lub dezynfekowane — zakres dobierany przy
-              wycenie.
+              Zakres dobierany przy wycenie.
             </span>
           </div>
         </div>

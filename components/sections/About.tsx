@@ -2,9 +2,23 @@ import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { site } from "@/data/site";
 
 const paragraphs = [
-  "Cleaning Service Konin to usługi sprzątające dla tych, którzy chcą realnego efektu — rzetelnie, dokładnie i pod konkretne potrzeby.",
-  "Zależy nam nie tylko na porządku, ale i na komforcie współpracy — żebyś od początku wiedział, czego się spodziewać.",
-  "Obsługujemy mieszkania, domy, biura i lokale użytkowe, apartamenty na wynajem i obiekty noclegowe, domki letniskowe, kampery, a także nagrobki.",
+  "Za Cleaning Service Konin stoję ja — Sylwia. Stworzyłam tę markę dla klientów, którzy chcą sprzątania zrobionego rzetelnie, dokładnie i z uczciwym podejściem do ich potrzeb.",
+  "Liczy się nie tylko porządek, ale i komfort współpracy — żebyś od początku wiedział, czego się spodziewać i miał poczucie, że oddajesz swoją przestrzeń w dobre ręce.",
+];
+
+const pillars = [
+  {
+    label: "Sprzątanie nieruchomości",
+    desc: "domy, mieszkania, biura, obiekty na wynajem i noclegowe.",
+  },
+  {
+    label: "Usługi specjalistyczne",
+    desc: "pranie tapicerki, mycie okien, doczyszczanie AGD i fug.",
+  },
+  {
+    label: "Miejsca pamięci",
+    desc: "czyszczenie i pielęgnacja nagrobków oraz ich otoczenia.",
+  },
 ];
 
 export function About() {
@@ -51,6 +65,19 @@ export function About() {
             {p}
           </p>
         ))}
+        <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
+          {pillars.map((p) => (
+            <li
+              key={p.label}
+              className="font-body text-base leading-[1.6] text-muted text-pretty"
+            >
+              <span className="font-heading font-semibold text-ink">
+                {p.label}
+              </span>{" "}
+              — {p.desc}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
