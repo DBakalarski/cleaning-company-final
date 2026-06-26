@@ -21,7 +21,6 @@ export const pricingCategories: PricingCategory[] = [
       { name: "Mycie okapu z filtrami", price: "od 80 zł/szt." },
       { name: "Mycie witryny kuchennej w środku", price: "od 120 zł" },
       { name: "Mycie witryny wraz z zastawą", price: "od 150 zł" },
-      { name: "Mycie frontów kuchennych", price: "od 20 zł/mb" },
     ],
   },
   {
@@ -32,7 +31,6 @@ export const pricingCategories: PricingCategory[] = [
       { name: "Pranie kanapy", price: "od 150 zł" },
       { name: "Pranie narożnika", price: "od 250 zł" },
       { name: "Pranie materaca", price: "od 120 zł" },
-      { name: "Pranie dywanu", price: "od 15 zł/m²" },
       { name: "Pranie wykładziny biurowej lub hotelowej", price: "od 10 zł/m²" },
     ],
   },

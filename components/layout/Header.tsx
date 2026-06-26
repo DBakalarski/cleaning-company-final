@@ -35,9 +35,6 @@ export function Header() {
             <span className="font-heading text-[17px] font-bold tracking-[-0.2px]">
               Cleaning Service Konin
             </span>
-            <span className="font-body text-[10.5px] uppercase tracking-[1.6px] text-faint">
-              {site.tagline}
-            </span>
           </span>
         </Link>
 
