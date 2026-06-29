@@ -1,5 +1,6 @@
 import { site } from "./site";
 import { navLinks } from "./navigation";
+import { beforeAfterPairs } from "./beforeAfter";
 
 test("site exposes phone and contact links", () => {
   expect(site.phone).toBe("518 169 491");
@@ -8,15 +9,28 @@ test("site exposes phone and contact links", () => {
   expect(site.messenger).toBe("https://m.me/cleaningservicekonin");
 });
 
-test("navigation has the seven header links in order", () => {
+test("navigation has the eight header links in order", () => {
   expect(navLinks.map((l) => l.label)).toEqual([
     "O nas",
     "Oferta",
     "Cennik",
     "Współpraca",
     "Opinie",
+    "Efekty",
     "FAQ",
     "Kontakt",
   ]);
   expect(navLinks.find((l) => l.label === "Cennik")?.href).toBe("/cennik");
+  expect(navLinks.find((l) => l.label === "Efekty")?.href).toBe("/efekty");
+});
+
+test("before/after gallery has four well-formed pairs", () => {
+  expect(beforeAfterPairs).toHaveLength(4);
+  for (const pair of beforeAfterPairs) {
+    expect(pair.before).toMatch(/^\/efekty\/.+\.jpg$/);
+    expect(pair.after).toMatch(/^\/efekty\/.+\.jpg$/);
+    expect(pair.before).not.toBe(pair.after);
+    expect(pair.alt.length).toBeGreaterThan(0);
+    expect(pair.caption.length).toBeGreaterThan(0);
+  }
 });

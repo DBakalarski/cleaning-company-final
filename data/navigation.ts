@@ -6,6 +6,7 @@ export const navLinks: NavLink[] = [
   { label: "Cennik", href: "/cennik" },
   { label: "Współpraca", href: "/#wspolpraca", mobileLabel: "Jak wygląda współpraca" },
   { label: "Opinie", href: "/#opinie" },
+  { label: "Efekty", href: "/efekty" },
   { label: "FAQ", href: "/#faq" },
   { label: "Kontakt", href: "/#kontakt" },
 ];

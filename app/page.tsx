@@ -10,6 +10,7 @@ import { PricingInfo } from "@/components/sections/PricingInfo";
 import { PricingPreview } from "@/components/sections/PricingPreview";
 import { ServiceArea } from "@/components/sections/ServiceArea";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { EfektyPreview } from "@/components/sections/EfektyPreview";
 import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
 import { Reveal } from "@/components/anim/Reveal";
@@ -41,6 +42,9 @@ export default function Home() {
         </Reveal>
         <Reveal stagger>
           <Testimonials />
+        </Reveal>
+        <Reveal stagger>
+          <EfektyPreview />
         </Reveal>
         <Reveal>
           <Faq />
