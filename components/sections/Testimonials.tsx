@@ -1,15 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { testimonials, type Testimonial } from "@/data/testimonials";
 
 const COUNT = testimonials.length;
 // Desktop marquee renders the list twice so translateX(-50%) loops seamlessly.
 const desktopItems = [...testimonials, ...testimonials];
-// Mobile slideshow appends a clone of the first card; stepping onto it and then
-// snapping back to index 0 (without a transition) makes the loop seamless.
-const mobileItems = [...testimonials, testimonials[0]];
 
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
@@ -47,58 +44,78 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 }
 
 export function Testimonials() {
-  // Mobile-only slideshow state. Desktop ignores it (CSS marquee drives motion).
-  const [index, setIndex] = useState(0);
-  const [withTransition, setWithTransition] = useState(true);
-  const [reduce, setReduce] = useState(false);
+  // Mobile carousel: a native scroll-snap track, so swiping works for free.
+  // We auto-advance it and mirror the centred card in the dot indicators.
+  const scrollerRef = useRef<HTMLUListElement>(null);
+  const [active, setActive] = useState(0);
 
-  // Auto-advance one card at a time — only on mobile, and only if the user
-  // hasn't asked for reduced motion.
   useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
     const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const mobileMq = window.matchMedia("(max-width: 767px)");
-    let id: number | undefined;
+    let intervalId: number | undefined;
+    let raf = 0;
 
-    const sync = () => {
-      if (id) {
-        window.clearInterval(id);
-        id = undefined;
-      }
-      setReduce(motionMq.matches);
+    // Step exactly one card forward, wrapping back to the start. We read the
+    // live scrollLeft each tick so a manual swipe never fights the timer.
+    const advance = () => {
+      const max = el.scrollWidth - el.clientWidth;
+      const atEnd = el.scrollLeft >= max - 4;
+      el.scrollTo({
+        left: atEnd ? 0 : el.scrollLeft + el.clientWidth,
+        behavior: atEnd ? "auto" : "smooth",
+      });
+    };
+
+    const startAuto = () => {
+      if (intervalId) window.clearInterval(intervalId);
+      intervalId = undefined;
       if (mobileMq.matches && !motionMq.matches) {
-        id = window.setInterval(() => setIndex((i) => i + 1), 4500);
+        intervalId = window.setInterval(advance, 4500);
       }
     };
 
-    sync();
-    mobileMq.addEventListener("change", sync);
-    motionMq.addEventListener("change", sync);
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const i = Math.round(el.scrollLeft / el.clientWidth);
+        setActive(Math.max(0, Math.min(COUNT - 1, i)));
+      });
+    };
+
+    // Pause auto-advance while the user is interacting, then give them a fresh
+    // interval so the carousel doesn't yank the card out from under them.
+    const onPointerDown = () => {
+      if (intervalId) window.clearInterval(intervalId);
+      intervalId = undefined;
+    };
+    const onPointerUp = () => startAuto();
+
+    el.addEventListener("scroll", onScroll, { passive: true });
+    el.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("pointerup", onPointerUp);
+    motionMq.addEventListener("change", startAuto);
+    mobileMq.addEventListener("change", startAuto);
+
+    startAuto();
     return () => {
-      if (id) window.clearInterval(id);
-      mobileMq.removeEventListener("change", sync);
-      motionMq.removeEventListener("change", sync);
+      if (intervalId) window.clearInterval(intervalId);
+      cancelAnimationFrame(raf);
+      el.removeEventListener("scroll", onScroll);
+      el.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointerup", onPointerUp);
+      motionMq.removeEventListener("change", startAuto);
+      mobileMq.removeEventListener("change", startAuto);
     };
   }, []);
 
-  // When we land on the trailing clone, jump back to the real first card with
-  // the transition switched off so the loop is invisible.
-  useEffect(() => {
-    if (index !== COUNT) return;
-    const t = window.setTimeout(() => {
-      setWithTransition(false);
-      setIndex(0);
-    }, 600);
-    return () => window.clearTimeout(t);
-  }, [index]);
-
-  // Re-enable the transition on the frame after the silent reset.
-  useEffect(() => {
-    if (withTransition) return;
-    const r = requestAnimationFrame(() =>
-      requestAnimationFrame(() => setWithTransition(true)),
-    );
-    return () => cancelAnimationFrame(r);
-  }, [withTransition]);
+  const goTo = (i: number) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollTo({ left: i * el.clientWidth, behavior: "smooth" });
+  };
 
   return (
     <section
@@ -160,36 +177,39 @@ export function Testimonials() {
           </ul>
         </div>
 
-        {/* Mobile: one card visible, auto-advances one at a time. */}
-        <div
-          role="group"
-          aria-roledescription="karuzela"
-          aria-label="Opinie klientów"
-          className={`md:hidden ${reduce ? "snap-x snap-mandatory overflow-x-auto" : "overflow-hidden"}`}
-        >
+        {/* Mobile: swipeable scroll-snap carousel, one card at a time, with dots. */}
+        <div className="md:hidden">
           <ul
-            className="flex list-none p-0"
-            style={
-              reduce
-                ? undefined
-                : {
-                    transform: `translateX(-${index * 100}%)`,
-                    transition: withTransition
-                      ? "transform 600ms cubic-bezier(.23,1,.32,1)"
-                      : "none",
-                  }
-            }
+            ref={scrollerRef}
+            role="group"
+            aria-roledescription="karuzela"
+            aria-label="Opinie klientów"
+            className="flex snap-x snap-mandatory list-none overflow-x-auto p-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {(reduce ? testimonials : mobileItems).map((t, i) => (
+            {testimonials.map((t, i) => (
               <li
                 key={`m-${t.author}-${i}`}
-                aria-hidden={!reduce && i !== index && i !== COUNT}
-                className="flex shrink-0 grow-0 basis-full snap-start px-1.5"
+                className="flex shrink-0 grow-0 basis-full snap-center px-1.5"
               >
                 <TestimonialCard t={t} />
               </li>
             ))}
           </ul>
+
+          <div className="mt-5 flex justify-center gap-2">
+            {testimonials.map((t, i) => (
+              <button
+                key={`dot-${t.author}-${i}`}
+                type="button"
+                aria-label={`Przejdź do opinii ${i + 1}`}
+                aria-current={i === active}
+                onClick={() => goTo(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === active ? "w-5 bg-accent" : "w-2 bg-line-mid"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

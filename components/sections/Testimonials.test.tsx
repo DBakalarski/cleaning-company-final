@@ -14,3 +14,9 @@ test("renders all testimonials with authors", () => {
     screen.getAllByText("Ewelina Petzke — opinia z Facebooka").length,
   ).toBeGreaterThan(0);
 });
+
+test("mobile carousel exposes one dot indicator per testimonial", () => {
+  render(<Testimonials />);
+  const dots = screen.getAllByRole("button", { name: /Przejdź do opinii \d+/ });
+  expect(dots).toHaveLength(testimonials.length);
+});
