@@ -160,7 +160,7 @@ const serviceIcons: Record<string, ReactNode> = {
 
 function ServiceIcon({ title }: { title: string }) {
   return (
-    <span className="mb-1 flex h-12 w-12 items-center justify-center rounded-[14px] border border-line bg-[#f7f1ea]">
+    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] border border-line bg-[#f7f1ea]">
       <svg
         width="26"
         height="26"
@@ -181,10 +181,12 @@ function ServiceIcon({ title }: { title: string }) {
 function ServiceCard({ service }: { service: Service }) {
   return (
     <div data-reveal-item className="u-lift flex flex-col gap-2.5 rounded-[18px] border border-line bg-white p-6 transition-colors hover:border-accent">
-      <ServiceIcon title={service.title} />
-      <h4 className="m-0 font-heading text-[17px] font-semibold leading-[1.3] text-ink">
-        {service.title}
-      </h4>
+      <div className="flex items-center gap-3.5">
+        <ServiceIcon title={service.title} />
+        <h4 className="m-0 font-heading text-[17px] font-semibold leading-[1.3] text-ink">
+          {service.title}
+        </h4>
+      </div>
       <p className="m-0 font-body text-[14.5px] leading-[1.65] text-muted">
         {service.desc}
       </p>
@@ -339,28 +341,30 @@ export function Offer() {
           <ServiceGroups services={businessServices} />
           <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[18px]">
             <div data-reveal-item className="u-lift flex flex-col gap-2.5 rounded-[18px] border border-ink bg-ink p-6">
-              <span className="mb-1 flex h-12 w-12 items-center justify-center rounded-[14px] border border-[#4a4138] bg-[#3d352e]">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#BE9678"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8.5 12.5l2.3 2.3 4.9-4.9" />
-                  <path
-                    d="M12 3.5l2.1 2.1h3l.9 2.8 2.5 1.6-.8 2.9.8 2.9-2.5 1.6-.9 2.8h-3L12 22.3l-2.1-2.1h-3l-.9-2.8-2.5-1.6.8-2.9-.8-2.9 2.5-1.6.9-2.8h3z"
-                    transform="scale(0.82) translate(2.6,1.2)"
-                  />
-                </svg>
-              </span>
-              <h4 className="m-0 font-heading text-[17px] font-semibold leading-[1.3] text-white">
-                {businessHighlight.title}
-              </h4>
+              <div className="flex items-center gap-3.5">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] border border-[#4a4138] bg-[#3d352e]">
+                  <svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#BE9678"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M8.5 12.5l2.3 2.3 4.9-4.9" />
+                    <path
+                      d="M12 3.5l2.1 2.1h3l.9 2.8 2.5 1.6-.8 2.9.8 2.9-2.5 1.6-.9 2.8h-3L12 22.3l-2.1-2.1h-3l-.9-2.8-2.5-1.6.8-2.9-.8-2.9 2.5-1.6.9-2.8h3z"
+                      transform="scale(0.82) translate(2.6,1.2)"
+                    />
+                  </svg>
+                </span>
+                <h4 className="m-0 font-heading text-[17px] font-semibold leading-[1.3] text-white">
+                  {businessHighlight.title}
+                </h4>
+              </div>
               <p className="m-0 font-body text-[14.5px] leading-[1.65] text-line-hover">
                 {businessHighlight.desc}
               </p>

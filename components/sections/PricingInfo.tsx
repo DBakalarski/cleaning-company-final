@@ -34,20 +34,35 @@ export function PricingInfo() {
           Zamów bezpłatną wycenę
         </a>
       </div>
-      <div className="flex flex-col gap-[18px] rounded-[20px] border border-line bg-white p-[30px]">
-        <span className="font-heading text-base font-semibold">
+      <div className="flex flex-col gap-5 rounded-[20px] border border-line bg-white p-[30px]">
+        <span className="font-heading text-[17px] font-semibold">
           Cena usługi zależy od:
         </span>
-        <div className="flex flex-wrap gap-2">
+        <ul className="m-0 grid list-none grid-cols-1 gap-x-7 gap-y-3.5 p-0 sm:grid-cols-2">
           {pricingFactors.map((factor) => (
-            <span
+            <li
               key={factor}
-              className="rounded-full bg-sand px-3.5 py-2 font-body text-[13.5px] text-quiet"
+              className="flex items-center gap-3 font-body text-[14.5px] leading-snug text-quiet"
             >
+              <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-sand">
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#BE9678"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12.5l4.2 4.3L19 7" />
+                </svg>
+              </span>
               {factor}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
