@@ -46,7 +46,7 @@ export function WhyUs() {
               data-reveal-item
               className="u-lift flex items-start gap-3 rounded-2xl border border-line bg-cream p-6"
             >
-              <span className="mt-0.5 font-heading text-lg font-semibold text-accent">
+              <span className="font-heading text-[15.5px] font-semibold leading-[1.4] text-accent">
                 ✦
               </span>
               <span className="font-heading text-[15.5px] font-semibold leading-[1.4] text-ink">

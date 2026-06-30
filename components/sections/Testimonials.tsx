@@ -53,7 +53,6 @@ export function Testimonials() {
     const el = scrollerRef.current;
     if (!el) return;
 
-    const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const mobileMq = window.matchMedia("(max-width: 767px)");
     let intervalId: number | undefined;
     let raf = 0;
@@ -72,7 +71,10 @@ export function Testimonials() {
     const startAuto = () => {
       if (intervalId) window.clearInterval(intervalId);
       intervalId = undefined;
-      if (mobileMq.matches && !motionMq.matches) {
+      // Auto-advance on mobile. We deliberately keep advancing even under
+      // reduced-motion (e.g. iOS Low Power Mode) because the carousel is the
+      // intended behaviour here — the scroll itself is a gentle slide.
+      if (mobileMq.matches) {
         intervalId = window.setInterval(advance, 4500);
       }
     };
@@ -96,7 +98,6 @@ export function Testimonials() {
     el.addEventListener("scroll", onScroll, { passive: true });
     el.addEventListener("pointerdown", onPointerDown);
     window.addEventListener("pointerup", onPointerUp);
-    motionMq.addEventListener("change", startAuto);
     mobileMq.addEventListener("change", startAuto);
 
     startAuto();
@@ -106,7 +107,6 @@ export function Testimonials() {
       el.removeEventListener("scroll", onScroll);
       el.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointerup", onPointerUp);
-      motionMq.removeEventListener("change", startAuto);
       mobileMq.removeEventListener("change", startAuto);
     };
   }, []);
