@@ -2,13 +2,15 @@ import { render, screen } from "@testing-library/react";
 import { Testimonials } from "./Testimonials";
 import { testimonials } from "@/data/testimonials";
 
-test("renders three testimonials with authors", () => {
+test("renders all testimonials with authors", () => {
   render(<Testimonials />);
-  expect(testimonials).toHaveLength(3);
+  expect(testimonials).toHaveLength(13);
+  // The marquee renders the list twice for a seamless loop, so each author
+  // appears more than once in the DOM.
   expect(
-    screen.getByText("Anna M. — sprzątanie jednorazowe"),
-  ).toBeInTheDocument();
+    screen.getAllByText("Małgorzata Kałużna — opinia z Facebooka").length,
+  ).toBeGreaterThan(0);
   expect(
-    screen.getByText("Karolina W. — apartamenty na wynajem"),
-  ).toBeInTheDocument();
+    screen.getAllByText("Ewelina Petzke — opinia z Facebooka").length,
+  ).toBeGreaterThan(0);
 });

@@ -1,7 +1,105 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
-import { testimonials } from "@/data/testimonials";
+import { testimonials, type Testimonial } from "@/data/testimonials";
+
+const COUNT = testimonials.length;
+// Desktop marquee renders the list twice so translateX(-50%) loops seamlessly.
+const desktopItems = [...testimonials, ...testimonials];
+// Mobile slideshow appends a clone of the first card; stepping onto it and then
+// snapping back to index 0 (without a transition) makes the loop seamless.
+const mobileItems = [...testimonials, testimonials[0]];
+
+function TestimonialCard({ t }: { t: Testimonial }) {
+  return (
+    <figure className="relative flex h-full w-full flex-col gap-3.5 overflow-hidden rounded-[18px] border border-line bg-white p-7">
+      <svg
+        width="44"
+        height="34"
+        viewBox="0 0 44 34"
+        fill="none"
+        aria-hidden="true"
+        className="absolute right-5 top-[18px] opacity-50"
+      >
+        <path
+          d="M8 28c-3-2.5-4.5-6-4.5-10C3.5 11 8 5.5 15 4l1.5 3.5c-4 1.5-6.5 4-7 7 .5-.3 1.3-.5 2.3-.5 3.4 0 6 2.6 6 6s-2.7 6-6.2 6c-1.3 0-2.5-.3-3.6-1z"
+          stroke="#DCC9B6"
+          strokeWidth="1.4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M29 28c-3-2.5-4.5-6-4.5-10 0-7 4.5-12.5 11.5-14l1.5 3.5c-4 1.5-6.5 4-7 7 .5-.3 1.3-.5 2.3-.5 3.4 0 6 2.6 6 6s-2.7 6-6.2 6c-1.3 0-2.5-.3-3.6-1z"
+          stroke="#DCC9B6"
+          strokeWidth="1.4"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <span className="text-[15px] tracking-[3px] text-accent">★★★★★</span>
+      <blockquote className="m-0 font-body text-[15px] italic leading-[1.7] text-quiet">
+        „{t.quote}”
+      </blockquote>
+      <figcaption className="mt-auto font-heading text-[13.5px] font-semibold text-faint">
+        {t.author}
+      </figcaption>
+    </figure>
+  );
+}
 
 export function Testimonials() {
+  // Mobile-only slideshow state. Desktop ignores it (CSS marquee drives motion).
+  const [index, setIndex] = useState(0);
+  const [withTransition, setWithTransition] = useState(true);
+  const [reduce, setReduce] = useState(false);
+
+  // Auto-advance one card at a time — only on mobile, and only if the user
+  // hasn't asked for reduced motion.
+  useEffect(() => {
+    const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mobileMq = window.matchMedia("(max-width: 767px)");
+    let id: number | undefined;
+
+    const sync = () => {
+      if (id) {
+        window.clearInterval(id);
+        id = undefined;
+      }
+      setReduce(motionMq.matches);
+      if (mobileMq.matches && !motionMq.matches) {
+        id = window.setInterval(() => setIndex((i) => i + 1), 4500);
+      }
+    };
+
+    sync();
+    mobileMq.addEventListener("change", sync);
+    motionMq.addEventListener("change", sync);
+    return () => {
+      if (id) window.clearInterval(id);
+      mobileMq.removeEventListener("change", sync);
+      motionMq.removeEventListener("change", sync);
+    };
+  }, []);
+
+  // When we land on the trailing clone, jump back to the real first card with
+  // the transition switched off so the loop is invisible.
+  useEffect(() => {
+    if (index !== COUNT) return;
+    const t = window.setTimeout(() => {
+      setWithTransition(false);
+      setIndex(0);
+    }, 600);
+    return () => window.clearTimeout(t);
+  }, [index]);
+
+  // Re-enable the transition on the frame after the silent reset.
+  useEffect(() => {
+    if (withTransition) return;
+    const r = requestAnimationFrame(() =>
+      requestAnimationFrame(() => setWithTransition(true)),
+    );
+    return () => cancelAnimationFrame(r);
+  }, [withTransition]);
+
   return (
     <section
       id="opinie"
@@ -40,43 +138,59 @@ export function Testimonials() {
           Najlepiej o usłudze mówią ci, którzy już z niej skorzystali.
         </p>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[18px]">
-        {testimonials.map((t) => (
-          <div
-            key={t.author}
-            data-reveal-item
-            className="u-lift relative flex flex-col gap-3.5 overflow-hidden rounded-[18px] border border-line bg-white p-7"
+
+      <div data-reveal-item>
+        {/* Desktop / tablet: continuous marquee, ~3 cards visible. */}
+        <div
+          role="group"
+          aria-roledescription="karuzela"
+          aria-label="Opinie klientów"
+          className="marquee marquee-viewport relative -mx-6 hidden px-6 [mask-image:linear-gradient(to_right,transparent,#000_5%,#000_95%,transparent)] md:block"
+        >
+          <ul className="marquee-track flex w-max list-none p-0">
+            {desktopItems.map((t, i) => (
+              <li
+                key={`d-${t.author}-${i}`}
+                aria-hidden={i >= COUNT}
+                className="w-[clamp(284px,82vw,360px)] shrink-0 pr-5"
+              >
+                <TestimonialCard t={t} />
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Mobile: one card visible, auto-advances one at a time. */}
+        <div
+          role="group"
+          aria-roledescription="karuzela"
+          aria-label="Opinie klientów"
+          className={`md:hidden ${reduce ? "snap-x snap-mandatory overflow-x-auto" : "overflow-hidden"}`}
+        >
+          <ul
+            className="flex list-none p-0"
+            style={
+              reduce
+                ? undefined
+                : {
+                    transform: `translateX(-${index * 100}%)`,
+                    transition: withTransition
+                      ? "transform 600ms cubic-bezier(.23,1,.32,1)"
+                      : "none",
+                  }
+            }
           >
-            <svg
-              width="44"
-              height="34"
-              viewBox="0 0 44 34"
-              fill="none"
-              aria-hidden="true"
-              className="absolute right-5 top-[18px] opacity-50"
-            >
-              <path
-                d="M8 28c-3-2.5-4.5-6-4.5-10C3.5 11 8 5.5 15 4l1.5 3.5c-4 1.5-6.5 4-7 7 .5-.3 1.3-.5 2.3-.5 3.4 0 6 2.6 6 6s-2.7 6-6.2 6c-1.3 0-2.5-.3-3.6-1z"
-                stroke="#DCC9B6"
-                strokeWidth="1.4"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M29 28c-3-2.5-4.5-6-4.5-10 0-7 4.5-12.5 11.5-14l1.5 3.5c-4 1.5-6.5 4-7 7 .5-.3 1.3-.5 2.3-.5 3.4 0 6 2.6 6 6s-2.7 6-6.2 6c-1.3 0-2.5-.3-3.6-1z"
-                stroke="#DCC9B6"
-                strokeWidth="1.4"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="text-[15px] tracking-[3px] text-accent">★★★★★</span>
-            <p className="m-0 font-body text-[15px] italic leading-[1.7] text-quiet">
-              „{t.quote}”
-            </p>
-            <span className="font-heading text-[13.5px] font-semibold text-faint">
-              {t.author}
-            </span>
-          </div>
-        ))}
+            {(reduce ? testimonials : mobileItems).map((t, i) => (
+              <li
+                key={`m-${t.author}-${i}`}
+                aria-hidden={!reduce && i !== index && i !== COUNT}
+                className="flex shrink-0 grow-0 basis-full snap-start px-1.5"
+              >
+                <TestimonialCard t={t} />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

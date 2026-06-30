@@ -89,3 +89,35 @@ html.anim-ready [data-hero-el] {
     animation: menu-in 0.25s ease both;
   }
 }
+
+/* --- Testimonials marquee -------------------------------------------------- */
+/* Auto-scrolling row of opinions. The track renders the list twice, so a
+   translateX(-50%) loops seamlessly. Each card carries its own right padding
+   (no flex gap), keeping every step — including the wrap point — uniform. */
+.marquee-viewport {
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes testimonial-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .marquee-track {
+    animation: testimonial-marquee var(--marquee-duration, 90s) linear infinite;
+    will-change: transform;
+  }
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+}
+/* Reduced motion: no autoplay — let people swipe through the row instead. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-viewport {
+    overflow-x: auto;
+  }
+}
