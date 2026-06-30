@@ -5,9 +5,9 @@ import { beforeAfterPairs } from "@/data/beforeAfter";
 
 const pair = beforeAfterPairs[0];
 
-test("renders both photos and the caption, starting on 'before'", () => {
+test("renders both photos and the caption, starting on 'after'", () => {
   render(<BeforeAfterCard pair={pair} />);
-  // before photo carries the descriptive alt
+  // after photo (shown by default) carries the descriptive alt
   expect(screen.getByAltText(pair.alt)).toBeInTheDocument();
   expect(screen.getByText(pair.caption)).toBeInTheDocument();
   const toggle = screen.getByRole("button");

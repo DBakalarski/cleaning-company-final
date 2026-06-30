@@ -35,9 +35,9 @@ export default function EfektyPage() {
                 </span>
               </h1>
               <p className="m-0 max-w-[680px] font-body text-base leading-[1.75] text-muted text-pretty">
-                Te same powierzchnie przed i po naszej pracy. Najedź kursorem lub
-                dotknij zdjęcia, aby zobaczyć efekt. To realne zlecenia z Konina i
-                okolic — bez retuszu, sam efekt dokładnego sprzątania.
+                Te same powierzchnie po naszej pracy. Najedź kursorem lub dotknij
+                zdjęcia, aby zobaczyć stan sprzed sprzątania. To realne zlecenia z
+                Konina i okolic — bez retuszu, sam efekt dokładnego sprzątania.
               </p>
             </div>
           </section>

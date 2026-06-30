@@ -20,8 +20,8 @@ export function EfektyPreview() {
           Zobacz nasze metamorfozy
         </h2>
         <p className="m-0 max-w-[540px] font-body text-base leading-[1.7] text-muted text-pretty">
-          Te same powierzchnie przed i po naszej pracy. Najedź kursorem lub
-          dotknij zdjęcia, aby zobaczyć efekt.
+          Te same powierzchnie po naszej pracy. Najedź kursorem lub dotknij
+          zdjęcia, aby zobaczyć stan sprzed sprzątania.
         </p>
       </div>
 
