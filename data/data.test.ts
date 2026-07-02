@@ -24,8 +24,8 @@ test("navigation has the eight header links in order", () => {
   expect(navLinks.find((l) => l.label === "Efekty")?.href).toBe("/efekty");
 });
 
-test("before/after gallery has four well-formed pairs", () => {
-  expect(beforeAfterPairs).toHaveLength(4);
+test("before/after gallery has well-formed pairs", () => {
+  expect(beforeAfterPairs).toHaveLength(15);
   for (const pair of beforeAfterPairs) {
     expect(pair.before).toMatch(/^\/efekty\/.+\.jpg$/);
     expect(pair.after).toMatch(/^\/efekty\/.+\.jpg$/);
